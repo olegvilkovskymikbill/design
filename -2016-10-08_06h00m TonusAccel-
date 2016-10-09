@@ -1,0 +1,136 @@
+diff -r /home/backup/diff.old/etc/init.d/firewall /home/backup/diff.new/etc/init.d/firewall
+63,79d62
+< #servers
+< $IPT -t raw -A PREROUTING -i $out_eth -d 171.25.175.253  -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 171.25.175.253  -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 149.202.73.5/32  -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 149.202.73.5/32  -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 185.64.47.125 -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 185.64.47.125  -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 109.200.130.126  -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 109.200.130.126  -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 151.80.35.38 -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 151.80.35.38 -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 213.202.233.5 -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 213.202.233.5 -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 37.187.128.35 -j ACCEPT
+< $IPT -t raw -A OUTPUT -o $out_eth -s 37.187.128.35 -j ACCEPT
+< $IPT -t raw -A PREROUTING -i $out_eth -d 178.34.154.208/29 -j NOTRACK
+< $IPT -t raw -A OUTPUT -o $out_eth -s 178.34.154.208/29 -j NOTRACK
+94c77
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 171.25.175.253  -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 171.25.175.253  -j ACCEPT
+96c79
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 149.202.73.5/32  -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 149.202.73.5/32  -j ACCEPT
+98c81
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 185.64.47.125  -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 185.64.47.125  -j ACCEPT
+100c83
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 109.200.130.126  -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 109.200.130.126  -j ACCEPT
+102c85
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 151.80.35.38 -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 151.80.35.38 -j ACCEPT
+104c87
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 213.202.233.5 -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 213.202.233.5 -j ACCEPT
+106c89
+< $IPT -t raw -A OUTPUT -o eth9.500 -s 37.187.128.35 -j ACCEPT
+---
+> #$IPT -t raw -A OUTPUT -o eth9.500 -s 37.187.128.35 -j ACCEPT
+201,202c184,185
+< $IPT -A FORWARD -s 10.10.0.0/16 -p udp -m state --state NEW -m recent --set --name UDPFLOOD --rsource
+< $IPT -A FORWARD -s 10.10.0.0/16 -p udp -m state --state NEW -m recent --update --seconds 1 --hitcount 20 --name UDPFLOOD --rsource -j DROP
+---
+> #$IPT -A FORWARD -s 10.10.0.0/16 -p udp -m state --state NEW -m recent --set --name UDPFLOOD --rsource
+> #$IPT -A FORWARD -s 10.10.0.0/16 -p udp -m state --state NEW -m recent --update --seconds 1 --hitcount 20 --name UDPFLOOD --rsource -j DROP
+204,205c187,188
+< $IPT -A FORWARD -s 10.10.0.0/16  -p tcp -m state --state NEW --dport 1024:65535 -m recent --set --name TCPFLOOD --rsource
+< $IPT -A FORWARD -s 10.10.0.0/16  -p tcp -m state --state NEW --dport 1024:65535 -m recent --update --seconds 1 --hitcount 20 --name TCPFLOOD --rsource -j DROP
+---
+> #$IPT -A FORWARD -s 10.10.0.0/16  -p tcp -m state --state NEW --dport 1024:65535 -m recent --set --name TCPFLOOD --rsource
+> #$IPT -A FORWARD -s 10.10.0.0/16  -p tcp -m state --state NEW --dport 1024:65535 -m recent --update --seconds 1 --hitcount 20 --name TCPFLOOD --rsource -j DROP
+Only in /home/backup/diff.new/etc/network: alias.sh
+diff -r /home/backup/diff.old/etc/rc.local /home/backup/diff.new/etc/rc.local
+13c13,15
+< /etc/init.d/alias.sh > /dev/null 2>&1
+---
+>
+> #aliases for NAT
+> /etc/network/alias.sh
+diff -r /home/backup/diff.old/root/.bash_history /home/backup/diff.new/root/.bash_history
+1,33d0
+< nano policy.conf
+< freeradius -X
+< nano /etc/freeradius/sites-enabled/default
+< nano /etc/freeradius/modules/files
+< nano /etc/freeradius/sites-enabled/default
+< freeradius -X
+< freeradius -X
+< freeradius -X
+< freeradius -X
+< mkdir /home/tmpuser
+< chown tmpuser:tmpuser /home/tmpuser
+< exit
+< rm /etc/freeradius/users
+< ls -lh /etc/freeradius/
+< nano /opt/accel-cache/users
+< ls -lh /opt/accel-cache/users
+< nano /etc/crontab
+< /opt/accel-cache/cache_download.sh
+< /etc/init.d/cron restart
+< ls -lh /opt/accel-cache/users
+< nano /opt/accel-cache/cache_download.sh
+< /opt/accel-cache/cache_download.sh
+< ls -lh /opt/accel-cache/users
+< nano /opt/accel-cache/cache_download.sh
+< rm /opt/accel-cache/users
+< /opt/accel-cache/cache_download.sh
+< ls -lh /opt/accel-cache/users
+< ls -lh /opt/accel-cache/
+< chmod 777 /opt/accel-cache/users
+< rm /opt/accel-cache/users
+< /opt/accel-cache/cache_download.sh
+< ls -lh /opt/accel-cache/
+< /opt/accel-cache/cache_download.sh
+499a467,499
+> mc
+> ip ro
+> ./ferewall_iptv
+> iptables -L -vn --line-numbers
+> iptables -D FORWARD 6
+> iptables -L -vn --line-numbers
+> iptables -D FORWARD 6
+> iptables -D FORWARD 6
+> iptables -D FORWARD 6
+> iptables -L -vn --line-numbers
+> iptables -L -vn -t raw --line-numbers
+> iptables -L -vn -t raw --line-numbers
+> iptables -L -vn -t raw --line-numbers
+> iptables -L -vn -t raw --line-numbers
+> ./ferewall_iptv
+> iptables -L -vn -t raw --line-numbers
+> df -h
+> cat /proc/mds
+> ifconfig lo0
+> ifconfig lo0:1
+> /etc/init.d/alias.sh
+> ifconfig lo0:1
+> ifconfig lo:0 171.25.175.190 netmask 255.255.255.255
+> ifconfig lo0
+> 
+> ifconfig lo:0
+> ifconfig lo:1
+> ifconfig lo:2
+> ifconfig
+> ifconfig
+> ifconfig |more
+> mc
+> whereis bash
