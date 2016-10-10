@@ -1,11 +1,12 @@
 
 
 
-docker run -ti mikbill/test -p 80:80 -p 443:443
+docker run -p 80:80 -p 443:443 -ti centos:6.8
+
 
 Если выскакивает сообщение типа "Error starting userland proxy: listen tcp 0.0.0.0:80: bind: address already in use."
 Вариант 1: меняем порт
-docker run -ti mikbill/test -p 8080:80 -p 443:443
+docker run -p 80:80 -p 443:443 -ti centos:6.8
 Вариант 2: узнаем что использует этот порт и отключаем
 netstat -tulpn | grep :80
 
