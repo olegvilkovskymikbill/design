@@ -1,5 +1,5 @@
 #!/bin/bash
-#Version 11
+#Version 12
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
 
@@ -90,8 +90,15 @@ fi
 #----------------------------------------------
 if [ "$BACKUP_MYSQL" -ne 0 ]; then
 {
+if [ "$db_user" = "" ]
+then
 db_user=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
+fi
+if [ "$db_password" = "" ]
+then
 db_password=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
+fi
+
 FILENAME=sql-"$SERVER_NAME"-"$DATE".sql.gz
 mysqldump -u $db_user -p$db_password mikbill 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME 
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
