@@ -74,7 +74,6 @@ done
 }
 fi
 
-
 cp $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME 2>>$LOG
 STATUS=$?
 if [ $STATUS -ne 0 -a ! -e "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME" ];then
@@ -96,11 +95,11 @@ DB_USER=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  username | awk '{ gsub("<
 fi
 if [ "$DB_PASSWORD" = "" ]
 then
-DB_PASSWOR=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
+DB_PASSWORD=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
 fi
 
 FILENAME=sql-"$SERVER_NAME"-"$DATE".sql.gz
-mysqldump -u $DB_USER -p$DB_PASSWOR mikbill 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME 
+mysqldump -u $DB_USER -p$DB_PASSWORD mikbill 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME 
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
 echo "Бэкап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
 FUNC_COPY_TO_WEBDISK
