@@ -97,10 +97,6 @@ if [ "$DB_PASSWORD" = "" ]
 then
 DB_PASSWORD=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
 fi
-if [ "$DB_NAME" = "" ]
-then
-DB_NAME="mikbill"
-fi
 
 FILENAME=sql-"$SERVER_NAME"-"$DATE".sql.gz
 mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME 
