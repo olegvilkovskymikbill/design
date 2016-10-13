@@ -16,6 +16,8 @@ for i in $MAC; do
 echo "/tool user-manager user add customer=admin name=$i" >>$HOME_DIR/$UPLOAD
 done
 
+sed -i '2d' $HOME_DIR/$UPLOAD
+
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
 CMD="/import file=$UPLOAD"
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
