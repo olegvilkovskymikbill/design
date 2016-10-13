@@ -11,12 +11,12 @@ DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }'
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 
 MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "SELECT local_mac FROM users" 2>/dev/null`
+MAC=${MAC:10:${#MAC}}
+
 echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
 for i in $MAC; do
 echo "/tool user-manager user add customer=admin name=$i" >>$HOME_DIR/$UPLOAD
 done
-
-sed -i '2d' $HOME_DIR/$UPLOAD
 
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
 CMD="/import file=$UPLOAD"
