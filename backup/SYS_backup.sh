@@ -120,6 +120,14 @@ fi
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ]
 then
 FUNC_RM_OLDFILES_WEBDISK
+
+if [ "$ENCRYPTION" -ne 0 ]
+then
+FILENAME=log.tar.gz.gpg
+else
+FILENAME=log.tar.gz
+fi
+FUNC_RM_FILE_WEBDISK
 fi
 #----------------------------------------------
 if [ "$BACKUP_MYSQL" -ne 0 ]; then
