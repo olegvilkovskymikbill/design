@@ -1,4 +1,5 @@
 #!/bin/bash
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash.sh
 USERMAN_IP="192.168.10.150"
 USERMAN_LOGIN="mikbill"
 USERMAN_PASSWORD="mikbill"
