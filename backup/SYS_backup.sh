@@ -269,7 +269,6 @@ fi
 #-----------------------------------------------
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ];then
 {
-#find $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK -mtime +$LIFE_TIME_FILE_ON_WEBDISK |sort|xargs rm -f
 echo -e "Свободное место на диске \n" "$(df -h $PACH_FOR_WEBDISK)" >>$LOG
 
 tar -czf $PACH_FOR_BACKUP_TO_DISK/log.tar.gz $LOG
