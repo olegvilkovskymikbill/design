@@ -10,7 +10,7 @@ DB_NAME=$(cat $PATH_CONFIG | grep dbname |$AWK '{ gsub("<dbname>"," "); print }'
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 
-MAC=`mysql -D mikbill -u $DB_USER -p$DB_PASSWORD -e "SELECT local_mac FROM users" 2>/dev/null`
+MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "SELECT local_mac FROM users" 2>/dev/null`
 echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
 for i in $MAC; do
 echo "/tool user-manager user add customer=admin name=$i" >>$HOME_DIR/$UPLOAD
