@@ -294,12 +294,6 @@ echo -e "Свободное место на диске \n" "$(df -h $PACH_FOR_WE
 tar -czf $PACH_FOR_BACKUP_TO_DISK/log.tar.gz $LOG
 FILENAME=log.tar.gz
 FUNC_COPY_TO_WEBDISK
-#if [ "$ENCRYPTION" -ne 0 ]
-#then
-#tar -czf $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/log.tar.gz $LOG | gpg -o $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/log.tar.gz.gpg -e -r $ENCRYPTION_ID_USER $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/log.tar.gz
-#else
-#tar -czf $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/log.tar.gz $LOG
-#fi
 
 if [ "$UMOUNT_WEBDISK" -ne 0 ];then
 {
