@@ -32,6 +32,17 @@ set $(wc -l $LOG);LOGEND=$1"p"
 (echo "Subject:$SERVER_NAME"; sed -n  $LOGSTART,$LOGEND $LOG;) | sendmail -F "BACKUP" $EMAIL_TMP
 echo "отправка письма на почту $EMAIL_TMP" >>$LOG
 }
+
+FUNC_RM_OLDFILES_WEBDISK()
+{
+find $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK -mtime +$LIFE_TIME_FILE_ON_WEBDISK |sort|xargs rm -f
+STATUS=$?
+if [ $STATUS -ne 0 ]
+then
+FUNC_RM_OLDFILES_WEBDISK
+fi
+}
+
 FUNC_COPY_TO_WEBDISK()
 {
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ];then
@@ -94,6 +105,11 @@ fi
 fi
 }
 #----------------------------------------------
+if [ "$BACKUP_TO_WEBDISK" -ne 0 ]
+then
+FUNC_RM_OLDFILES_WEBDISK
+fi
+#----------------------------------------------
 if [ "$BACKUP_MYSQL" -ne 0 ]; then
 {
 if [ "$DB_USER" = "" ]
@@ -106,8 +122,10 @@ DB_PASSWORD=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  password | awk '{ gsu
 fi
 
 FILENAME=sql-"$SERVER_NAME"-"$DATE".sql.gz
-mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME 
+mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME
+
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
+
 echo "Бэкап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
 FUNC_COPY_TO_WEBDISK
 }
@@ -251,7 +269,7 @@ fi
 #-----------------------------------------------
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ];then
 {
-find $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK -mtime +$LIFE_TIME_FILE_ON_WEBDISK |sort|xargs rm -f
+#find $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK -mtime +$LIFE_TIME_FILE_ON_WEBDISK |sort|xargs rm -f
 echo -e "Свободное место на диске \n" "$(df -h $PACH_FOR_WEBDISK)" >>$LOG
 
 tar -czf $PACH_FOR_BACKUP_TO_DISK/log.tar.gz $LOG
