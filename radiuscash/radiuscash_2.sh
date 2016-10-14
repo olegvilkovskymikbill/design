@@ -18,4 +18,4 @@ INQUIRY="SELECT uid FROM users WHERE credit >= ABS (deposit) and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 
 # version 2
-# 
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash_2.sh
