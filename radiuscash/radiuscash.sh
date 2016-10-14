@@ -25,7 +25,6 @@ for i in $MAC; do
 echo "/tool user-manager user add customer=admin username=$i" >>$HOME_DIR/$UPLOAD
 done
 
-
 ;;
 "ppp")
 INQUIRY="SELECT user, password FROM users WHERE credit >= ABS (deposit) and blocked=0;"
@@ -46,15 +45,13 @@ done
 ;;
 esac
 
-echo "$MAC"
-
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >> $HOME_DIR/$UPLOAD
-
-
 
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
 CMD="/import file=$UPLOAD"
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
+STATUS=$?
+echo $STATUS
 
 # version 1
 # tested mikrotik 6.34.1
