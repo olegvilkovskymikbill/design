@@ -23,7 +23,7 @@ MAC=${MAC:10:${#MAC}}
 "ppp")
 INQUIRY="SELECT user, password FROM users WHERE credit >= ABS (deposit) and blocked=0;"
 MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-#MAC=${MAC:10:${#MAC}}
+MAC=${MAC:14:${#MAC}}
 ;;
 esac
 
