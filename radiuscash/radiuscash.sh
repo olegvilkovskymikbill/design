@@ -56,6 +56,7 @@ sleep 10
 CURL
 fi
 }
+CURL
 
 CMD="/import file=$UPLOAD"
 SSH (){
