@@ -2,7 +2,9 @@
 USERMAN_IP="192.168.10.66"
 USERMAN_LOGIN="mikbill"
 USERMAN_PASSWORD="mikbill"
-RADIUS_TYPE="hotspot"
+
+#RADIUS_TYPE="hotspot"
+RADIUS_TYPE="ppp"
 
 UPLOAD="userman.rsc"
 PATH_CONFIG=/var/www/mikbill/admin/app/etc/config.xml
