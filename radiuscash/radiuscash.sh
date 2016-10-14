@@ -18,21 +18,21 @@ echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
 
 case "$RADIUS_TYPE" in
 "hotspot") 
-INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
-MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-MAC=${MAC:10:${#MAC}}
-for i in $MAC; do
+INQUIRY="SELECT local_SQL FROM users WHERE credit >= ABS (deposit) and blocked=0"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+SQL=${SQL:10:${#SQL}}
+for i in $SQL; do
 echo "/tool user-manager user add customer=admin username=$i" >>$HOME_DIR/$UPLOAD
 done
 
 ;;
 "ppp")
 INQUIRY="SELECT user, password FROM users WHERE credit >= ABS (deposit) and blocked=0;"
-MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-MAC=${MAC:14:${#MAC}}
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+SQL=${SQL:14:${#SQL}}
 
 NUM=0
-for i in $MAC; do
+for i in $SQL; do
 LOGIN_PASS[$NUM]=$i
 let "NUM=NUM+1"
 done
