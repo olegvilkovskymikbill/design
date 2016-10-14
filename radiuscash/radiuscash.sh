@@ -1,5 +1,4 @@
 #!/bin/bash
-# wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash.sh
 USERMAN_IP="192.168.10.150"
 USERMAN_LOGIN="mikbill"
 USERMAN_PASSWORD="mikbill"
@@ -24,3 +23,7 @@ done
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
 CMD="/import file=$UPLOAD"
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
+
+# version 1
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash.sh
+# ssh-keygen
