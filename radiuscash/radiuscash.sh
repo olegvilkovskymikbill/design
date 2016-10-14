@@ -2,6 +2,8 @@
 USERMAN_IP="192.168.10.66"
 USERMAN_LOGIN="mikbill"
 USERMAN_PASSWORD="mikbill"
+RADIUS_TYPE="hotspot"
+
 UPLOAD="userman.rsc"
 PATH_CONFIG=/var/www/mikbill/admin/app/etc/config.xml
 DB_USER=$(cat $PATH_CONFIG| grep  username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
@@ -10,7 +12,10 @@ DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }'
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 
-INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
+case "$RADIUS_TYPE" in
+"hotspot") INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
+;;
+esac
 
 MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 MAC=${MAC:10:${#MAC}}
