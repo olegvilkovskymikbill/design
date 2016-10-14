@@ -13,12 +13,19 @@ DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }'
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 
 case "$RADIUS_TYPE" in
-"hotspot") INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
+"hotspot") 
+INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
+MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+MAC=${MAC:10:${#MAC}}
+;;
+"ppp")
+INQUIRY="SELECT user, password FROM users WHERE credit >= ABS (deposit) and blocked=0;"
+MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+#MAC=${MAC:10:${#MAC}}
 ;;
 esac
 
-MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-MAC=${MAC:10:${#MAC}}
+echo "$MAC"
 
 echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
 for i in $MAC; do
