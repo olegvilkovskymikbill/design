@@ -47,9 +47,17 @@ esac
 
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >> $HOME_DIR/$UPLOAD
 
+CURL (){
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
-CMD="/import file=$UPLOAD"
+STATUS=$?
+if [ $STATUS -ne 0 ]
+then
+sleep 10
+CURL
+fi
+}
 
+CMD="/import file=$UPLOAD"
 SSH (){
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 STATUS=$?
