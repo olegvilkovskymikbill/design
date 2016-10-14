@@ -18,7 +18,7 @@ MAC=${MAC:10:${#MAC}}
 
 echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
 for i in $MAC; do
-echo "/tool user-manager user add customer=admin name=$i" >>$HOME_DIR/$UPLOAD
+echo "/tool user-manager user add customer=admin username=$i" >>$HOME_DIR/$UPLOAD
 done
 
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
