@@ -19,11 +19,14 @@ echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
 for i in $MAC; do
 echo "/tool user-manager user add customer=admin username=$i" >>$HOME_DIR/$UPLOAD
 done
+echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >> $HOME_DIR/$UPLOAD
+
 
 curl --upload-file $HOME_DIR/$UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
 CMD="/import file=$UPLOAD"
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 
 # version 1
+# tested mikrotik 6.34.1
 # wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash.sh
 # ssh-keygen
