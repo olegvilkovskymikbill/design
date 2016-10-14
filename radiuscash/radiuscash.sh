@@ -11,7 +11,9 @@ DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }'
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 
-MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "SELECT local_mac FROM users" 2>/dev/null`
+INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
+
+MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e $INCQUIRY 2>/dev/null`
 MAC=${MAC:10:${#MAC}}
 
 echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
