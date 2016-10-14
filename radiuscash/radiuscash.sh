@@ -40,7 +40,7 @@ done
 
 for((i=0;i!=NUM;i+=2))
 do
-echo "/tool user-manager user add customer=admin username=$LOGIN_PASS[$i] password=$LOGIN_PASS[$i+1]" >>$HOME_DIR/$UPLOAD
+echo "/tool user-manager user add customer=admin username=${LOGIN_PASS[$i]} password=${LOGIN_PASS[$i+1]}" >>$HOME_DIR/$UPLOAD
 done
 
 ;;
