@@ -13,7 +13,7 @@ HOME_DIR=$(cd $(dirname $0)&& pwd)
 
 INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
 
-MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e $INCQUIRY 2>/dev/null`
+MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 MAC=${MAC:10:${#MAC}}
 
 echo "/tool user-manager user remove [find]" > $HOME_DIR/$UPLOAD
