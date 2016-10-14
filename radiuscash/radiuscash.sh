@@ -1,5 +1,5 @@
 #!/bin/bash
-USERMAN_IP="192.168.10.150"
+USERMAN_IP="192.168.10.66"
 USERMAN_LOGIN="mikbill"
 USERMAN_PASSWORD="mikbill"
 UPLOAD="userman.rsc"
