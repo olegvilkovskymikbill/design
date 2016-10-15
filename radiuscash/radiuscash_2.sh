@@ -2,10 +2,6 @@
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/radiuscash_2.conf
 
-FUNC_DATE (){
-DATE=`date +%Y-%m-%d_%Hh-%Mm-%Ss`
-}
-FUNC_DATE
 echo "$DATE start" >>$LOG
 if ! ([ -e $LOG_LINK ])
 then
@@ -64,7 +60,7 @@ INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=$(echo $SQL | awk '{print $2}')
 
-if [ $SQL -ne ""]
+if [[ $SQL != NULL ]]
 then
 echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
 else
@@ -86,11 +82,10 @@ while [ $i -ne 0 ]
 do
 scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
 UPLOAD_STATUS=$?
-FUNC_DATE
 if [ $UPLOAD_STATUS -ne 0 ]
 then
 let i=i-1
-echo "$DATE upload ssh no connect" >>$LOG
+echo "Upload ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
 i=0
@@ -103,11 +98,10 @@ while [ $i -ne 0 ]
 do
 ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 APPLY_STATUS=$?
-FUNC_DATE
 if [ $APPLY_STATUS -ne 0 ]
 then
 let i=i-1
-echo "$DATE apply ssh no connect" >>$LOG
+echo "Apply ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
 i=0
@@ -116,7 +110,7 @@ done
 
 if [[ $UPLOAD_STATUS -eq 0 && $APPLY_STATUS -eq 0 ]]
 then
-echo "$DATE ssh connect OK" >>$LOG
+echo "ssh connect OK" >>$LOG
 rm $LIST
 for (( i=0; i <= $MAX; i++ ))
 do
