@@ -54,8 +54,20 @@ fi
 
 done
 
+# Если файта LIST нет
+else
+for (( i=0; i <= $MAX; i++ ))
+do
+if [[ ${ARRAY_UID[$i]} -eq 1 ]]
+then
+INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+echo "/tool user-manager user add customer=admin username=$(echo $SQL | awk '{print $2}')" >>$UPLOAD
+fi
+done
 
 fi
+
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >> $UPLOAD
 
 i=$CONNECT_SUM
@@ -92,6 +104,7 @@ echo "$DATE ssh connect OK" >>$LOG
 touch $SSH_TRUE
 i=0
 fi
+done
 
 if [[ $CURL_STATUS -eq 0 && $SSH_STATUS -eq 0 ]]
 then
@@ -106,8 +119,6 @@ echo "0" >> $LIST
 fi
 done
 fi
-
-done
 
 # version 2
 # wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash_2.sh
