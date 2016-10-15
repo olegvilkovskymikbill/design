@@ -79,10 +79,10 @@ FUNC_DATE
 if [ $CURL_STATUS -ne 0 ]
 then
 let i=i-1
-echo "$DATE curl no connect" >>$LOG
+echo "$DATE ftp no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
-echo "$DATE curl connect OK" >>$LOG
+echo "$DATE ftp connect OK" >>$LOG
 i=0
 fi
 done
