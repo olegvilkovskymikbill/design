@@ -84,7 +84,6 @@ UPLOAD_STATUS=$?
 if [ $UPLOAD_STATUS -ne 0 ]
 then
 let i=i-1
-echo "Upload ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
 i=0
@@ -109,17 +108,23 @@ done
 
 if [[ $UPLOAD_STATUS -eq 0 && $APPLY_STATUS -eq 0 ]]
 then
+
 echo "ssh connect OK" >>$LOG
 rm $LIST
 for (( i=0; i <= $MAX; i++ ))
 do
+
 if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
 echo "1" >> $LIST
 else
 echo "0" >> $LIST
 fi
+
 done
+
+else
+echo "ssh no connect" >>$LOG
 fi
 
 fi
