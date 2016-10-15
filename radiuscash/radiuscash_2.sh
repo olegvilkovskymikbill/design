@@ -61,6 +61,7 @@ done
 
 # Если файта LIST нет
 else
+echo "/tool user-manager user remove [find]" > $UPLOAD
 for (( i=0; i <= $MAX; i++ ))
 do
 if [[ ${ARRAY_UID[$i]} -eq 1 ]]
