@@ -99,7 +99,6 @@ APPLY_STATUS=$?
 if [ $APPLY_STATUS -ne 0 ]
 then
 let i=i-1
-echo "Apply ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
 i=0
