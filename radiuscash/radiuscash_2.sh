@@ -53,7 +53,10 @@ if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
 UPLOAD_ADD_IPOE
 else
-echo "/tool user-manager user remove $(echo $SQL | awk '{print $2}')" >>$UPLOAD
+INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+SQL=$(echo $SQL | awk '{print $2}')
+echo '/tool user-manager user remove "'$SQL'"' >>$UPLOAD
 fi
 
 fi
