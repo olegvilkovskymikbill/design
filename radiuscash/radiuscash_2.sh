@@ -73,16 +73,16 @@ echo "/tool user-manager user create-and-activate-profile profile=admin customer
 i=$CONNECT_SUM
 while [ $i -ne 0 ]
 do
-curl --upload-file $UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
-CURL_STATUS=$?
+scp $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
+UPLOAD_STATUS=$?
 FUNC_DATE
-if [ $CURL_STATUS -ne 0 ]
+if [ $UPLOAD_STATUS -ne 0 ]
 then
 let i=i-1
-echo "$DATE ftp no connect" >>$LOG
+echo "$DATE upload ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
-echo "$DATE ftp connect OK" >>$LOG
+echo "$DATE upload ssh connect OK" >>$LOG
 i=0
 fi
 done
@@ -92,21 +92,21 @@ CMD="/import file=$UPLOAD"
 while [ $i -ne 0 ]
 do
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
-SSH_STATUS=$?
+APPLY_STATUS=$?
 FUNC_DATE
-if [ $SSH_STATUS -ne 0 ]
+if [ $APPLY_STATUS -ne 0 ]
 then
 let i=i-1
-echo "$DATE ssh no connect" >>$LOG
+echo "$DATE apply ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
-echo "$DATE ssh connect OK" >>$LOG
+echo "$DATE apply ssh connect OK" >>$LOG
 touch $SSH_TRUE
 i=0
 fi
 done
 
-if [[ $CURL_STATUS -eq 0 && $SSH_STATUS -eq 0 ]]
+if [[ $UPLOAD_STATUS -eq 0 && $APPLY_STATUS -eq 0 ]]
 then
 rm $LIST
 for (( i=0; i <= $MAX; i++ ))
