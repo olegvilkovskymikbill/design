@@ -8,6 +8,18 @@ then
 ln -s $LOG $LOG_LINK
 fi
 
+UPLOAD_ADD_IPOE (){
+INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+SQL=$(echo $SQL | awk '{print $2}')
+if [[ $SQL != NULL ]]
+then
+echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
+else
+echo "NULL in MAC uid $i" >>$LOG
+fi
+}
+
 rm $UPLOAD
 INQUIRY="SELECT MAX( uid ) FROM users"
 MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
@@ -38,10 +50,7 @@ then
 
 if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
-INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=$(echo $SQL | awk '{print $2}')
-echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
+UPLOAD_ADD_IPOE
 else
 echo "/tool user-manager user remove $(echo $SQL | awk '{print $2}')" >>$UPLOAD
 fi
@@ -56,17 +65,7 @@ for (( i=0; i <= $MAX; i++ ))
 do
 if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
-INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=$(echo $SQL | awk '{print $2}')
-
-if [[ $SQL != NULL ]]
-then
-echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
-else
-echo "NULL in MAC uid $i" >>$LOG
-fi
-
+UPLOAD_ADD_IPOE
 fi
 done
 
