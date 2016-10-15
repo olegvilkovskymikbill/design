@@ -64,7 +64,7 @@ if [[ $SQL != NULL ]]
 then
 echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
 else
-echo "NULL in password uid $i" >>$LOG
+echo "NULL in MAC uid $i" >>$LOG
 fi
 
 fi
