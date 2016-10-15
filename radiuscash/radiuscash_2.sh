@@ -92,7 +92,7 @@ fi
 done
 
 i=$CONNECT_SUM
-CMD="/import file=basename $UPLOAD"
+CMD="/import file=$(basename $UPLOAD)"
 while [ $i -ne 0 ]
 do
 ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
