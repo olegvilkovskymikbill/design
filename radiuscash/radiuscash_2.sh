@@ -62,7 +62,15 @@ if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
 INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-echo "/tool user-manager user add customer=admin username=$(echo $SQL | awk '{print $2}')" >>$UPLOAD
+SQL=$(echo $SQL | awk '{print $2}')
+
+if [ $SQL -ne ""]
+then
+echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
+else
+echo "NULL in password uid $i" >>$LOG
+fi
+
 fi
 done
 
