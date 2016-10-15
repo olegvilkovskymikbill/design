@@ -12,8 +12,7 @@ then
 ln -s $LOG $LOG_LINK
 fi
 
-rm $UPLOAD $CURL_TRUE $SSH_TRUE
-
+rm $UPLOAD
 INQUIRY="SELECT MAX( uid ) FROM users"
 MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 MAX=${MAX:11:${#MAX}}
