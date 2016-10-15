@@ -100,7 +100,6 @@ echo "$DATE apply ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
 echo "$DATE apply ssh connect OK" >>$LOG
-touch $SSH_TRUE
 i=0
 fi
 done
