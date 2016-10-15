@@ -26,25 +26,14 @@ for i in $SQL; do
 ARRAY_UID[$i]="1"
 done
 
-rm $LIST_NEW
-for (( i=0; i <= $MAX; i++ ))
-do
-if [[ ${ARRAY_UID[$i]} -eq 1 ]]
-then
-echo "1" >> $LIST_NEW
-else
-echo "0" >> $LIST_NEW
-fi
-done
-
-if ([ -e "$LIST_OLD" ])
+if ([ -e "$LIST" ])
 then
 
 i=0
 while read LINE; do
 ARRAY_OLD[$i]=$LINE
 let i=i+1
-done < $LIST_OLD
+done < $LIST
 
 for (( i=0; i <= $MAX; i++ ))
 do
@@ -73,16 +62,15 @@ i=$CONNECT_SUM
 while [ $i -ne 0 ]
 do
 curl --upload-file $UPLOAD  ftp://$USERMAN_LOGIN:$USERMAN_PASSWORD@$USERMAN_IP/
-STATUS=$?
+CURL_STATUS=$?
 FUNC_DATE
-if [ $STATUS -ne 0 ]
+if [ $CURL_STATUS -ne 0 ]
 then
 let i=i-1
 echo "$DATE curl no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
 echo "$DATE curl connect OK" >>$LOG
-touch $CURL_TRUE
 i=0
 fi
 done
@@ -92,9 +80,9 @@ CMD="/import file=$UPLOAD"
 while [ $i -ne 0 ]
 do
 ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
-STATUS=$?
+SSH_STATUS=$?
 FUNC_DATE
-if [ $STATUS -ne 0 ]
+if [ $SSH_STATUS -ne 0 ]
 then
 let i=i-1
 echo "$DATE ssh no connect" >>$LOG
@@ -103,6 +91,20 @@ else
 echo "$DATE ssh connect OK" >>$LOG
 touch $SSH_TRUE
 i=0
+fi
+
+if [[ $CURL_STATUS -eq 0 && $SSH_STATUS -eq 0 ]]
+then
+rm $LIST
+for (( i=0; i <= $MAX; i++ ))
+do
+if [[ ${ARRAY_UID[$i]} -eq 1 ]]
+then
+echo "1" >> $LIST
+else
+echo "0" >> $LIST
+fi
+done
 fi
 
 done
