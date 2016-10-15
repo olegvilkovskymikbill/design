@@ -67,6 +67,9 @@ done
 
 fi
 
+if ([ -e "$UPLOAD" ])
+then
+
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >> $UPLOAD
 
 i=$CONNECT_SUM
@@ -115,6 +118,8 @@ else
 echo "0" >> $LIST
 fi
 done
+fi
+
 fi
 
 # version 2
