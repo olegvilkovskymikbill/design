@@ -81,7 +81,6 @@ let i=i-1
 echo "$DATE upload ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
-echo "$DATE upload ssh connect OK" >>$LOG
 i=0
 fi
 done
@@ -99,13 +98,13 @@ let i=i-1
 echo "$DATE apply ssh no connect" >>$LOG
 sleep $CONNECT_INTERVAL
 else
-echo "$DATE apply ssh connect OK" >>$LOG
 i=0
 fi
 done
 
 if [[ $UPLOAD_STATUS -eq 0 && $APPLY_STATUS -eq 0 ]]
 then
+echo "$DATE ssh connect OK" >>$LOG
 rm $LIST
 for (( i=0; i <= $MAX; i++ ))
 do
