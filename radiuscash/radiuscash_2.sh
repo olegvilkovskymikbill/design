@@ -12,11 +12,12 @@ UPLOAD_ADD_IPOE (){
 INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=$(echo $SQL | awk '{print $2}')
-if [[ $SQL != NULL ]]
+if [[ $SQL != NULL && $SQL != "" ]]
 then
 echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
 else
 echo "NULL in MAC uid $i" >>$LOG
+ARRAY_UID[$i]="0"
 fi
 }
 
