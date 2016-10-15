@@ -72,7 +72,7 @@ echo "/tool user-manager user create-and-activate-profile profile=admin customer
 i=$CONNECT_SUM
 while [ $i -ne 0 ]
 do
-scp $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
+scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
 UPLOAD_STATUS=$?
 FUNC_DATE
 if [ $UPLOAD_STATUS -ne 0 ]
@@ -90,7 +90,7 @@ i=$CONNECT_SUM
 CMD="/import file=$UPLOAD"
 while [ $i -ne 0 ]
 do
-ssh $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
+ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 APPLY_STATUS=$?
 FUNC_DATE
 if [ $APPLY_STATUS -ne 0 ]
