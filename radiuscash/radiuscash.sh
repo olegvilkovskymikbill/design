@@ -70,7 +70,7 @@ sleep 10
 fi
 
 done
-
+break
 fi
 
 done
