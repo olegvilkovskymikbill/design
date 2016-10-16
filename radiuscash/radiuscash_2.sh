@@ -76,7 +76,16 @@ for (( i=0; i <= $MAX; i++ ))
 do
 if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
+
+case "$RADIUS_TYPE" in
+"hotspot") 
 UPLOAD_ADD_IPOE
+;;
+"ppp")
+UPLOAD_ADD_PPP
+;;
+esac
+
 fi
 done
 
