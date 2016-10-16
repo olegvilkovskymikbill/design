@@ -53,7 +53,6 @@ esac
 
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
 #SSH
-CMD="/import file=$(basename $UPLOAD)"
 for ( i=0;i!=10;i++ ) then
 
 scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
@@ -62,6 +61,7 @@ if [ $STATUS -ne 0 ] then
 sleep 10
 else
 
+CMD="/import file=$(basename $UPLOAD)"
 for ( i=0;i!=10;i++ ) then
 ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 STATUS=$?
