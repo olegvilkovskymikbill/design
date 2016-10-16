@@ -52,35 +52,28 @@ done
 esac
 
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
+#SSH
+CMD="/import file=$(basename $UPLOAD)"
+for ( i=0;i!=10;i++ ) then
 
-i=10
-while [ $i -ne 0 ]
-do
 scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
 STATUS=$?
-if [ $STATUS -ne 0 ]
-then
-let i=i-1
+if [ $STATUS -ne 0 ] then
 sleep 10
 else
-break
-fi
-done
 
-i=10
-CMD="/import file=$(basename $UPLOAD)"
-while [ $i -ne 0 ]
-do
+for ( i=0;i!=10;i++ ) then
 ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 STATUS=$?
-if [ $TATUS -ne 0 ]
-then
-let i=i-1
+if [ $TATUS -ne 0 ] then
 sleep 10
-else
-break
 fi
-done
+
+fi
+
+fi
+
+fi
 
 # version 1.1
 # tested mikrotik 6.34.1
