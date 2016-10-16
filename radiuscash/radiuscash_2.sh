@@ -21,6 +21,12 @@ ARRAY_UID[$i]="0"
 fi
 }
 
+UPLOAD_ADD_PPP (){
+INQUIRY="SELECT user, password FROM users WHERE uid=$i;"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+SQL=${SQL:14:${#SQL}}
+}
+
 rm $UPLOAD
 INQUIRY="SELECT MAX( uid ) FROM users"
 MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
