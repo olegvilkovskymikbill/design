@@ -1,6 +1,11 @@
 #!/bin/bash
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/radiuscash_2.conf
+
+if !([ -e "$HOME_DIR/radiuscash_2.lib" ])
+then
+wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash_2.lib
+fi
 source $HOME_DIR/radiuscash_2.lib
 
 FUNC_LOG_LINC
@@ -9,9 +14,7 @@ rm $UPLOAD
 
 MAX_UID
 
-INQUIRY="SELECT uid FROM users WHERE credit >= ABS (deposit) and blocked=0"
-DELETE=4
-MYSQL_SQL
+USERS_ONLINE
 
 SQL_TO_ARRAY_UID
 
