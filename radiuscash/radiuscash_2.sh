@@ -8,7 +8,7 @@ then
 ln -s $LOG $LOG_LINK
 fi
 
-UPLOAD_ADD_IPOE (){
+IPOE_ADD (){
 INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=$(echo $SQL | awk '{print $2}')
@@ -21,12 +21,20 @@ ARRAY_UID[$i]="0"
 fi
 }
 
-UPLOAD_ADD_PPP (){
+IPOE_RM (){
+INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+SQL=$(echo $SQL | awk '{print $2}')
+echo '/tool user-manager user remove "'$SQL'"' >>$UPLOAD
+}
+
+
+PPP_ADD (){
 INQUIRY="SELECT user, password FROM users WHERE uid=$i;"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=${SQL:14:${#SQL}}
 }
-
+# *********************************************************
 rm $UPLOAD
 INQUIRY="SELECT MAX( uid ) FROM users"
 MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
@@ -57,12 +65,9 @@ then
 
 if [[ ${ARRAY_UID[$i]} -eq 1 ]]
 then
-UPLOAD_ADD_IPOE
+IPOE_ADD
 else
-INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=$(echo $SQL | awk '{print $2}')
-echo '/tool user-manager user remove "'$SQL'"' >>$UPLOAD
+IPOE_RM
 fi
 
 fi
@@ -79,10 +84,10 @@ then
 
 case "$RADIUS_TYPE" in
 "hotspot") 
-UPLOAD_ADD_IPOE
+IPOE_ADD
 ;;
 "ppp")
-UPLOAD_ADD_PPP
+PPP_ADD
 ;;
 esac
 
