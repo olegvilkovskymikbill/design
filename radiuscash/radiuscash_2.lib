@@ -40,9 +40,10 @@ SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=${SQL:14:${#SQL}}
 }
 
-MYSQL_SQL() {
+USERS_ONLINE (){
+INQUIRY="SELECT uid FROM users WHERE credit >= ABS (deposit) and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=${SQL:$DELETE:${#SQL}}
+SQL=${SQL:4:${#SQL}}
 }
 
 SQL_TO_ARRAY_UID (){
