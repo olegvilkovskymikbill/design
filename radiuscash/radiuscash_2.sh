@@ -1,61 +1,23 @@
 #!/bin/bash
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/radiuscash_2.conf
+source $HOME_DIR/radiuscash_2.lib
 
-echo "$DATE start" >>$LOG
-if ! ([ -e $LOG_LINK ])
-then
-ln -s $LOG $LOG_LINK
-fi
+FUNC_LOG_LINC
 
-IPOE_ADD (){
-INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=$(echo $SQL | awk '{print $2}')
-if [[ $SQL != NULL && $SQL != "" ]]
-then
-echo "/tool user-manager user add customer=admin username=$SQL" >>$UPLOAD
-else
-echo "NULL in MAC uid $i" >>$LOG
-ARRAY_UID[$i]="0"
-fi
-}
-
-IPOE_RM (){
-INQUIRY="SELECT local_mac FROM users WHERE uid=$i"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=$(echo $SQL | awk '{print $2}')
-echo '/tool user-manager user remove "'$SQL'"' >>$UPLOAD
-}
-
-
-PPP_ADD (){
-INQUIRY="SELECT user, password FROM users WHERE uid=$i;"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=${SQL:14:${#SQL}}
-}
-# *********************************************************
 rm $UPLOAD
-INQUIRY="SELECT MAX( uid ) FROM users"
-MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-MAX=${MAX:11:${#MAX}}
+
+MAX_UID
 
 INQUIRY="SELECT uid FROM users WHERE credit >= ABS (deposit) and blocked=0"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=${SQL:4:${#SQL}}
+DELETE=4
+MYSQL_SQL
 
-for i in $SQL; do
-ARRAY_UID[$i]="1"
-done
+SQL_TO_ARRAY_UID
 
 if ([ -e "$LIST" ])
 then
-
-i=0
-while read LINE; do
-ARRAY_OLD[$i]=$LINE
-let i=i+1
-done < $LIST
+LIST_TO_ARRAY_OLD 
 
 for (( i=0; i <= $MAX; i++ ))
 do
@@ -101,52 +63,12 @@ then
 
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >> $UPLOAD
 
-i=$CONNECT_SUM
-while [ $i -ne 0 ]
-do
-scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
-UPLOAD_STATUS=$?
-if [ $UPLOAD_STATUS -ne 0 ]
-then
-let i=i-1
-sleep $CONNECT_INTERVAL
-else
-i=0
-fi
-done
-
-i=$CONNECT_SUM
-CMD="/import file=$(basename $UPLOAD)"
-while [ $i -ne 0 ]
-do
-ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
-APPLY_STATUS=$?
-if [ $APPLY_STATUS -ne 0 ]
-then
-let i=i-1
-sleep $CONNECT_INTERVAL
-else
-i=0
-fi
-done
+UPLOAD_TO_MIKROTIK
 
 if [[ $UPLOAD_STATUS -eq 0 && $APPLY_STATUS -eq 0 ]]
 then
-
 echo "ssh connect OK" >>$LOG
-rm $LIST
-for (( i=0; i <= $MAX; i++ ))
-do
-
-if [[ ${ARRAY_UID[$i]} -eq 1 ]]
-then
-echo "1" >> $LIST
-else
-echo "0" >> $LIST
-fi
-
-done
-
+ARRAY_UID_TO_LIST
 else
 echo "ssh no connect" >>$LOG
 fi
