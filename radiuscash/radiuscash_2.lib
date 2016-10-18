@@ -82,3 +82,18 @@ fi
 
 done
 }
+
+ARRAY_UID_TO_LIST (){
+rm $LIST
+for (( i=0; i <= $MAX; i++ ))
+do
+
+if [[ ${ARRAY_UID[$i]} -eq 1 ]]
+then
+echo "1" >> $LIST
+else
+echo "0" >> $LIST
+fi
+
+done
+}
