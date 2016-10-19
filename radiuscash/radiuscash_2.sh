@@ -71,6 +71,6 @@ fi
 
 fi
 
-echo $(($(date +%s)-$time))
+# echo $(($(date +%s)-$time))
 # version 2
 # wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash_2.sh
