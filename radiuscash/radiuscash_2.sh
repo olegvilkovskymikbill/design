@@ -14,9 +14,7 @@ rm $UPLOAD
 
 MAX_UID
 
-USERS_ONLINE
-
-SQL_TO_ARRAY_UID
+UID_TO_ARRAY_UID
 
 if ([ -e "$LIST" ])
 then
