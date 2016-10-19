@@ -8,6 +8,8 @@ wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash_2.lib
 fi
 source $HOME_DIR/radiuscash_2.lib
 
+TIME=$(date +%s)
+
 FUNC_LOG_LINC
 
 rm $UPLOAD
