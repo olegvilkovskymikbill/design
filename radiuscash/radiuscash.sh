@@ -23,7 +23,10 @@ QUERY="SELECT local_mac FROM users WHERE (deposit+credit)>=0 and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 SQL=${SQL:10:${#SQL}}
 for i in $SQL; do
+if [[ $i != NULL ]]
+then
 echo "add customer=admin username=$i" >>$UPLOAD
+fi
 done
 fi
 
