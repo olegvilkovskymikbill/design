@@ -7,7 +7,7 @@ MAX_UID=${MAX_UID:11:${#MAX_UID}}
 }
 
 UID_TO_SQL (){
-QUERY="SELECT local_mac FROM users WHERE (deposit+credit)>=0 and blocked=0"
+QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 SQL=${SQL:4:${#SQL}}
 }
