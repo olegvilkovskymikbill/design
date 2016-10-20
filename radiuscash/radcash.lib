@@ -38,7 +38,7 @@ QUERY="SELECT password FROM users WHERE uid=$i"
 PASSWORD=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 PASSWORD=$(echo $PASSWORD | awk '{print $2}')
 
-if [[ $MAC != NULL && $MAC != "" ]]
+if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user FROM users WHERE uid=$i"
 USER=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
