@@ -15,4 +15,9 @@ then
 FUNC_HOTSPOT
 fi
 
+if [ "$RADIUS_PPP" -ne 0 ]
+then
+FUNC_PPP
+fi
+
 SSH_UPLOAD
