@@ -1,5 +1,5 @@
 #!/bin/bash
-USERMAN_IP="192.168.10.66"
+USERMAN_IP="192.168.10.67"
 USERMAN_SSH_PORT="22"
 USERMAN_LOGIN="mikbill"
 
@@ -14,22 +14,23 @@ DB_USER=$(cat $PATH_CONFIG| grep  username | awk '{ gsub("<username>"," "); prin
 DB_PASSWORD=$(cat $PATH_CONFIG| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
 DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }' | awk '{ gsub("</dbname>"," "); print }'| awk '{print $1}')
 
-echo "/tool user-manager user remove [find]" > $UPLOAD
+echo "/tool user-manager user"
+echo "remove [find]" > $UPLOAD
 
 if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
-INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+QUERY="SELECT local_mac FROM users WHERE (deposit+credit)>=0 and blocked=0"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 SQL=${SQL:10:${#SQL}}
 for i in $SQL; do
-echo "/tool user-manager user add customer=admin username=$i" >>$UPLOAD
+echo "add customer=admin username=$i" >>$UPLOAD
 done
 fi
 
 if [ "$RADIUS_PPP" -ne 0 ]
 then
-INQUIRY="SELECT user, password FROM users WHERE credit >= ABS (deposit) and blocked=0;"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+QUERY="SELECT user, password FROM users WHERE (deposit+credit)>=0 and blocked=0;"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 SQL=${SQL:14:${#SQL}}
 
 NUM=0
@@ -40,12 +41,12 @@ done
 
 for((i=0;i!=NUM;i+=2))
 do
-echo "/tool user-manager user add customer=admin username=${LOGIN_PASS[$i]} password=${LOGIN_PASS[$i+1]}" >>$UPLOAD
+echo "add customer=admin username=${LOGIN_PASS[$i]} password=${LOGIN_PASS[$i+1]}" >>$UPLOAD
 done
 fi
 
 
-echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
+echo "create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
 #SSH
 for (( i=0;i!=10;i++ )); do
 
