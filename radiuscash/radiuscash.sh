@@ -14,8 +14,8 @@ DB_USER=$(cat $PATH_CONFIG| grep  username | awk '{ gsub("<username>"," "); prin
 DB_PASSWORD=$(cat $PATH_CONFIG| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
 DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }' | awk '{ gsub("</dbname>"," "); print }'| awk '{print $1}')
 
-echo "/tool user-manager user"
-echo "remove [find]" > $UPLOAD
+echo "/tool user-manager user" > $UPLOAD
+echo "remove [find]" >> $UPLOAD
 
 if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
