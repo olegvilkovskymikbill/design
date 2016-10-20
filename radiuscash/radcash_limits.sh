@@ -12,7 +12,7 @@ if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
 INQUIRY="SELECT local_mac, gid FROM users WHERE credit >= ABS (deposit) and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
-SQL=${SQL:10:${#SQL}}
+SQL=${SQL:14:${#SQL}}
 
 n=0
 for i in $SQL; do
