@@ -26,3 +26,26 @@ echo "limitation add name=${ARRAY_SQL[$i]} owner=admin rate-limit-rx=${ARRAY_SQL
 echo "add name=${ARRAY_SQL[$i]} owner=admin" >>$UPLOAD_LIMITS
 echo "profile-limitation add profile=${ARRAY_SQL[$i]} limitation=${ARRAY_SQL[$i]}" >>$UPLOAD_LIMITS
 done
+
+#SSH
+for (( i=0;i!=$CONNECT_SUM;i++ )); do
+
+scp -P $USERMAN_SSH_PORT $UPLOAD_LIMITS $USERMAN_LOGIN@$USERMAN_IP:/
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+sleep $CONNECT_INTERVAL
+else
+
+CMD="/import file=$(basename $UPLOAD_LIMITS)"
+for (( i=0;i!=$CONNECT_SUM;i++ )); do
+ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+sleep $CONNECT_INTERVAL
+fi
+
+done
+break
+fi
+
+done
