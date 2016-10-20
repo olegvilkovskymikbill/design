@@ -12,7 +12,7 @@ SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 SQL=${SQL:4:${#SQL}}
 }
 
-FUNC_MAC (){
+FUNC_HOTSPOT (){
 
 for i in $SQL; do
 QUERY="SELECT local_mac FROM users WHERE uid=$i"
@@ -26,12 +26,9 @@ PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 PROFILE=$(echo $PROFILE | awk '{print $2}')
 
 echo "add customer=admin username=$MAC" >>$UPLOAD
-echo "/tool user-manager user create-and-activate-profile profile=${ARRAY_SQL[$i+1]} customer=admin numbers=[find]" >>$UPLOAD
+echo 'create-and-activate-profile profile=$PROFILE "'$MAC'" customer=admin' >>UPLOAD
 
 fi
-
-
-
 
 done
 }
