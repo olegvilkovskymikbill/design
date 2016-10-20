@@ -1,1 +1,7 @@
+FUNC_MAX_UID (){
+INQUIRY="SELECT MAX( uid ) FROM users"
+MAX_UID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+MAX_UID=${MAX_UID:11:${#MAX_UID}}
+}
+
 
