@@ -22,7 +22,7 @@ echo "remove numbers=[find]" >>$UPLOAD_LIMITS
 
 for (( i=0; i <= $MAX_GID; i=i+3 ))
 do
-echo "limitation add name=$i owner=admin rate-limit-rx=$i+1 rate-limit-tx=$i+2" >>$UPLOAD_LIMITS
-echo "add name=$i owner=admin" >>$UPLOAD_LIMITS
-echo "profile-limitation add profile=$i limitation=$i" >>$UPLOAD_LIMITS
+echo "limitation add name=${ARRAY_SQL[$i]} owner=admin rate-limit-rx=${ARRAY_SQL[$i+1]}k rate-limit-tx=${ARRAY_SQL[$i+2]}k" >>$UPLOAD_LIMITS
+echo "add name=${ARRAY_SQL[$i]} owner=admin" >>$UPLOAD_LIMITS
+echo "profile-limitation add profile=${ARRAY_SQL[$i]} limitation=${ARRAY_SQL[$i]}" >>$UPLOAD_LIMITS
 done
