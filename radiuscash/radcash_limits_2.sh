@@ -1,9 +1,17 @@
 #!/bin/bash
 HOME_DIR=$(cd $(dirname $0)&& pwd)
-source $HOME_DIR/radiuscash_2.conf
+source $HOME_DIR/radcash.conf
+source $HOME_DIR/radcash.lib
 
-if !([ -e "$HOME_DIR/radiuscash.lib" ])
+FUNC_MAX_UID
+
+# echo "" >>$UPLOAD
+echo "/tool user-manager user" >$UPLOAD
+echo "remove [find]" >>$UPLOAD
+
+UID_TO_SQL
+
+if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
-wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash.lib
+FUNC_MAC
 fi
-source $HOME_DIR/radiuscash.lib
