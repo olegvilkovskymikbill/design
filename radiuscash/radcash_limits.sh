@@ -2,13 +2,38 @@
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/radcash.conf
 
+INQUIRY="SELECT MAX( uid ) FROM users"
+MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+MAX=${MAX:11:${#MAX}}
+MAX=${MAX:11:${#MAX}}
+
 echo "/tool user-manager user remove [find]" > $UPLOAD
 
 if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
-INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
+INQUIRY="SELECT local_mac, gid FROM users WHERE credit >= ABS (deposit) and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=${SQL:10:${#SQL}}
+
+n=0
+for i in $SQL; do
+ARRAY_SQL[$n]=$i
+let n=n+1
+done
+
+n=$(( MAX*2 ))
+for (( i=0; i < $n; i=i+2 ))
+do
+if [[ ${ARRAY_SQL[$i]} != NULL && ${ARRAY_SQL[$i]} != "" ]]
+then
+echo "/tool user-manager user add customer=admin username=${ARRAY_SQL[$i]}" >>$UPLOAD
+echo "/tool user-manager user create-and-activate-profile profile=${ARRAY_SQL[$i+1]} customer=admin numbers=[find]" >>$UPLOAD
+fi
+done
+
+
+
+
 for i in $SQL; do
 if [[ $i != NULL && $i != "" ]]
 then
@@ -36,7 +61,6 @@ done
 fi
 
 
-echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
 #SSH
 for (( i=0;i!=$CONNECT_SUM;i++ )); do
 
