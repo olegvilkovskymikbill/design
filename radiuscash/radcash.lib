@@ -13,7 +13,6 @@ SQL=${SQL:4:${#SQL}}
 }
 
 FUNC_HOTSPOT (){
-
 for i in $SQL; do
 QUERY="SELECT local_mac FROM users WHERE uid=$i"
 MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
@@ -32,6 +31,29 @@ fi
 
 done
 }
+
+FUNC_PPP (){
+for i in $SQL; do
+QUERY="SELECT password FROM users WHERE uid=$i"
+PASSWORD=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+PASSWORD=$(echo $PASSWORD | awk '{print $2}')
+
+if [[ $MAC != NULL && $MAC != "" ]]
+then
+QUERY="SELECT user FROM users WHERE uid=$i"
+USER=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+
+QUERY="SELECT gid FROM users WHERE uid=$i"
+PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+PROFILE=$(echo $PROFILE | awk '{print $2}')
+
+echo "add customer=admin username=$USER password=$PASSWORD" >>$UPLOAD
+echo "create-and-activate-profile profile=$PROFILE "'"'$USER'" customer=admin' >>$UPLOAD
+fi
+
+done
+}
+
 
 SSH_UPLOAD ()
 {
