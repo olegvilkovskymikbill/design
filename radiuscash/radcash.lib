@@ -26,7 +26,7 @@ PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 PROFILE=$(echo $PROFILE | awk '{print $2}')
 
 echo "add customer=admin username=$MAC" >>$UPLOAD
-echo 'create-and-activate-profile profile=$PROFILE "'$MAC'" customer=admin' >>UPLOAD
+echo "create-and-activate-profile profile=$PROFILE "'"'$MAC'" customer=admin' >>$UPLOAD
 
 fi
 
