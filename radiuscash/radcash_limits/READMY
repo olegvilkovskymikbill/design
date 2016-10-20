@@ -1,0 +1,7 @@
+# Установка
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.conf
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.lib
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.sh
+# wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/limits_update.sh
+# chmod +x radcash.sh
+# chmod +x limits_update.sh
