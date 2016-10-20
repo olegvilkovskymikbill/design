@@ -4,7 +4,7 @@ source $HOME_DIR/radcash.conf
 
 INQUIRY="SELECT MAX( gid ) FROM packets"
 MAX_GID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY"`
-MAX_GID=${MAX_GID:11:${#MAX_GID}}
+MAX_GID=$(( 3*${MAX_GID:11:${#MAX_GID}} ))
 
 INQUIRY="SELECT gid, speed_rate, speed_burst FROM packets"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
@@ -20,7 +20,7 @@ echo "/tool user-manager profile" >$UPLOAD_LIMITS
 echo "limitation remove [find]" >>$UPLOAD_LIMITS
 echo "remove numbers=[find]" >>$UPLOAD_LIMITS
 
-for (( i=0; i <= $MAX_GID; i=i+3 ))
+for (( i=0; i < $MAX_GID; i=i+3 ))
 do
 echo "limitation add name=${ARRAY_SQL[$i]} owner=admin rate-limit-rx=${ARRAY_SQL[$i+1]}k rate-limit-tx=${ARRAY_SQL[$i+2]}k" >>$UPLOAD_LIMITS
 echo "add name=${ARRAY_SQL[$i]} owner=admin" >>$UPLOAD_LIMITS
