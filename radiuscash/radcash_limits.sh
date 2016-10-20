@@ -38,16 +38,16 @@ fi
 
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
 #SSH
-for (( i=0;i!=10;i++ )); do
+for (( i=0;i!=$CONNECT_SUM;i++ )); do
 
 scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
-sleep 10
+sleep $CONNECT_INTERVAL
 else
 
 CMD="/import file=$(basename $UPLOAD)"
-for (( i=0;i!=10;i++ )); do
+for (( i=0;i!=$CONNECT_SUM;i++ )); do
 ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
