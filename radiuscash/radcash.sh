@@ -14,3 +14,5 @@ if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
 FUNC_HOTSPOT
 fi
+
+SSH_UPLOAD
