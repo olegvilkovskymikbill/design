@@ -1,7 +1,38 @@
+#!/bin/bash
+
 FUNC_MAX_UID (){
-INQUIRY="SELECT MAX( uid ) FROM users"
-MAX_UID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
+QUERY="SELECT MAX( uid ) FROM users"
+MAX_UID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 MAX_UID=${MAX_UID:11:${#MAX_UID}}
 }
 
+UID_TO_SQL (){
+QUERY="SELECT uid FROM users WHERE credit >= ABS (deposit) and blocked=0"
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+SQL=${SQL:4:${#SQL}}
+}
+
+FUNC_MAC (){
+
+for i in $SQL; do
+QUERY="SELECT local_mac FROM users WHERE uid=$i"
+MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+MAC=$(echo $MAC | awk '{print $2}')
+
+if [[ $MAC != NULL && $MAC != "" ]]
+then
+QUERY="SELECT gid FROM users WHERE uid=$i"
+PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+PROFILE=$(echo $PROFILE | awk '{print $2}')
+
+echo "add customer=admin username=$MAC" >>$UPLOAD
+echo "/tool user-manager user create-and-activate-profile profile=${ARRAY_SQL[$i+1]} customer=admin numbers=[find]" >>$UPLOAD
+
+fi
+
+
+
+
+done
+}
 
