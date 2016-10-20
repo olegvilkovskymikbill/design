@@ -5,7 +5,6 @@ source $HOME_DIR/radcash.conf
 INQUIRY="SELECT MAX( uid ) FROM users"
 MAX=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 MAX=${MAX:11:${#MAX}}
-MAX=${MAX:11:${#MAX}}
 
 echo "/tool user-manager user remove [find]" > $UPLOAD
 
