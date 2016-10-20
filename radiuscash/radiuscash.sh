@@ -3,8 +3,8 @@ USERMAN_IP="192.168.10.66"
 USERMAN_SSH_PORT="22"
 USERMAN_LOGIN="mikbill"
 
-#RADIUS_TYPE="hotspot"
-RADIUS_TYPE="ppp"
+RADIUS_HOTSPOT="1"
+RADIUS_PPP="1"
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 
@@ -16,22 +16,21 @@ DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }'
 
 echo "/tool user-manager user remove [find]" > $UPLOAD
 
-case "$RADIUS_TYPE" in
-"hotspot") 
+if [ "$RADIUS_HOTSPOT" -ne 0 ]
+then
 INQUIRY="SELECT local_mac FROM users WHERE credit >= ABS (deposit) and blocked=0"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=${SQL:10:${#SQL}}
 for i in $SQL; do
-
 if [[ $i != NULL && $i != "" ]]
 then
 echo "/tool user-manager user add customer=admin username=$i" >>$UPLOAD
 fi
-
 done
+fi
 
-;;
-"ppp")
+if [ "$RADIUS_PPP" -ne 0 ]
+then
 INQUIRY="SELECT user, password FROM users WHERE credit >= ABS (deposit) and blocked=0;"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$INQUIRY" 2>/dev/null`
 SQL=${SQL:14:${#SQL}}
@@ -46,9 +45,8 @@ for((i=0;i!=NUM;i+=2))
 do
 echo "/tool user-manager user add customer=admin username=${LOGIN_PASS[$i]} password=${LOGIN_PASS[$i+1]}" >>$UPLOAD
 done
+fi
 
-;;
-esac
 
 echo "/tool user-manager user create-and-activate-profile profile=admin customer=admin numbers=[find]" >>$UPLOAD
 #SSH
@@ -74,7 +72,7 @@ fi
 
 done
 
-# version 1.1
+# version 1.2
 # tested mikrotik 6.34.1
 # wget https://github.com/mikbill/design/raw/master/radiuscash/radiuscash.sh
 # ssh-keygen
