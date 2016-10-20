@@ -1,18 +1,6 @@
 #!/bin/bash
-USERMAN_IP="192.168.10.66"
-USERMAN_SSH_PORT="22"
-USERMAN_LOGIN="mikbill"
-
-RADIUS_HOTSPOT="1"
-RADIUS_PPP="1"
-
 HOME_DIR=$(cd $(dirname $0)&& pwd)
-
-UPLOAD="$HOME_DIR/userman.rsc"
-PATH_CONFIG=/var/www/mikbill/admin/app/etc/config.xml
-DB_USER=$(cat $PATH_CONFIG| grep  username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
-DB_PASSWORD=$(cat $PATH_CONFIG| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
-DB_NAME=$(cat $PATH_CONFIG | grep dbname | awk '{ gsub("<dbname>"," "); print }' | awk '{ gsub("</dbname>"," "); print }'| awk '{print $1}')
+source $HOME_DIR/radcash.conf
 
 echo "/tool user-manager user remove [find]" > $UPLOAD
 
