@@ -14,7 +14,7 @@ IPSET=`which ipset`
 IPSETNAME="paysystems"
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
-SRCDATA=`cat $HOME_DIR/domens.list`
+SRCDATA=`cat $HOME_DIR/domains.list`
 IPLIST="$HOME_DIR/ip.list"
 RESULT="$HOME_DIR/paysys.txt"
 UPLOAD=$HOME_DIR/upload_paysys.rsc
