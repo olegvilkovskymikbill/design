@@ -1,3 +1,4 @@
 Установка
 
+Ставим dig
 yum install -y bind-utils
