@@ -54,6 +54,6 @@ done
 }
 SSH_UPLOAD
 
-# wget 
+# wget https://github.com/mikbill/design/raw/master/paysystems/ipset_paysystems_mikrotik.sh
 # Version 1
 # By Oleg Vilkovsky
