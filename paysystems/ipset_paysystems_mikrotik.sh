@@ -23,12 +23,6 @@ $DIG +short $SRCDATA @$DNS1 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3
 $DIG +short $SRCDATA @$DNS2 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}' >> $RESULT
 cat $IPLIST >> $RESULT
 
-$IPSET -N $IPSETNAME iphash -exist
-for i in `cat $RESULT`;
-do
-$IPSET add $IPSETNAME $i -exist 2>/dev/null;
-done
-
 SSH_UPLOAD (){
 for (( i=0;i!=$SSH_SUM;i++ )); do
 
