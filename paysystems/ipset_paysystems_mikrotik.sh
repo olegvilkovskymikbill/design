@@ -10,7 +10,6 @@ SSH_INTERVAL=10
 SSH_SUM=10
 
 DIG=`which dig`
-IPSET=`which ipset`
 IPSETNAME="paysystems"
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
