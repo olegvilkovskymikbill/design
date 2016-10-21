@@ -2,3 +2,5 @@
 
 Ставим dig
 yum install -y bind-utils
+
+Заносим в domains.list домены нужного сайта. Все домены сайта можно узнать например с помощью Charles
