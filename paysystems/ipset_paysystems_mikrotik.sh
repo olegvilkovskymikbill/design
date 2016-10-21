@@ -15,12 +15,16 @@ IPSETNAME="paysystems"
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 SRCDATA=`cat $HOME_DIR/domains.list`
 IPLIST="$HOME_DIR/ip.list"
-RESULT="$HOME_DIR/paysys.txt"
 UPLOAD=$HOME_DIR/upload_paysys.rsc
+ADDRESS_LIST="black_list"
 
-$DIG +short $SRCDATA @$DNS1 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}' > $RESULT
-$DIG +short $SRCDATA @$DNS2 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}' >> $RESULT
-cat $IPLIST >> $RESULT
+RESULT="$($DIG +short $SRCDATA @$DNS1 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $($DIG +short $SRCDATA @$DNS2 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:d
+
+echo "/ip firewall address-list remove [/ip firewall address-list find list=$ADDRESS_LIST]" >$UPLOAD
+for i in $RESULT; do
+echo "/ip firewall address-list add list="$ADDRESS_LIST" address=$i" >>$UPLOAD
+done
+
 
 SSH_UPLOAD (){
 for (( i=0;i!=$SSH_SUM;i++ )); do
