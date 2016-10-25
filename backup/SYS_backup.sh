@@ -125,7 +125,7 @@ fi
 fi
 }
 #----------------------------------------------
-FILENAME="log*tar.gz"
+FILENAME="log*tar.gz*"
 rm -f $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ]
 then
