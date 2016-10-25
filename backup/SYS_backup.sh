@@ -125,17 +125,13 @@ fi
 fi
 }
 #----------------------------------------------
+FILENAME="log*tar.gz"
+rm -f $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ]
 then
-FUNC_RM_OLDFILES_WEBDISK
-
-if [ "$ENCRYPTION" -ne 0 ]
-then
-FILENAME=log.tar.gz.gpg
-else
-FILENAME=log.tar.gz
-fi
 FUNC_RM_FILE_WEBDISK
+
+FUNC_RM_OLDFILES_WEBDISK
 fi
 #----------------------------------------------
 if [ "$BACKUP_MYSQL" -ne 0 ]; then
@@ -299,8 +295,9 @@ if [ "$BACKUP_TO_WEBDISK" -ne 0 ];then
 {
 echo -e "Свободное место на диске \n" "$(df -h $PACH_FOR_WEBDISK)" >>$LOG
 
-tar -czf $PACH_FOR_BACKUP_TO_DISK/log.tar.gz $LOG
-FILENAME=log.tar.gz
+FILENAME="log-"$DATE".tar.gz"
+tar -czf $PACH_FOR_BACKUP_TO_DISK/$FILENAME $LOG
+
 FUNC_COPY_TO_WEBDISK
 
 if [ "$UMOUNT_WEBDISK" -ne 0 ];then
