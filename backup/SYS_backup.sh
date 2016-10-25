@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 12
+# Version 14
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
@@ -67,9 +67,11 @@ mkdir $PACH_FOR_WEBDISK
 fi
 
 if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
-{
+if [ "$MOUNT_POINT" -eq "mega" ];then
+megafs --disable-previews --config $MEGA_CONF $PACH_FOR_WEBDISK
+else
 mount -t davfs $MOUNT_POINT $PACH_FOR_WEBDISK
-}
+fi
 fi
 
 if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
@@ -98,6 +100,12 @@ done
 }
 fi
 
+
+
+if [ "$MOUNT_POINT" -eq "mega" ];then
+megaput --config=$MEGA_CONF --path $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK $PACH_FOR_BACKUP_TO_DISK/$FILENAME
+else
+
 if [ "$ENCRYPTION" -ne 0 ]
 then
 gpg -o $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME.gpg --yes -e -r $ENCRYPTION_ID_USER $PACH_FOR_BACKUP_TO_DISK/$FILENAME
@@ -105,6 +113,8 @@ else
 cp $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME 2>>$LOG
 fi
 STATUS=$?
+
+fi
 
 if [ $STATUS -ne 0 -a ! -e "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME" ];then
 echo "! Ошибка $STATUS создания файла $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME !" >>$LOG
