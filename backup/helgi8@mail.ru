@@ -31,6 +31,7 @@ MOUNT_POINT=https://webdav.yandex.ru
 #MOUNT_POINT=https://webdav.cubby.com
 #Mega
 #MOUNT_POINT=mega
+#MEGA_CONF=$HOME_DIR/megafs.ini
 
 #Путь для WEBDISK
 PACH_FOR_WEBDISK=$HOME_DIR/webdisk
