@@ -1,4 +1,4 @@
-# version 12
+# version 14
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.conf
 SERVER_NAME="ServerName"
 LOG=/var/log/backup.log
@@ -29,6 +29,8 @@ ENCRYPTION_ID_USER="admin"
 MOUNT_POINT=https://webdav.yandex.ru
 #Cubby
 #MOUNT_POINT=https://webdav.cubby.com
+#Mega
+#MOUNT_POINT=mega
 
 #Путь для WEBDISK
 PACH_FOR_WEBDISK=$HOME_DIR/webdisk
