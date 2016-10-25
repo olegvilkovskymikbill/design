@@ -67,7 +67,7 @@ mkdir $PACH_FOR_WEBDISK
 fi
 
 if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
-if [ "$MOUNT_POINT" -eq "mega" ];then
+if [ "$MOUNT_POINT" = "mega" ];then
 megafs --disable-previews --config $MEGA_CONF $PACH_FOR_WEBDISK
 else
 mount -t davfs $MOUNT_POINT $PACH_FOR_WEBDISK
@@ -83,7 +83,7 @@ else
 if !([ -d "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK" ])then
 {
 echo "Каталог $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK не существует или был удален. Создание каталога" >>$LOG
-mkdir $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK
+mkdir -p $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK
 }
 fi
 
@@ -102,7 +102,7 @@ fi
 
 
 
-if [ "$MOUNT_POINT" -eq "mega" ];then
+if [ "$MOUNT_POINT" = "mega" ];then
 megaput --config=$MEGA_CONF --path $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 else
 
