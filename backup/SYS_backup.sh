@@ -100,10 +100,8 @@ done
 }
 fi
 
-
-
 if [ "$MOUNT_POINT" = "mega" ];then
-megaput --config=$MEGA_CONF --path $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK $PACH_FOR_BACKUP_TO_DISK/$FILENAME
+megaput --config=$MEGA_CONF --path /$DIR_BACKUP_FOR_WEBDISK/ $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 else
 
 if [ "$ENCRYPTION" -ne 0 ]
