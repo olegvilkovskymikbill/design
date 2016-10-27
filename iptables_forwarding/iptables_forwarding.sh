@@ -18,3 +18,13 @@ iptables -A FORWARD -i eth0 -d $LOCAL_IP -p tcp --dport $PORT2 -j ACCEPT
 
 # Просмотр правил
 # iptables -t nat -L -n -v -x
+# С номерами
+# iptables -L FORWARD -n --line-numbers
+# Удаляем по номеру
+# iptables -D FORWARD 3
+
+# Включаем forward 
+# nano /etc/sysctl.conf 
+# net.ipv4.ip_forward = 1
+# Применяем
+# sysctl -p
