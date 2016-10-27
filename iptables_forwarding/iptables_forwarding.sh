@@ -13,7 +13,9 @@ PORT1=
 PORT2=
 
 iptables -t nat -A PREROUTING -p tcp -d $EXT_R_IP --dport $PORT1 -j DNAT --to-destination $LOCAL_IP:$PORT2
-iptables -A FORWARD -i eth0 -d $LOCAL_IP -p tcp --dport $PORT2 -j ACCEPT
+iptables -t nat -A POSTROUTING -d $LOCAL_IP -p tcp --dport $PORT2 -j SNAT --to-source $EXT_R_IP
+iptables -I FORWARD 1 -i eth0 -d $LOCAL_IP -p tcp -p udp --dport $PORT2 -j ACCEPT
+
 
 
 # Просмотр правил
