@@ -20,16 +20,22 @@ MAC=$(echo $MAC | awk '{print $2}')
 
 if [[ $MAC != NULL && $MAC != "" ]]
 then
+
+if ! grep -q $MAC $HOME_DIR/mac.tmp
+then
 QUERY="SELECT gid FROM users WHERE uid=$i"
 PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 PROFILE=$(echo $PROFILE | awk '{print $2}')
 
 echo "add customer=admin username=$MAC" >>$UPLOAD
 echo "create-and-activate-profile profile=$PROFILE "'"'$MAC'" customer=admin' >>$UPLOAD
+echo $MAC >>mac.tmp
+fi
 
 fi
 
 done
+rm $HOME_DIR/mac.tmp
 }
 
 FUNC_PPP (){
