@@ -28,6 +28,7 @@ echo "profile-limitation add profile=${ARRAY_SQL[$i]} limitation=${ARRAY_SQL[$i]
 done
 
 #SSH
+FUNC_SSH (){
 for (( i=0;i!=$CONNECT_SUM;i++ )); do
 
 scp -P $USERMAN_SSH_PORT $UPLOAD_LIMITS $USERMAN_LOGIN@$USERMAN_IP:/
@@ -49,3 +50,5 @@ break
 fi
 
 done
+}
+FUNC_SSH
