@@ -13,6 +13,7 @@ SQL=${SQL:4:${#SQL}}
 }
 
 FUNC_HOTSPOT (){
+touch $HOME_DIR/mac.tmp
 for i in $SQL; do
 QUERY="SELECT local_mac FROM users WHERE uid=$i"
 MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
