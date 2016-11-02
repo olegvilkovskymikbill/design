@@ -3,6 +3,7 @@
 cd /opt/
 wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/mikbill-to-MyISAM.sh
 wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/mikbill-to-InnoDB.sh
+wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/centos_my.cnf
 
 chmod +x mikbill-to-MyISAM.sh 
 chmod +x mikbill-to-InnoDB.sh 
@@ -10,7 +11,7 @@ chmod +x mikbill-to-InnoDB.sh
 Два раза
 ./mikbill-to-MyISAM.sh
 
-Меняем конфиг
+Меняем конфиг my.cnf
 /etc/init.d/mysql stop
 cd /var/lib/mysql
 mv ibdata1 ibdata1_off
