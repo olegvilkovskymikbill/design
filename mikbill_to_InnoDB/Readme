@@ -26,5 +26,6 @@ mv ib_logfile0 ib_logfile0_off
 mv ib_logfile1 ib_logfile1_off
 /etc/init.d/mysql start
 cd /opt/
+
 Два раза
 ./mikbill-to-InnoDB.sh
