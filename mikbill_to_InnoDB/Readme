@@ -1,4 +1,22 @@
+Переводим таблицы в InnoDB
+
+cd /opt/
+wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/mikbill-to-MyISAM.sh
+wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/mikbill-to-InnoDB.sh
+
 chmod +x mikbill-to-MyISAM.sh 
 chmod +x mikbill-to-InnoDB.sh 
+
+Два раза
 ./mikbill-to-MyISAM.sh
-./mikbill-to-MyISAM.sh
+
+Меняем конфиг
+/etc/init.d/mysql stop
+cd /var/lib/mysql
+mv ibdata1 ibdata1_off
+mv ib_logfile0 ib_logfile0_off
+mv ib_logfile1 ib_logfile1_off
+/etc/init.d/mysql start
+cd /opt/
+Два раза
+./mikbill-to-InnoDB.sh
