@@ -1,0 +1,93 @@
+[client]
+port = 3306
+socket=/var/lib/mysql/mysql.sock
+
+[mysql]
+loose-local-infile=1
+
+[mysqld_safe]
+err-log = /var/log/mysql/mysql.err
+
+[mysqld]
+
+user = mysql
+port = 3306
+socket = /var/lib/mysql/mysql.sock
+pid-file = /var/run/mysqld/mysqld.pid
+log-error = /var/log/mysql/mysql.err
+basedir = /usr
+datadir = /var/lib/mysql
+skip-external-locking
+symbolic-links=0
+skip-name-resolve
+
+#system
+language = /usr/share/mysql/english
+loose-local-infile=1
+query_cache_size = 256M
+query_cache_limit = 256M
+join_buffer_size = 256M
+max_join_size=256M
+max_connect_errors = 1K
+max_allowed_packet=16M
+table_open_cache = 1k
+table_cache = 1k
+max_heap_table_size = 1024M
+tmp_table_size = 1024M
+interactive_timeout = 420
+wait_timeout = 420
+connect_timeout = 420
+thread_cache_size = 32
+max_connections = 64
+
+#Myisam
+key_buffer_size = 8M
+sort_buffer_size = 2M
+read_buffer_size = 2M
+read_rnd_buffer_size = 2M
+myisam_sort_buffer_size = 2M
+
+
+#ниже включается бинари лог, разкоментируйте следующие 2 строки чтобы включить
+#server-id=1
+#log-bin=mysqld-bin
+tmpdir = /tmp/
+
+#innodb
+
+innodb_file_per_table
+innodb_flush_method=O_DIRECT
+innodb_buffer_pool_size = 1G
+innodb_additional_mem_pool_size = 4M
+innodb_data_home_dir = /var/lib/mysql/
+innodb_log_group_home_dir = /var/lib/mysql/
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_log_file_size = 256M
+innodb_log_buffer_size = 8M
+innodb_log_files_in_group = 2
+innodb_flush_log_at_trx_commit = 0
+innodb_lock_wait_timeout = 70
+
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[isamchk]
+key_buffer = 20M
+sort_buffer_size = 20M
+read_buffer = 2M
+write_buffer = 2M
+
+[myisamchk]
+key_buffer_size = 256M
+sort_buffer_size = 256M
+read_buffer = 2M
+write_buffer = 2M
+
+[mysqlhotcopy]
+interactive-timeout
+
+[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
