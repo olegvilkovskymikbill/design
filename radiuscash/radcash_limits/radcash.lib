@@ -55,12 +55,17 @@ QUERY="SELECT gid FROM users WHERE uid=$i"
 PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 PROFILE=$(echo $PROFILE | awk '{print $2}')
 
-echo "add customer=admin username=$USER password=$PASSWORD" >>$UPLOAD
+QUERY="SELECT framed_ip FROM users WHERE uid=$i"
+IPADDR=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+IPADDR=$(echo $PROFILE | awk '{print $2}')
+
+echo "add customer=admin username=$USER password=$PASSWORD" ip-address=$IPADDR >>$UPLOAD
 echo "create-and-activate-profile profile=$PROFILE "'"'$USER'" customer=admin' >>$UPLOAD
 fi
 
 done
 }
+
 
 
 SSH_UPLOAD ()
