@@ -1,5 +1,10 @@
 Переводим таблицы в InnoDB
 
+Делаем резервное копирование
+mysqldump --routines --extended-insert -u root -p mikbill | gzip > /home/backup_mikbill.sql.gz
+или
+mysqldump -u mikbill -p mikbill | gzip > /home/backup_mikbill.sql.gz
+
 cd /opt/
 wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/mikbill-to-MyISAM.sh
 wget https://github.com/mikbill/design/raw/master/mikbill_to_InnoDB/mikbill-to-InnoDB.sh
