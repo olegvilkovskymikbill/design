@@ -17,6 +17,8 @@ chmod +x mikbill-to-InnoDB.sh
 ./mikbill-to-MyISAM.sh
 
 Меняем конфиг my.cnf
+cp /etc/my.cnf /etc/my.cnf_old
+
 /etc/init.d/mysql stop
 cd /var/lib/mysql
 mv ibdata1 ibdata1_off
