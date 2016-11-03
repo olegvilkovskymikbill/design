@@ -1,43 +1,40 @@
 :local IP 8.8.8.1
 :local COUNT 1
 
+:local radiusMikbill1 0
+:local radiusRadCash 1
+
 :local dhcpServer1 server1
 :local dhcpRelay1 relay1
 
-:local pppoeServer1 service1
-:local pppoeProfileMikbill profile1
-:local pppoeProfileRadCash profile2
-
 :local STATUS ([/ping $IP count=$COUNT])
 
+:global statusRadCash
+
 :if ($STATUS = 0) do={
-	log warning "enable RadCash"
-	
-	/ radius disable numbers=0
-	/ radius enable numbers=1
-	
-	/ ip dhcp-server enable $dhcpServer1 
-	/ ip dhcp-relay disable $dhcpRelay1 
 
-	/ interface pppoe-server server set numbers=[find service-name="$pppoeServer1"] default-profile=$pppoeProfileRadCash
-
+	:if ($statusRadCash = 0) do={
+		log warning "enable RadCash"
 	
+		/ radius disable numbers=$radiusMikbill1
+		/ radius enable numbers=$radiusRadCash
 	
+		/ ip dhcp-server enable $dhcpServer1 
+		/ ip dhcp-relay disable $dhcpRelay1 
+		}
 	
-	
+	:global statusRadCash 1	
 	} else {
-	log warning "disable RadCash"
 
-	/ radius enable numbers=0
-	/ radius disable numbers=1
+	:if ($statusRadCash = 0) do={
+		log warning "disable RadCash"
 	
-	/ ip dhcp-server disable $dhcpServer1 
-	/ ip dhcp-relay enable $dhcpRelay1 
-
-	/ interface pppoe-server server set numbers=[find service-name="$pppoeServer1"] default-profile=$pppoeProfileMikbill
+		/ radius enable numbers=$radiusMikbill1
+		/ radius disable numbers=$radiusRadCash
 	
+		/ ip dhcp-server disable $dhcpServer1 
+		/ ip dhcp-relay enable $dhcpRelay1 
+		}
 	
-	
-	
-	
+	:global statusRadCash 0
 	}
