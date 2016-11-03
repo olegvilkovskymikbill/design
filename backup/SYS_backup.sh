@@ -169,7 +169,7 @@ if [ "$BACKUP_FILES" -ne 0 ];then
 
 if !([ -e "$TAR_EXCLUDE_LIST" ])then
 {
-echo "Создание файла исключений $TAR_EXCLUDE_LIST для бекапа файлов"
+echo "Создание файла исключений для бекапа файлов $TAR_EXCLUDE_LIST "
 touch $TAR_EXCLUDE_LIST
 }
 fi
