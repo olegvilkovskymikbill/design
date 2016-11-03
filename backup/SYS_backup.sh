@@ -87,7 +87,7 @@ mkdir -p $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK
 }
 fi
 
-#Удаляем самые старые файлы пока не хватит места для нового бэкапа
+#Удаляем самые старые файлы пока не хватит места для нового бекапа
 if [ $FREESPACE_WEBDISK -ne 0 ];then
 {
 SIZEFILE=`du -sm $PACH_FOR_BACKUP_TO_DISK/$FILENAME | awk '{print$1}'`
@@ -150,7 +150,7 @@ mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BAC
 
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
 
-echo "Бэкап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
+echo "бекап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
 FUNC_COPY_TO_WEBDISK
 }
 fi
@@ -160,14 +160,14 @@ if [ "$BACKUP_FILES" -ne 0 ];then
 
 if !([ -e "$TAR_EXCLUDE_LIST" ])then
 {
-echo "Создание файла исключений $TAR_EXCLUDE_LIST для бэкапа файлов"
+echo "Создание файла исключений $TAR_EXCLUDE_LIST для бекапа файлов"
 touch $TAR_EXCLUDE_LIST
 }
 fi
 
 if !([ -e "$TAR_INCLUDE_LIST" ])then
 {
-echo "! Бэкап файлов включен, но конфигарационный файл $TAR_INCLUDE_LIST не найден. Создание файла. Заполните его !" >>$LOG
+echo "! бекап файлов включен, но конфигарационный файл $TAR_INCLUDE_LIST не найден. Создание файла. Заполните его !" >>$LOG
 touch $TAR_INCLUDE_LIST
 }
 else
@@ -190,7 +190,7 @@ fi
 #----------------------------------------------
 FUNC_TAR_DIFF()
 {
-#Бэкап предыдущей проверки
+#бекап предыдущей проверки
 rm -f $DIFF_BACKUP
 tar -czf $DIFF_BACKUP $FILENAME 2>>$LOG
 if [ $? -ne 0 ];then
