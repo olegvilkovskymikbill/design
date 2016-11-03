@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 14
+# Version 15
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
@@ -76,7 +76,7 @@ fi
 
 if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
 {
-echo "! Ошибка Монтирование диска $MOUNT_POINT в $PACH_FOR_WEBDISK !" >>$LOG
+echo "! Ошибка монтирование диска $MOUNT_POINT в $PACH_FOR_WEBDISK !" >>$LOG
 }
 else
 {
@@ -106,18 +106,18 @@ else
 
 if [ "$ENCRYPTION" -ne 0 ]
 then
-gpg -o $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME.gpg --yes -e -r $ENCRYPTION_ID_USER $PACH_FOR_BACKUP_TO_DISK/$FILENAME
+gpg -o $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME.gpg --yes -e -r $ENCRYPTION_ID_USER $PACH_FOR_BACKUP_TO_DISK/$FILENAME_WEBDISK
 else
-cp $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME 2>>$LOG
+cp $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK 2>>$LOG
 fi
 STATUS=$?
 
 fi
 
-if [ $STATUS -ne 0 -a ! -e "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME" ];then
-echo "! Ошибка $STATUS создания файла $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME !" >>$LOG
+if [ $STATUS -ne 0 -a ! -e "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK" ];then
+echo "! Ошибка $STATUS создания файла $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK !" >>$LOG
 else
-echo "Файл $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME создан успешно" >>$LOG
+echo "Файл $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK создан успешно" >>$LOG
 fi
 }
 fi
@@ -146,11 +146,20 @@ DB_PASSWORD=$(cat $PATH_MIKBILL'app/etc/config.xml'| grep  password | awk '{ gsu
 fi
 
 FILENAME=sql-"$SERVER_NAME"-"$DATE".sql.gz
+
 mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
 
 echo "бекап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
+
+if [ "$WEBDISK_ONE_FILE" -ne 0 ]
+then
+FILENAME_WEBDISK=sql-"$SERVER_NAME".sql.gz
+else
+FILENAME_WEBDISK=$FILENAME
+fi
+
 FUNC_COPY_TO_WEBDISK
 }
 fi
@@ -182,6 +191,14 @@ echo "! Ошибка создания архива $STATUS $PACH_FOR_BACKUP_TO_D
 else
 echo "Архив $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
 fi
+
+if [ "$WEBDISK_ONE_FILE" -ne 0 ]
+then
+FILENAME_WEBDISK=files-"$SERVER_NAME".tar.gz
+else
+FILENAME_WEBDISK=$FILENAME
+fi
+
 FUNC_COPY_TO_WEBDISK
 }
 fi
@@ -251,6 +268,14 @@ else
 echo "Архив $PACH_FOR_BACKUP_TO_DISK/$FILENAME каталога $DIFF_DIR_OLD создан успешно" >>$LOG
 rm -rf $DIFF_DIR_TEMP
 fi
+
+if [ "$WEBDISK_ONE_FILE" -ne 0 ]
+then
+FILENAME_WEBDISK=configs-"$SERVER_NAME".tar.gz
+else
+FILENAME_WEBDISK=$FILENAME
+fi
+
 FUNC_COPY_TO_WEBDISK
 }
 else
@@ -297,6 +322,13 @@ echo -e "Свободное место на диске \n" "$(df -h $PACH_FOR_WE
 
 FILENAME="log-"$DATE".tar.gz"
 tar -czf $PACH_FOR_BACKUP_TO_DISK/$FILENAME $LOG
+
+if [ "$WEBDISK_ONE_FILE" -ne 0 ]
+then
+FILENAME_WEBDISK=log.tar.gz
+else
+FILENAME_WEBDISK=$FILENAME
+fi
 
 FUNC_COPY_TO_WEBDISK
 
