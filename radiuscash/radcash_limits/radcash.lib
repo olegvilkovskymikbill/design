@@ -30,7 +30,7 @@ PROFILE=$(echo $PROFILE | awk '{print $2}')
 
 echo "add customer=admin username=$MAC" >>$UPLOAD
 echo "create-and-activate-profile profile=$PROFILE "'"'$MAC'" customer=admin' >>$UPLOAD
-echo $MAC >>mac.tmp
+echo $MAC >>$HOME_DIR/mac.tmp
 fi
 
 fi
