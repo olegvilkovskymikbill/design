@@ -1,30 +1,38 @@
 #!/bin/bash
-#͑Client DNS
-DNS1=91.224.16.1
-DNS2=91.224.16.2
+#Client DNS
+DNS1=192.168.10.1
+DNS2=8.8.8.8
 # Mikrotik
-MT_IP="192.168.10.67"
+MT_IP="192.168.10.1"
 MT_SSH_PORT="22"
-MT_LOGIN="mikbill"
+MT_LOGIN="bill"
 SSH_INTERVAL=10
 SSH_SUM=10
 
 DIG=`which dig`
-IPSETNAME="paysystems"
+IPSETNAME="nomoney_dst_accept"
 
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 SRCDATA=`cat $HOME_DIR/domains.list`
 IPLIST="$HOME_DIR/ip.list"
 UPLOAD=$HOME_DIR/upload_paysys.rsc
-ADDRESS_LIST="black_list"
+ADDRESS_LIST="nomoney_dst_accept"
+
+TMP=$HOME_DIR/tmp
 
 RESULT="$($DIG +short $SRCDATA @$DNS1 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $($DIG +short $SRCDATA @$DNS2 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $(cat $IPLIST)"
 
 echo "/ip firewall address-list remove [/ip firewall address-list find list=$ADDRESS_LIST]" >$UPLOAD
-for i in $RESULT; do
-echo "/ip firewall address-list add list="$ADDRESS_LIST" address=$i" >>$UPLOAD
-done
 
+touch $TMP
+for i in $RESULT; do
+if ! grep -q $i $TMP
+then
+echo "/ip firewall address-list add list="$ADDRESS_LIST" address=$i" >>$UPLOAD
+echo $i >>$TMP
+fi
+done
+rm $TMP
 
 SSH_UPLOAD (){
 for (( i=0;i!=$SSH_SUM;i++ )); do
@@ -52,5 +60,5 @@ done
 SSH_UPLOAD
 
 # wget https://github.com/mikbill/design/raw/master/paysystems/ipset_paysystems_mikrotik.sh
-# Version 1
+# Version 2
 # By Oleg Vilkovsky
