@@ -78,10 +78,12 @@ ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
 sleep $CONNECT_INTERVAL
+else
+exit
 fi
 
+
 done
-break
 fi
 
 done
