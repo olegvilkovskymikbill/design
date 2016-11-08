@@ -29,13 +29,12 @@ FUNC_MAX_GID
 
 for (( i=0; i <= $MAX_GID; i++ ))
 do
-QUERY="SELECT razresh_minus FROM packets WHERE gid=$n"
+QUERY="SELECT razresh_minus FROM packets WHERE gid=$i"
 QUERY_TO_SQL
 CUT=14
 CUT_SQL
-GID[$n]=$SQL
 
-QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0 and gid=$GID"
+QUERY="SELECT uid FROM users WHERE (deposit+credit)>=-$SQL and blocked=0 and gid=$i"
 QUERY_TO_SQL
 CUT=4
 CUT_SQL
