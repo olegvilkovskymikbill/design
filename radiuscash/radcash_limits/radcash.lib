@@ -11,9 +11,13 @@ MAX_UID=${QUERY_TO_SQL:11:${#QUERY_TO_SQL}}
 }
 
 UID_TO_USERS (){
+QUERY="SELECT gid, razresh_minus FROM packets"
+QUERY_TO_SQL
+
+
 QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
 QUERY_TO_SQL
-USERS=${QUERY_TO_SQL:4:${#QUERY_TO_SQL}}
+USERS=${SQL:4:${#SQL}}
 }
 
 FUNC_HOTSPOT (){
@@ -21,7 +25,7 @@ touch $HOME_DIR/mac.tmp
 for i in $USERS; do
 QUERY="SELECT local_mac FROM users WHERE uid=$i"
 QUERY_TO_SQL
-MAC=$(echo $QUERY_TO_SQL | awk '{print $2}')
+MAC=$(echo $SQL | awk '{print $2}')
 
 if [[ $MAC != NULL && $MAC != "" ]]
 then
@@ -30,7 +34,7 @@ if ! grep -q $MAC $HOME_DIR/mac.tmp
 then
 QUERY="SELECT gid FROM users WHERE uid=$i"
 QUERY_TO_SQL
-PROFILE=$(echo $QUERY_TO_SQL | awk '{print $2}')
+PROFILE=$(echo $SQL | awk '{print $2}')
 
 echo "add customer=admin username=$MAC" >>$UPLOAD
 echo "create-and-activate-profile profile=$PROFILE "'"'$MAC'" customer=admin' >>$UPLOAD
@@ -47,15 +51,15 @@ FUNC_PPP (){
 for i in $USERS; do
 QUERY="SELECT password FROM users WHERE uid=$i"
 QUERY_TO_SQL
-PASSWORD=$(echo $QUERY_TO_SQL | awk '{print $2}')
+PASSWORD=$(echo $SQL | awk '{print $2}')
 
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user, gid, framed_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
-USER=$(echo $QUERY_TO_SQL | awk '{print $4}')
-PROFILE=$(echo $QUERY_TO_SQL | awk '{print $5}')
-IPADDR=$(echo $QUERY_TO_SQL | awk '{print $6}')
+USER=$(echo $SQL | awk '{print $4}')
+PROFILE=$(echo $SQL | awk '{print $5}')
+IPADDR=$(echo $SQL | awk '{print $6}')
 
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$PROFILE "'"'$USER'" customer=admin' >>$UPLOAD
