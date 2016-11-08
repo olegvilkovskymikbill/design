@@ -49,7 +49,7 @@ fi
 
 if [ "$IP_TO_WALLED_GARDEN_IP_LIST" -ne 0 ]
 then
-echo "/ip hotspot walled-garden ip add src-address="$ADDRESS_LIST" comment=test" >>$UPLOAD
+echo "/ip hotspot walled-garden ip add comment=$ADDRESS_LIST src-address=$i" >>$UPLOAD
 fi
 
 echo $i >>$TMP
