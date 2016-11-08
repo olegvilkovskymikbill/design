@@ -38,12 +38,8 @@ QUERY="SELECT uid FROM users WHERE (deposit+credit)>=-$SQL and blocked=0 and gid
 QUERY_TO_SQL
 CUT=4
 CUT_SQL
-USERS="$USERS+$SQL"
+USERS="$USERS$SQL"
 done
-
-echo $USERS
-
-
 }
 
 FUNC_HOTSPOT (){
