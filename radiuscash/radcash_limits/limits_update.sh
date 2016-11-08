@@ -3,9 +3,8 @@ HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/radcash.conf
 source $HOME_DIR/radcash.lib
 
-QUERY="SELECT MAX( gid ) FROM packets"
-MAX_GID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY"`
-MAX_GID=$(( 3*${MAX_GID:11:${#MAX_GID}} ))
+FUNC_MAX_GID
+let "MAX_UID=MAX_UID*3"
 
 QUERY="SELECT gid, speed_rate, speed_burst FROM packets"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
