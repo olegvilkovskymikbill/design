@@ -8,7 +8,7 @@ FUNC_MAX_UID
 echo "/tool user-manager user" >$UPLOAD
 echo "remove [find]" >>$UPLOAD
 
-UID_TO_SQL
+UID_TO_USERS
 
 if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
