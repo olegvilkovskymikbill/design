@@ -1,5 +1,9 @@
 #!/bin/bash
 
+GET_QUERY (){
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
+}
+
 FUNC_MAX_UID (){
 QUERY="SELECT MAX( uid ) FROM users"
 MAX_UID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
