@@ -6,6 +6,9 @@ DNS2=8.8.8.8
 MT_IP="192.168.10.1"
 MT_SSH_PORT="22"
 MT_LOGIN="bill"
+IP_TO_ADDRESS_LIST=1
+IP_TO_WALLED_GARDEN_IP_LIST=1
+
 SSH_INTERVAL=10
 SSH_SUM=10
 
@@ -22,13 +25,33 @@ TMP=$HOME_DIR/tmp
 
 RESULT="$($DIG +short $SRCDATA @$DNS1 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $($DIG +short $SRCDATA @$DNS2 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $(cat $IPLIST)"
 
-echo "/ip firewall address-list remove [/ip firewall address-list find list=$ADDRESS_LIST]" >$UPLOAD
+echo "" >$UPLOAD
+
+if [ "$IP_TO_ADDRESS_LIST" -ne 0 ]
+then
+echo "/ip firewall address-list remove [/ip firewall address-list find list=$ADDRESS_LIST]" >>$UPLOAD
+fi
+
+if [ "$IP_TO_WALLED_GARDEN_IP_LIST" -ne 0 ]
+then
+echo "/ip hotspot walled-garden ip remove numbers=[/ip hotspot walled-garden ip find comment=$ADDRESS_LIST]" >>$UPLOAD
+fi
 
 touch $TMP
 for i in $RESULT; do
 if ! grep -q $i $TMP
 then
+
+if [ "$IP_TO_ADDRESS_LIST" -ne 0 ]
+then
 echo "/ip firewall address-list add list="$ADDRESS_LIST" address=$i" >>$UPLOAD
+fi
+
+if [ "$IP_TO_WALLED_GARDEN_IP_LIST" -ne 0 ]
+then
+echo "/ip hotspot walled-garden ip add src-address="$ADDRESS_LIST" comment=test" >>$UPLOAD
+fi
+
 echo $i >>$TMP
 fi
 done
@@ -60,5 +83,5 @@ done
 SSH_UPLOAD
 
 # wget https://github.com/mikbill/design/raw/master/paysystems/ipset_paysystems_mikrotik.sh
-# Version 2
+# Version 3
 # By Oleg Vilkovsky
