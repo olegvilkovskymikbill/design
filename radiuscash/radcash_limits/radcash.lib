@@ -16,7 +16,7 @@ CUT_SQL
 MAX_UID=$SQL
 }
 
-FUNC_MAX_GID(){
+FUNC_MAX_GID (){
 QUERY="SELECT MAX( gid ) FROM packets"
 QUERY_TO_SQL
 CUT=11
@@ -34,13 +34,17 @@ QUERY_TO_SQL
 CUT=14
 CUT_SQL
 GID[$n]=$SQL
+
+QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0 and gid=$GID"
+QUERY_TO_SQL
+CUT=4
+CUT_SQL
+USERS="$USERS+$SQL"
 done
 
+echo $USERS
 
 
-QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
-QUERY_TO_SQL
-USERS=${SQL:4:${#SQL}}
 }
 
 FUNC_HOTSPOT (){
