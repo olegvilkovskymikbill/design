@@ -5,7 +5,7 @@ SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 }
 
 CUT_SQL (){
-SQL=${QUERY_TO_SQL:$CUT:${#QUERY_TO_SQL}}
+SQL=${SQL:$CUT:${#SQL}}
 }
 
 FUNC_MAX_UID (){
