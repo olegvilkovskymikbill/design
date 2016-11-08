@@ -28,22 +28,13 @@ UID_TO_USERS (){
 FUNC_MAX_GID
 
 for (( i=0; i <= $MAX_GID; i++ ))
-then
+do
 QUERY="SELECT razresh_minus FROM packets WHERE gid=$n"
 CUT=14
 CUT_SQL
 GID[$n]=$SQL
-fi
-
-QUERY="SELECT gid, razresh_minus FROM packets"
-QUERY_TO_SQL
-SQL=${SQL:18:${#SQL}}
-
-n=0
-for i in $SQL; do
-ARRAY_SQL[$n]=$i
-let n=n+1
 done
+
 
 
 QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
