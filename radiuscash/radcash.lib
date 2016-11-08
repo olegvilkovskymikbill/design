@@ -6,23 +6,25 @@ MAX_UID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 MAX_UID=${MAX_UID:11:${#MAX_UID}}
 }
 
-UID_TO_SQL (){
+UIDS_TO_USERS (){
 QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-SQL=${SQL:4:${#SQL}}
+
+QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
+GET_QUERY
+USERS=${SQL:4:${#SQL}}
 }
 
 FUNC_HOTSPOT (){
-for i in $SQL; do
+for i in $USERS; do
 QUERY="SELECT local_mac FROM users WHERE uid=$i"
-MAC=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-MAC=$(echo $MAC | awk '{print $2}')
+GET_QUERY
+MAC=$(echo $SQL | awk '{print $2}')
 
 if [[ $MAC != NULL && $MAC != "" ]]
 then
 QUERY="SELECT gid FROM users WHERE uid=$i"
-GID=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-GID=$(echo $GID | awk '{print $2}')
+GET_QUERY
+GID=$(echo $SQL | awk '{print $2}')
 
 echo "add customer=admin username=$MAC" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
@@ -33,23 +35,23 @@ done
 }
 
 FUNC_PPP (){
-for i in $SQL; do
+for i in $USERS; do
 QUERY="SELECT password FROM users WHERE uid=$i"
-PASSWORD=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-PASSWORD=$(echo $PASSWORD | awk '{print $2}')
+GET_QUERY
+PASSWORD=$(echo $SQL | awk '{print $2}')
 
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user FROM users WHERE uid=$i"
-USER=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-USER=$(echo $USER | awk '{print $2}')
+GET_QUERY
+USER=$(echo $SQL | awk '{print $2}')
 
 QUERY="SELECT gid FROM users WHERE uid=$i"
-PROFILE=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-PROFILE=$(echo $PROFILE | awk '{print $2}')
+GET_QUERY
+GID=$(echo $SQL | awk '{print $2}')
 
 echo "add customer=admin username=$USER password=$PASSWORD" >>$UPLOAD
-echo "create-and-activate-profile profile=$PROFILE "'"'$USER'" customer=admin' >>$UPLOAD
+echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
 fi
 
 done
@@ -72,10 +74,11 @@ ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
 sleep $CONNECT_INTERVAL
+else
+exit
 fi
 
 done
-break
 fi
 
 done
