@@ -30,6 +30,7 @@ FUNC_MAX_GID
 for (( i=0; i <= $MAX_GID; i++ ))
 do
 QUERY="SELECT razresh_minus FROM packets WHERE gid=$n"
+QUERY_TO_SQL
 CUT=14
 CUT_SQL
 GID[$n]=$SQL
