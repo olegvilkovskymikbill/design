@@ -4,15 +4,46 @@ QUERY_TO_SQL (){
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 }
 
+CUT_SQL (){
+SQL=${QUERY_TO_SQL:$CUT:${#QUERY_TO_SQL}}
+}
+
 FUNC_MAX_UID (){
 QUERY="SELECT MAX( uid ) FROM users"
 QUERY_TO_SQL
-MAX_UID=${QUERY_TO_SQL:11:${#QUERY_TO_SQL}}
+CUT=11
+CUT_SQL
+MAX_UID=$SQL
+}
+
+FUNC_MAX_GID(){
+QUERY="SELECT MAX( gid ) FROM packets"
+QUERY_TO_SQL
+CUT=11
+CUT_SQL
+MAX_GID=$SQL
 }
 
 UID_TO_USERS (){
+FUNC_MAX_GID
+
+for (( i=0; i <= $MAX_GID; i++ ))
+then
+QUERY="SELECT razresh_minus FROM packets WHERE gid=$n"
+CUT=14
+CUT_SQL
+GID[$n]=$SQL
+fi
+
 QUERY="SELECT gid, razresh_minus FROM packets"
 QUERY_TO_SQL
+SQL=${SQL:18:${#SQL}}
+
+n=0
+for i in $SQL; do
+ARRAY_SQL[$n]=$i
+let n=n+1
+done
 
 
 QUERY="SELECT uid FROM users WHERE (deposit+credit)>=0 and blocked=0"
