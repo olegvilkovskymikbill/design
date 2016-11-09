@@ -33,12 +33,15 @@ QUERY="SELECT razresh_minus FROM packets WHERE gid=$i"
 QUERY_TO_SQL
 CUT=14
 CUT_SQL
-
-QUERY="SELECT uid FROM users WHERE (deposit+credit)>=-$SQL and blocked=0 and gid=$i"
+# Debug
+# echo -e "\e[1;32m \n Тариф $i \n Разрешенный минус $SQL \e[0m"
+QUERY="SELECT uid FROM users WHERE blocked=0 and gid=$i and (deposit+credit)>=-$SQL"
 QUERY_TO_SQL
 CUT=4
 CUT_SQL
-USERS="$USERS$SQL"
+# Debug
+# echo $SQL
+USERS="$USERS $SQL"
 done
 }
 
