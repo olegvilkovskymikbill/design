@@ -57,11 +57,12 @@ then
 
 if ! grep -q $MAC $HOME_DIR/mac.tmp
 then
-QUERY="SELECT gid FROM users WHERE uid=$i"
+QUERY="SELECT gid, framed_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
-PROFILE=$(echo $SQL | awk '{print $2}')
+PROFILE=$(echo $SQL | awk '{print $3}')
+IPADDR=$(echo $SQL | awk '{print $4}')
 
-echo "add customer=admin username=$MAC" >>$UPLOAD
+echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$PROFILE "'"'$MAC'" customer=admin' >>$UPLOAD
 echo $MAC >>$HOME_DIR/mac.tmp
 fi
