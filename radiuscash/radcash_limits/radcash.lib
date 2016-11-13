@@ -133,7 +133,7 @@ if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user, framed_ip FROM users WHERE uid=$ID"
 USER=$(echo $SQL | awk '{print $3}')
-GID=$(echo $SQL | awk '{print $4}')
+IPADDR=$(echo $SQL | awk '{print $4}')
 
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
