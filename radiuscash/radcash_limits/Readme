@@ -10,3 +10,6 @@ chmod +x limits_update.sh
 Строка в mikbill_payment_event.sh
 /home/radcash/update_uid.sh $2
 
+mikbill_pcq.sh
+/home/radcash/limits_update.sh
+
