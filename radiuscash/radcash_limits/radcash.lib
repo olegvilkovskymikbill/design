@@ -86,7 +86,6 @@ rm $HOME_DIR/mac.tmp
 }
 
 
-
 FUNC_HOTSPOT_ID (){
 QUERY="SELECT local_mac FROM users WHERE uid=$ID"
 QUERY_TO_SQL
@@ -101,6 +100,7 @@ echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
 fi
 }
+
 
 FUNC_PPP (){
 for i in $USERS; do
