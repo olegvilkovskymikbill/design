@@ -132,6 +132,7 @@ PASSWORD=$(echo $SQL | awk '{print $2}')
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user, framed_ip FROM users WHERE uid=$ID"
+QUERY_TO_SQL
 USER=$(echo $SQL | awk '{print $3}')
 IPADDR=$(echo $SQL | awk '{print $4}')
 
