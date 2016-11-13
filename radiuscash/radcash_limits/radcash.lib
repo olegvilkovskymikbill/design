@@ -45,6 +45,18 @@ USERS="$USERS $SQL"
 done
 }
 
+FUNC_CHECK_ID () {
+QUERY="SELECT gid FROM users WHERE uid=$ID"
+QUERY_TO_SQL
+GID=$(echo $SQL | awk '{print $2}')
+QUERY="SELECT razresh_minus FROM packets WHERE gid=$GID"
+QUERY_TO_SQL
+RAZRESH_MINUS=$(echo $SQL | awk '{print $2}')
+QUERY="SELECT uid FROM users WHERE uid=$ID and blocked=0 and (deposit+credit)>=-$RAZRESH_MINUS"
+QUERY_TO_SQL
+CHECK_ID=$(echo $SQL | awk '{print $2}')
+}
+
 FUNC_HOTSPOT (){
 touch $HOME_DIR/mac.tmp
 for i in $USERS; do
@@ -73,6 +85,12 @@ done
 rm $HOME_DIR/mac.tmp
 }
 
+
+
+FUNC_HOTSPOT_ID (){
+echo 1
+}
+
 FUNC_PPP (){
 for i in $USERS; do
 QUERY="SELECT password FROM users WHERE uid=$i"
@@ -93,6 +111,8 @@ fi
 
 done
 }
+
+
 
 
 
