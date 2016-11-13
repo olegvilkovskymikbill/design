@@ -6,3 +6,7 @@ wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/limi
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/update_uid.sh
 chmod +x radcash.sh
 chmod +x limits_update.sh
+
+Строка в mikbill_payment_event.sh
+/home/radcash/update_uid.sh $2
+
