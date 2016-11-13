@@ -6,5 +6,16 @@ source $HOME_DIR/radcash.lib
 echo >$UPLOAD
 echo "/tool user-manager user" >>$UPLOAD
 
-UID=$1
-echo $UID >>UPLOAD
+ID=$1
+
+if [ "$RADIUS_HOTSPOT" -ne 0 ]
+then                                                                     
+FUNC_HOTSPOT_ID                                                          
+fi                                                                       
+                                                                         
+if [ "$RADIUS_PPP" -ne 0 ]                                               
+then                                                                     
+FUNC_PPP_ID                                                              
+fi
+
+SSH_UPLOAD
