@@ -12,4 +12,5 @@ chmod +x limits_update.sh
 
 mikbill_pcq.sh
 /home/radcash/limits_update.sh
-
+sleep 10
+/home/radcash/radcash.sh
