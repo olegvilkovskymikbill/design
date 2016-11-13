@@ -10,7 +10,7 @@ ID=$1
 
 FUNC_CHECK_ID
 
-if [ "$CHECK_ID" == $ID ]
+if [ "$CHECK_ID" != "" ]
 then
 
 if [ "$RADIUS_HOTSPOT" -ne 0 ]
