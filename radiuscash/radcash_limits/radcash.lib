@@ -54,7 +54,7 @@ QUERY_TO_SQL
 RAZRESH_MINUS=$(echo $SQL | awk '{print $2}')
 QUERY="SELECT uid FROM users WHERE uid=$ID and blocked=0 and (deposit+credit)>=-$RAZRESH_MINUS"
 QUERY_TO_SQL
-CHECK_ID=$(echo $SQL | awk '{print $2}')
+CHECK_ID=$SQL
 }
 
 FUNC_HOTSPOT (){
