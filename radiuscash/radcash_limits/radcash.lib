@@ -92,11 +92,17 @@ MAC=$(echo $SQL | awk '{print $2}')
 
 if [[ $MAC != NULL && $MAC != "" ]]
 then
+
+if ! grep -q $MAC $MAC_TMP
+then
 QUERY="SELECT framed_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 IPADDR=$(echo $SQL | awk '{print $2}')
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
+echo $MAC >>$MAC_TMP
+fi
+
 fi
 }
 
