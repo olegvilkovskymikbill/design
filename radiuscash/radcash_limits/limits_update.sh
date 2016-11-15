@@ -4,7 +4,7 @@ source $HOME_DIR/radcash.conf
 source $HOME_DIR/radcash.lib
 
 FUNC_MAX_GID
-let "MAX_UID=MAX_UID*3"
+let "MAX_GID=MAX_GID*3"
 
 QUERY="SELECT gid, speed_rate, speed_burst FROM packets"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
