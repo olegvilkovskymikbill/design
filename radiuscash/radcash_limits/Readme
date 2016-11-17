@@ -4,8 +4,8 @@ wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radc
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.sh
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/limits_update.sh
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/update_uid.sh
-chmod +x radcash.sh
-chmod +x limits_update.sh
+wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash_all_update.sh
+chmod +x radcash.sh limits_update.sh update_uid.sh radcash_all_update.sh
 
 Строка в mikbill_payment_event.sh
 /home/radcash/update_uid.sh $2
