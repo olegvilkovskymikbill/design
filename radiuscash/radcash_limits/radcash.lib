@@ -69,7 +69,7 @@ then
 
 if ! grep -q $MAC $MAC_TMP
 then
-QUERY="SELECT gid, framed_ip FROM users WHERE uid=$i"
+QUERY="SELECT gid, local_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
 GID=$(echo $SQL | awk '{print $3}')
 IPADDR=$(echo $SQL | awk '{print $4}')
@@ -95,7 +95,7 @@ then
 
 if ! grep -q $MAC $MAC_TMP
 then
-QUERY="SELECT framed_ip FROM users WHERE uid=$ID"
+QUERY="SELECT local_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 IPADDR=$(echo $SQL | awk '{print $2}')
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
