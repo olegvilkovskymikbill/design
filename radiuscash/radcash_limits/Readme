@@ -8,7 +8,13 @@ wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radc
 chmod +x radcash.sh limits_update.sh update_uid.sh radcash_all_update.sh
 
 Строка в mikbill_payment_event.sh
+# RadCash
+/home/radcash/update_uid.sh $2
+
+mikbill_onoff_user_event.sh
+# RadCash
 /home/radcash/update_uid.sh $2
 
 mikbill_pcq.sh
+# RadCash
 /home/radcash/radcash_all_update.sh
