@@ -11,6 +11,4 @@ chmod +x radcash.sh limits_update.sh update_uid.sh radcash_all_update.sh
 /home/radcash/update_uid.sh $2
 
 mikbill_pcq.sh
-/home/radcash/limits_update.sh
-sleep 10
-/home/radcash/radcash.sh
+/home/radcash/radcash_all_update.sh
