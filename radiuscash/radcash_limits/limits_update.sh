@@ -6,7 +6,7 @@ source $HOME_DIR/radcash.lib
 FUNC_MAX_GID
 let "MAX_GID=MAX_GID*3"
 
-QUERY="SELECT gid, speed_rate, speed_burst FROM packets"
+QUERY="SELECT gid, speed_burst, speed_rate FROM packets"
 SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
 SQL=${SQL:27:${#SQL}}
 
