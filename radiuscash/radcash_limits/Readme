@@ -19,5 +19,9 @@ mikbill_pcq.sh
 # RadCash
 /home/radcash/radcash_all_update.sh
 
+Проверка добавленных учеток
+# RadCash                                                               
+/home/radcash/radcash_check_new_uid.sh   
+
 Авторизация по ключу
 ssh-keygen -t dsa
