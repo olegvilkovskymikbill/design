@@ -18,3 +18,6 @@ mikbill_onoff_user_event.sh
 mikbill_pcq.sh
 # RadCash
 /home/radcash/radcash_all_update.sh
+
+Авторизация по ключу
+ssh-keygen -t dsa
