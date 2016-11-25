@@ -6,6 +6,9 @@ source $HOME_DIR/radcash.lib
 FUNC_MAX_UID
 MAX_UID_OLD=$(cat $MAX_UID_FILE)
 
+if (( "$MAX_UID" > "$MAX_UID_OLD" ))
+then
+
 echo >$UPLOAD
 let "MAX_UID_OLD=MAX_UID_OLD+1"
 for (( i=$MAX_UID_OLD; i <= $MAX_UID; i++ ))
@@ -29,7 +32,7 @@ fi
 fi
 
 done
-
 SSH_UPLOAD
+fi
 
 echo $MAX_UID >$MAX_UID_FILE
