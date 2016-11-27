@@ -67,7 +67,7 @@ MAC=$(echo $SQL | awk '{print $2}')
 if [[ $MAC != NULL && $MAC != "" ]]
 then
 
-if ! grep -q $MAC $MAC_TMP
+if ! grep -qx $MAC $MAC_TMP
 then
 QUERY="SELECT gid, local_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
