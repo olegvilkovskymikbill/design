@@ -60,8 +60,8 @@ CHECK_ID=$SQL
 FUNC_HOTSPOT (){
 AuthorizationType=Hotspot
 echo >$MAC_TMP
-for i in $USERS; do
-QUERY="SELECT local_mac FROM users WHERE uid=$i"
+for ID in $USERS; do
+QUERY="SELECT local_mac FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 MAC=$(echo $SQL | awk '{print $2}')
 
@@ -70,7 +70,7 @@ then
 
 if ! grep -qx $MAC $MAC_TMP
 then
-QUERY="SELECT local_ip FROM users WHERE uid=$i"
+QUERY="SELECT local_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 IPADDR=$(echo $SQL | awk '{print $2}')
 Func_Gid
@@ -86,6 +86,7 @@ done
 
 
 FUNC_HOTSPOT_ID (){
+AuthorizationType=Hotspot
 QUERY="SELECT local_mac FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 MAC=$(echo $SQL | awk '{print $2}')
@@ -98,6 +99,7 @@ then
 QUERY="SELECT local_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 IPADDR=$(echo $SQL | awk '{print $2}')
+Func_Gid_ID
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
 echo $MAC >>$MAC_TMP
@@ -109,14 +111,14 @@ fi
 
 FUNC_PPP (){
 AuthorizationType=PPP
-for i in $USERS; do
-QUERY="SELECT password FROM users WHERE uid=$i"
+for ID in $USERS; do
+QUERY="SELECT password FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 PASSWORD=$(echo $SQL | awk '{print $2}')
 
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
-QUERY="SELECT user, framed_ip FROM users WHERE uid=$i"
+QUERY="SELECT user, framed_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 USER=$(echo $SQL | awk '{print $3}')
 IPADDR=$(echo $SQL | awk '{print $4}')
@@ -130,6 +132,7 @@ done
 
 
 FUNC_PPP_ID (){
+AuthorizationType=PPP
 QUERY="SELECT password FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 PASSWORD=$(echo $SQL | awk '{print $2}')
@@ -140,7 +143,7 @@ QUERY="SELECT user, framed_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 USER=$(echo $SQL | awk '{print $3}')
 IPADDR=$(echo $SQL | awk '{print $4}')
-
+Func_Gid_ID
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
 fi
@@ -149,22 +152,37 @@ fi
 
 Func_Gid ()
 {
-# i=uid
-QUERY="SELECT speed_rate, speed_burst FROM users WHERE uid=$i"
+QUERY="SELECT speed_rate, speed_burst FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 Speed_Rate=$(echo $SQL | awk '{print $3}')
 Speed_Burst=$(echo $SQL | awk '{print $4}')
 if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
 then
-GID=$AuthorizationType$i
+GID=$AuthorizationType$ID
 echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=$Speed_Rate"k" rate-limit-tx=$Speed_Burst"k"" >>$UPLOAD
 echo "/tool user-manager profile add name=$GID owner=admin" >>$UPLOAD
 echo "/tool user-manager profile profile-limitation add profile=$GID limitation=$GID" >>$UPLOAD
 
 else
-QUERY="SELECT gid FROM users WHERE uid=$i"
+QUERY="SELECT gid FROM users WHERE uid=$ID"
 QUERY_TO_SQL
 GID=$(echo $SQL | awk '{print $2}')
+fi
+}
+
+
+Func_Gid_ID ()
+{
+QUERY="SELECT speed_rate, speed_burst FROM users WHERE uid=$ID"
+QUERY_TO_SQL
+Speed_Rate=$(echo $SQL | awk '{print $3}')
+Speed_Burst=$(echo $SQL | awk '{print $4}')
+if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
+then
+GID=$AuthorizationType$ID
+echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=$Speed_Rate"k" rate-limit-tx=$Speed_Burst"k"" >>$UPLOAD
+echo "/tool user-manager profile add name=$GID owner=admin" >>$UPLOAD
+echo "/tool user-manager profile profile-limitation add profile=$GID limitation=$GID" >>$UPLOAD
 fi
 }
 
