@@ -9,7 +9,10 @@ if ([ -e "$MAX_UID_FILE" ])
 then
 MAX_UID_OLD=$(cat $MAX_UID_FILE)
 
-echo >$UPLOAD
+if (( "$MAX_UID_OLD" < "$MAX_UID" ))
+then
+
+echo "/tool user-manager user" >$UPLOAD
 let "MAX_UID_OLD=MAX_UID_OLD+1"
 for (( i=$MAX_UID_OLD; i <= $MAX_UID; i++ ))
 do                                                                  
@@ -33,6 +36,7 @@ fi
 
 done
 SSH_UPLOAD
+fi
 fi
 
 echo $MAX_UID >$MAX_UID_FILE
