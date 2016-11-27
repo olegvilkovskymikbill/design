@@ -71,7 +71,7 @@ if ! grep -qx $MAC $MAC_TMP
 then
 QUERY="SELECT local_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
-IPADDR=$(echo $SQL | awk '{print $2)
+IPADDR=$$(echo $SQL | awk '{print $2}')
 Func_Gid
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
