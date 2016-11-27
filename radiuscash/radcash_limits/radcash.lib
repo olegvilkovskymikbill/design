@@ -156,7 +156,7 @@ Speed_Burst=$(echo $SQL | awk '{print $4}')
 if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
 then
 GID=Individual$i
-echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=($Speed_Rate)k rate-limit-tx=($Speed_Burst)k" >>$UPLOAD
+echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=$Speed_Rate"k" rate-limit-tx=$Speed_Burst"k"" >>$UPLOAD
 echo "/tool user-manager profile add name=$GID owner=admin" >>$UPLOAD
 echo "profile-limitation add profile=$GID limitation=Individual$i" >>$UPLOAD
 else
