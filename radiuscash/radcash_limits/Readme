@@ -2,23 +2,28 @@
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.conf
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.lib
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash.sh
-wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/limits_update.sh
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/update_uid.sh
-wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash_all_update.sh
 wget https://github.com/mikbill/design/raw/master/radiuscash/radcash_limits/radcash_check_new_uid.sh
-chmod +x radcash.sh limits_update.sh update_uid.sh radcash_all_update.sh radcash_check_new_uid.sh
+chmod +x radcash.sh update_uid.sh radcash_check_new_uid.sh
 
+Крон
+# RadCash
+20 00 * * * root /home/radcash/radcash.sh
+
+Обновление пополнивших
 Строка в mikbill_payment_event.sh
 # RadCash
 /home/radcash/update_uid.sh $2
 
+Обновление включенных из замороженных
 mikbill_onoff_user_event.sh
 # RadCash
 /home/radcash/update_uid.sh $2
 
+Обновление из админки
 mikbill_pcq.sh
 # RadCash
-/home/radcash/radcash_all_update.sh
+/home/radcash/radcash.sh
 
 Проверка добавленных учеток
 # RadCash                                                               
