@@ -35,7 +35,8 @@ fi
 
 done
 SSH_UPLOAD
-fi
-fi
-
 echo $MAX_UID >$MAX_UID_FILE
+fi
+else
+echo $MAX_UID >$MAX_UID_FILE
+fi
