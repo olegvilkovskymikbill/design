@@ -115,12 +115,12 @@ PASSWORD=$(echo $SQL | awk '{print $2}')
 
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
-QUERY="SELECT user, gid, framed_ip FROM users WHERE uid=$i"
+QUERY="SELECT user, framed_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
-USER=$(echo $SQL | awk '{print $4}')
-GID=$(echo $SQL | awk '{print $5}')
-IPADDR=$(echo $SQL | awk '{print $6}')
-
+USER=$(echo $SQL | awk '{print $3}')
+IPADDR=$(echo $SQL | awk '{print $4}')
+GID=PPP
+Func_Gid
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
 fi
