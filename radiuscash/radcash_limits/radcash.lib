@@ -69,11 +69,10 @@ then
 
 if ! grep -qx $MAC $MAC_TMP
 then
-QUERY="SELECT gid, local_ip FROM users WHERE uid=$i"
+QUERY="SELECT local_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
-GID=$(echo $SQL | awk '{print $3}')
-IPADDR=$(echo $SQL | awk '{print $4}')
-
+IPADDR=$(echo $SQL | awk '{print $2)
+Func_Gid
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
 echo $MAC >>$MAC_TMP
@@ -143,6 +142,27 @@ IPADDR=$(echo $SQL | awk '{print $4}')
 
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
+fi
+}
+
+
+Func_Gid ()
+{
+# i=uid
+QUERY="SELECT speed_rate, speed_burst FROM users WHERE uid=$i"
+QUERY_TO_SQL
+Speed_Rate=$(echo $SQL | awk '{print $3}')
+Speed_Burst=$(echo $SQL | awk '{print $4}')
+if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
+then
+GID=Individual$i
+echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=($Speed_Rate)k rate-limit-tx=($Speed_Burst)k" >>$UPLOAD
+echo "/tool user-manager profile add name=$GID owner=admin" >>$UPLOAD
+echo "profile-limitation add profile=$GID limitation=Individual$i" >>$UPLOAD
+else
+QUERY="SELECT gid FROM users WHERE uid=$i"
+QUERY_TO_SQL
+GID=$(echo $SQL | awk '{print $2')
 fi
 }
 
