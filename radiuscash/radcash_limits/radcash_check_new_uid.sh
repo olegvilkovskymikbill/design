@@ -3,10 +3,11 @@ HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/radcash.conf
 source $HOME_DIR/radcash.lib
 
+FUNC_MAX_UID
+
 if ([ -e "$MAX_UID_FILE" ])
 then
 MAX_UID_OLD=$(cat $MAX_UID_FILE)
-FUNC_MAX_UID
 
 echo >$UPLOAD
 let "MAX_UID_OLD=MAX_UID_OLD+1"
