@@ -159,7 +159,7 @@ then
 GID=$GID$i
 echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=$Speed_Rate"k" rate-limit-tx=$Speed_Burst"k"" >>$UPLOAD
 echo "/tool user-manager profile add name=$GID owner=admin" >>$UPLOAD
-echo "/tool user-manager profile profile-limitation add profile=$GID limitation=Individual$i" >>$UPLOAD
+echo "/tool user-manager profile profile-limitation add profile=$GID limitation=$GID" >>$UPLOAD
 
 else
 QUERY="SELECT gid FROM users WHERE uid=$i"
