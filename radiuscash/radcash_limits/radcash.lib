@@ -58,6 +58,7 @@ CHECK_ID=$SQL
 }
 
 FUNC_HOTSPOT (){
+AuthorizationType=Hotspot
 echo >$MAC_TMP
 for i in $USERS; do
 QUERY="SELECT local_mac FROM users WHERE uid=$i"
@@ -72,7 +73,6 @@ then
 QUERY="SELECT local_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
 IPADDR=$(echo $SQL | awk '{print $2}')
-GID=Hotspot
 Func_Gid
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
@@ -108,6 +108,7 @@ fi
 
 
 FUNC_PPP (){
+AuthorizationType=PPP
 for i in $USERS; do
 QUERY="SELECT password FROM users WHERE uid=$i"
 QUERY_TO_SQL
@@ -119,7 +120,6 @@ QUERY="SELECT user, framed_ip FROM users WHERE uid=$i"
 QUERY_TO_SQL
 USER=$(echo $SQL | awk '{print $3}')
 IPADDR=$(echo $SQL | awk '{print $4}')
-GID=PPP
 Func_Gid
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
@@ -156,7 +156,7 @@ Speed_Rate=$(echo $SQL | awk '{print $3}')
 Speed_Burst=$(echo $SQL | awk '{print $4}')
 if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
 then
-GID=$GID$i
+GID=$AuthorizationType$i
 echo "/tool user-manager profile limitation add name=$GID owner=admin rate-limit-rx=$Speed_Rate"k" rate-limit-tx=$Speed_Burst"k"" >>$UPLOAD
 echo "/tool user-manager profile add name=$GID owner=admin" >>$UPLOAD
 echo "/tool user-manager profile profile-limitation add profile=$GID limitation=$GID" >>$UPLOAD
