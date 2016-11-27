@@ -20,8 +20,7 @@ ID=$i
 FUNC_CHECK_ID                                                       
                                                                     
 if [ "$CHECK_ID" != "" ]                                            
-then                                                                
-echo "/tool user-manager user" >>$UPLOAD                            
+then                                                                                       
 
 if [ "$RADIUS_HOTSPOT" -ne 0 ]
 then
