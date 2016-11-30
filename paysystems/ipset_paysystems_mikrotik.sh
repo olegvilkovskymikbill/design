@@ -25,7 +25,7 @@ TMP=$HOME_DIR/tmp
 
 RESULT="$($DIG +short $SRCDATA @$DNS1 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $($DIG +short $SRCDATA @$DNS2 |grep '\([[:digit:]]\{1,3\}\.\)\{3\}[[:digit:]]\{1,3\}') $(cat $IPLIST)"
 
-echo "" >$UPLOAD
+echo >$UPLOAD
 
 if [ "$IP_TO_ADDRESS_LIST" -ne 0 ]
 then
