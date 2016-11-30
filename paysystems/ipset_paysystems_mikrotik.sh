@@ -41,7 +41,7 @@ then
 echo "/ip hotspot walled-garden ip remove numbers=[/ip hotspot walled-garden ip find comment=$ADDRESS_LIST]" >>$UPLOAD
 fi
 
-touch $TMP
+echo >$TMP
 for i in $RESULT; do
 if ! grep -q $i $TMP
 then
@@ -59,7 +59,6 @@ fi
 echo $i >>$TMP
 fi
 done
-rm $TMP
 
 SSH_UPLOAD (){
 for (( i=0;i!=$SSH_SUM;i++ )); do
