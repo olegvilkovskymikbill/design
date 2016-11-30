@@ -3,11 +3,11 @@
 DNS1=192.168.10.1
 DNS2=8.8.8.8
 # Mikrotik
-MT_IP="192.168.10.1"
 MT_SSH_PORT="22"
-MT_LOGIN="bill"
 IP_TO_ADDRESS_LIST=1
 IP_TO_WALLED_GARDEN_IP_LIST=1
+
+Path_Config=/var/www/mikbill/admin/app/etc/config.xml
 
 SSH_INTERVAL=10
 SSH_SUM=10
@@ -68,7 +68,7 @@ else
 
 CMD="/import file=$(basename $UPLOAD)"
 for (( i=0;i!=$SSH_SUM;i++ )); do
-ssh -p $MT_SSH_PORT $MT_LOGIN@$MT_IP "${CMD}" > /dev/null
+ssh -p $MT_SSH_PORT $Mikrotik_Login@$Mikrotik_IP "${CMD}" > /dev/null
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
 sleep $SSH_INTERVAL
@@ -80,7 +80,30 @@ fi
 
 done
 }
+
+# Находим все микротики
+DB_User=$(cat $Path_Config| grep  username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
+DB_Password=$(cat $Path_Config| grep  password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
+
+SQL=`mysql -D mikbill -u $DB_User -p$DB_Password -e "SELECT nasname, naslogin FROM radnas WHERE usessh=1 and (nastype='mikrotik' or nastype='HotSpot')" 2>/dev/null`
+#SQL=${SQL:$17:${#SQL}}
+
+NUM=0
+for i in $SQL; do
+SQL_Array[$NUM]=$i
+let "NUM=NUM+1"
+done
+
+
+for((i=2;i!=NUM;i+=2))
+do
+Mikrotik_IP=${SQL_Array[$i]}
+Mikrotik_Login=${SQL_Array[$i+1]}
 SSH_UPLOAD
+done
+
+
+
 
 # wget https://github.com/mikbill/design/raw/master/paysystems/ipset_paysystems_mikrotik.sh
 # Version 3
