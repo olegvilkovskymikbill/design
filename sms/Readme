@@ -3,3 +3,9 @@ http://forum.forbill.com.ua/index.php?/topic/4-new-sms-opoveschenie-abonentov-sm
 wget https://github.com/mikbill/design/raw/master/sms/sms_v.3.zip
 
 yum install unzip
+
+nano mikbill/admin/sys/scripts/mikbill_payment_event.sh
+nano mikbill/stat/sys/scripts/mikbill_payment_event.sh
+
+cd /var/www/mikbill/admin/res/sms
+/usr/bin/php ./send_sms.php deposit $2 1
