@@ -9,3 +9,6 @@ nano /var/www/mikbill/stat/sys/scripts/mikbill_payment_event.sh
 
 cd /var/www/mikbill/admin/res/sms
 /usr/bin/php ./send_sms.php deposit $2 1
+
+cron
+00 09 * * * root /var/www/mikbill/admin/res/sms/send_sms_left_day.sh
