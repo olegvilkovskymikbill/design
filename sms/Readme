@@ -1,6 +1,6 @@
 http://forum.forbill.com.ua/index.php?/topic/4-new-sms-opoveschenie-abonentov-sms-ukraine-sms-pilot-sms-fly-sms-beelineturbo-sms/?hl=pilot
 
-wget https://github.com/mikbill/design/raw/master/sms/sms_v.3.zip
+wget https://github.com/mikbill/design/raw/master/sms/sms_v.4.zip
 
 yum install unzip
 
