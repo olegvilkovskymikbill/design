@@ -147,7 +147,7 @@ fi
 
 FILENAME=sql-"$SERVER_NAME"-"$DATE".sql.gz
 
-mysqldump -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME
+mysqldump --single-transaction -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null | gzip > $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
 
