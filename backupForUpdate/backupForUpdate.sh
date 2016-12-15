@@ -2,7 +2,8 @@
 # Version 1
 # Vilkovsky Oleg
 
-
+Backup_routines=0
+Backup_mikbill_files=1
 
 Path_mikbill="/var/www/mikbill/"
 Path_backup="/home/backupForUpdate/"
@@ -25,5 +26,16 @@ fi
 
 mkdir -p $Path_backup
 
-mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup"$Date"_backup_mikbill_DB.sql.gz
-#mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup/"$Date"_backup_mikbill_DB.sql.gz
+if [ "$Backup_routines" -ne 0 ];then
+{
+mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup/"$Date"_backup_mikbill_DB_routines.sql.gz
+}
+else
+{
+mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup"$Date"_mikbill_DB.sql.gz
+}
+
+if [ "$Backup_mikbill_files" -ne 0 ];then
+{
+tar -czf $Path_backup"$Date"_mikbill_files.tar.gz 
+}
