@@ -4,8 +4,8 @@
 
 
 
-Path_mikbill="/var/www/mikbill"
-Path_backup="/home/backupForUpdate"
+Path_mikbill="/var/www/mikbill/"
+Path_backup="/home/backupForUpdate/"
 
 DB_User=""
 DB_Password=""
@@ -25,5 +25,5 @@ fi
 
 mkdir -p $Path_backup
 
-mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup/"$Date"_backup_mikbill_DB.sql.gz
+mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup"$Date"_backup_mikbill_DB.sql.gz
 #mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup/"$Date"_backup_mikbill_DB.sql.gz
