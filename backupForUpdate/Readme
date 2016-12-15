@@ -1,3 +1,7 @@
 Скрипт делает бекапы для обновления
 
 wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupForUpdate.sh
+
+
+Загрузка с сервера сборки
+wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupUpdate.sh
