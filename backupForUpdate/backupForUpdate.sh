@@ -26,16 +26,14 @@ fi
 
 mkdir -p $Path_backup
 
-if [ "$Backup_routines" -ne 0 ];then
-{
+if [ "$Backup_routines" -ne 0 ]
+then
 mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup/"$Date"_backup_mikbill_DB_routines.sql.gz
-}
 else
-{
 mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup"$Date"_mikbill_DB.sql.gz
-}
+fi
 
-if [ "$Backup_mikbill_files" -ne 0 ];then
-{
+if [ "$Backup_mikbill_files" -ne 0 ]
+then
 tar -czf $Path_backup"$Date"_mikbill_files.tar.gz 
-}
+fi
