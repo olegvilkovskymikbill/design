@@ -19,12 +19,12 @@ chmod +x mikbill-to-InnoDB.sh
 Меняем конфиг my.cnf
 cp /etc/my.cnf /etc/my.cnf_old
 
-/etc/init.d/mysql stop
+/etc/init.d/mysqld stop
 cd /var/lib/mysql
 mv ibdata1 ibdata1_off
 mv ib_logfile0 ib_logfile0_off
 mv ib_logfile1 ib_logfile1_off
-/etc/init.d/mysql start
+/etc/init.d/mysqld start
 cd /opt/
 
 Два раза
