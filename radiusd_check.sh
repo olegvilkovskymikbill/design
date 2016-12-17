@@ -17,10 +17,10 @@ then
     else
     if [ $(which freeradius) ]
     then
-<------>Radius="freeradius"
-<------>else
-<------>Func_log "Radius not found"
-<------>exit
+        Radius="freeradius"
+        else
+        Func_log "Radius not found"
+        exit
     fi
 fi
 }
@@ -53,11 +53,11 @@ then
     else
     if ([ -e "/usr/local/bin/radtest" ])
     then
-<------>Radtest="/usr/local/bin/radtest"
-<------>else
-<------>Script_name
-<------>Func_log "Radtest not found"
-<------>exit
+        Radtest="/usr/local/bin/radtest"
+        else
+        Script_name
+        Func_log "Radtest not found"
+        exit
     fi
 fi
 
