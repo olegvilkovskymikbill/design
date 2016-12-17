@@ -79,6 +79,16 @@ then
 fi
 }
 
+Check_hostname (){
+Address="$(uname -n)"
+if ! ping -c 1 -s 1 -W 1 $Address
+then
+Func_log "hostname not resolving, add $Address to /etc/hosts"
+exit
+fi
+}
+
+Check_hostname
 Check_MySQL
 Find_radtest
 Test_radius
