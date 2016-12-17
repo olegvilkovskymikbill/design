@@ -3,7 +3,6 @@
 Path_mikbill="/var/www/mikbill/admin"
 Log="/var/log/mikbill.log"
 
-Radtest=$(which radtest)
 Script=$(readlink -f $0)
 
 Func_log (){
