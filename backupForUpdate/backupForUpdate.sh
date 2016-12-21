@@ -36,13 +36,14 @@ else
 File=$Path_backup"$Date"_mikbill_DB.sql.gz
 mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $File
 fi
-
-echo -e "${GREEN}MySQL dump: $(du -h $File) $NC"
+echo "MySQL dump:"
+echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 Mikbill_files_backup (){
 tar -czf $Path_backup"$Date"_mikbill_files.tar.gz $Path_mikbill
-echo -e "${GREEN}Mikbill files $Path_mikbill to: $(du -h $File) $NC"
+echo "Backup mikbill files $Path_mikbill:"
+echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 echo -e " ${GREEN}Free space on $Path_backup:{$NC}"
