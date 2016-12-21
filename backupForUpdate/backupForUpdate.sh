@@ -5,7 +5,7 @@
 Backup_routines=0
 
 Path_mikbill="/var/www/mikbill/"
-Path_backup="/home/backupForUpdate/"
+Path_backup="/home/backupForUpdate"
 
 DB_User=""
 DB_Password=""
@@ -30,10 +30,10 @@ mkdir -p $Path_backup
 
 if [ "$Backup_routines" -ne 0 ]
 then
-File=$Path_backup/"$Date"_backup_mikbill_DB_routines.sql.gz
+File=$Path_backup/DB_routines_"$Date".sql.gz
 mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Password mikbill | gzip > $File
 else
-File=$Path_backup"$Date"_mikbill_DB.sql.gz
+File=$Path_backup/DB_"$Date".sql.gz
 mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $File
 fi
 echo "MySQL dump:"
@@ -41,7 +41,7 @@ echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 Mikbill_files_backup (){
-File=$Path_backup"$Date"_mikbill_files.tar.gz
+File=$Path_backup/Files_"$Date".tar.gz
 tar -czf $File $Path_mikbill
 echo "Backup mikbill files $Path_mikbill:"
 echo -e "${GREEN}$(du -h $File) $NC"
