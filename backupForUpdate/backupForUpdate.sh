@@ -41,12 +41,13 @@ echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 Mikbill_files_backup (){
-tar -czf $Path_backup"$Date"_mikbill_files.tar.gz $Path_mikbill
+File=$Path_backup"$Date"_mikbill_files.tar.gz
+tar -czf $File $Path_mikbill
 echo "Backup mikbill files $Path_mikbill:"
 echo -e "${GREEN}$(du -h $File) $NC"
 }
 
-echo -e " ${GREEN}Free space on $Path_backup:{$NC}"
+echo -e " ${GREEN}Free space on $Path_backup: $NC"
 echo "$(df -h $Path_backup)"
 
 echo -n "[1] - MySQL dump, [2] - MySQL dump + mikbill files:"
