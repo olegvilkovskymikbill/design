@@ -51,6 +51,20 @@ echo "Backup mikbill files $Path_mikbill:"
 echo -e "${GREEN}$(du -h $File) $NC"
 }
 
+Dump_install (){
+echo -e "[1]-This directories \n[2]-$Path_backup"
+echo -n "Enter:"
+read NUM
+case "$NUM" in
+  1)
+  DIR=$(cd $(dirname $0)&& pwd)
+  ;;
+  2)
+  DIR=$Path_backup
+  ;;
+esac
+}
+
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
 echo "$(df -h $Path_backup)"
 
@@ -64,6 +78,10 @@ case "$NUM" in
   2)
   MySQL_dump
   Mikbill_files_backup
+  ;;
+  3)
+  Files=`ls -d1 $(cd $(dirname $0)&& pwd)/*.{sql.gz,sql}`
+  echo $Files
   ;;
 esac
 
