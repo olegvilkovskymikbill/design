@@ -37,7 +37,7 @@ File=$Path_backup"$Date"_mikbill_DB.sql.gz
 mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $File
 fi
 
-echo -e " ${GREEN}MySQL dump: $File Size: ls -lh $File{NC}"
+echo -e "${GREEN}MySQL dump: $(du -h $File) $NC"
 }
 
 Mikbill_files_backup (){
