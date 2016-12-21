@@ -78,7 +78,7 @@ fi
 
 while :
 do
-echo -n "What number dump install? :"
+echo -n "What number dump install?:"
 read NUM_DUMP
 if [[ ${DUMP[NUM_DUMP]} ]];then
 {
