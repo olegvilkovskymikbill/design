@@ -109,15 +109,17 @@ done
 
 SCP_copy (){
 echo -n "File name:"
-read Filename
+read File_name
 echo -n "Remote host:"
-read Remotehost
+read Remote_host
 echo -n "SSH login:"
 read SSH_login
-echo -n "SSH password:"
-read SSH_password
 echo -n "SSH port:"
 read SSH_port
+echo -n "Remote dir:"
+read Remote_dir
+
+scp -P $SSH_port $File_name $SSH_login@$Remote_host:$Remote_dir
 }
 
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
