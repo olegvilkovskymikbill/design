@@ -3,7 +3,6 @@
 # Vilkovsky Oleg
 
 Backup_routines=0
-Backup_mikbill_files=1
 
 Path_mikbill="/var/www/mikbill/"
 Path_backup="/home/backupForUpdate/"
@@ -14,6 +13,7 @@ DB_Name="mikbill"
 
 Date=`date +%Y-%m-%d_%Hh%Mm`
 
+MySQL_dump (){
 if [ "$DB_User" = "" ]
 then
 DB_User=$(cat $Path_mikbill'admin/app/etc/config.xml'| grep  username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
@@ -32,8 +32,21 @@ mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Pa
 else
 mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $Path_backup"$Date"_mikbill_DB.sql.gz
 fi
+}
 
-if [ "$Backup_mikbill_files" -ne 0 ]
-then
+Mikbill_files_backup (){
 tar -czf $Path_backup"$Date"_mikbill_files.tar.gz 
-fi
+}
+
+echo "Free space on $Path_backup: $(df -h $Path_backup)"
+echo -n "[1] - MySQL dump, [2] - MySQL dump + mikbill files:"
+read NUM
+case "$NUM" in
+  1)
+  MySQL_dump
+  ;;
+  2)
+  MySQL_dump
+  Mikbill_files_backup
+  ;;
+esac
