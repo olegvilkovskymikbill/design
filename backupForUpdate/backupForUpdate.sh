@@ -62,7 +62,12 @@ let "NUM=NUM+1"
 done
 
 echo "$Path_backup:"
-
+Files=`ls -d1 $Path_backup/*.{sql.gz,sql}`
+for x in $Files; do
+echo " $NUM | $x $(stat -c%s "$x") b | $NUM"
+DUMP[NUM]=$x
+let "NUM=NUM+1"
+done
 }
 
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
