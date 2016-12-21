@@ -68,6 +68,34 @@ echo " $NUM | $x $(stat -c%s "$x") b | $NUM"
 DUMP[NUM]=$x
 let "NUM=NUM+1"
 done
+
+while :
+do
+echo -n "What number dump install? :"
+read NUM_DUMP
+if [[ ${DUMP[NUM_DUMP]} ]];then
+{
+FILE=${DUMP[NUM_DUMP]}
+echo -e -n "\e[31m INSTALL DUMP $FILE? (y/n) : \e[0m"
+read INSTALL
+case "$INSTALL" in
+y|Y)
+if [ "${FILE##*.}" = "gz" ];then
+{
+gunzip < ${DUMP[NUM_DUMP]} | mysql -u $db_user -p$db_password mikbill
+}
+else
+{
+mysql -u $db_user -p$db_password mikbill < $FILE
+}
+fi
+echo "Dump install"
+exit
+;;
+esac
+}
+fi
+done
 }
 
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
