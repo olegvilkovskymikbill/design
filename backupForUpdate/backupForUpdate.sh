@@ -83,8 +83,7 @@ case "$NUM" in
   Mikbill_files_backup
   ;;
   3)
-  Files=`ls -d1 $(cd $(dirname $0)&& pwd)/*.{sql.gz,sql}`
-  echo $Files
+  Dump_install
   ;;
 esac
 
