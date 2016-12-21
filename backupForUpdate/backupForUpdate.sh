@@ -16,26 +16,30 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 MySQL_dump (){
-if [ "$DB_User" = "" ]
-then
-DB_User=$(cat $Path_mikbill'admin/app/etc/config.xml'| grep username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
-fi
-
-if [ "$DB_Password" = "" ]
-then
-DB_Password=$(cat $Path_mikbill'admin/app/etc/config.xml'| grep password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
-fi
-
 mkdir -p $Path_backup
-
-if [ "$Backup_routines" -ne 0 ]
+echo -n "Backup routines? (y/n):"
+read NUM
+if [ "$NUM" = "y" -o "$NUM" = "Y" ] 
 then
-File=$Path_backup/DB_routines_"$Date".sql.gz
-mysqldump --single-transaction --routines --extended-insert -u $DB_User -p$DB_Password mikbill | gzip > $File
+  echo -n "MySQL root password:"
+  read DB_Password
+  File=$Path_backup/DB_routines_"$Date".sql.gz
+  mysqldump --single-transaction --routines --extended-insert -u root -p$DB_Password mikbill | gzip > $File
 else
-File=$Path_backup/DB_"$Date".sql.gz
-mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $File
+  if [ "$DB_User" = "" ]
+  then
+  DB_User=$(cat $Path_mikbill'admin/app/etc/config.xml'| grep username | awk '{ gsub("<username>"," "); print }' | awk '{ gsub("</username>"," "); print }' | awk '{print $1}')
+  fi
+
+  if [ "$DB_Password" = "" ]
+  then
+  DB_Password=$(cat $Path_mikbill'admin/app/etc/config.xml'| grep password | awk '{ gsub("<password>"," "); print }' | awk '{ gsub("</password>"," "); print }' | awk '{print $1}')
+  fi
+  
+  File=$Path_backup/DB_"$Date".sql.gz
+  mysqldump --single-transaction -u $DB_User -p$DB_Password mikbill | gzip > $File
 fi
+
 echo "MySQL dump:"
 echo -e "${GREEN}$(du -h $File) $NC"
 }
@@ -50,7 +54,8 @@ echo -e "${GREEN}$(du -h $File) $NC"
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
 echo "$(df -h $Path_backup)"
 
-echo -n "[1] - MySQL dump, [2] - MySQL dump + mikbill files:"
+echo -e "[1]-MySQL dump \n[2]-MySQL dump + mikbill files \n[3]-Install dump"
+echo -n "Enter:"
 read NUM
 case "$NUM" in
   1)
