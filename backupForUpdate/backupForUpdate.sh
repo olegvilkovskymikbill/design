@@ -52,20 +52,17 @@ echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 Dump_install (){
-while :
-do
-echo -e "[1]-This directories \n[2]-$Path_backup"
-echo -n "Enter:"
-read NUM
-case "$NUM" in
-  1)
-  DIR=$(cd $(dirname $0)&& pwd)
-  ;;
-  2)
-  DIR=$Path_backup
-  ;;
-esac
+echo "This dir:"
+Files=`ls -d1 $(cd $(dirname $0)&& pwd)/*.{sql.gz,sql}`
+NUM=1
+for x in $Files; do
+echo " $NUM | $x $(stat -c%s "$x") b | $NUM"
+DUMP[NUM]=$x
+let "NUM=NUM+1"
 done
+
+echo "$Path_backup:"
+
 }
 
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
