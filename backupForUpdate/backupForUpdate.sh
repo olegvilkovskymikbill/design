@@ -90,7 +90,7 @@ y|Y)
 if [ "${FILE##*.}" = "gz" ];then
 {
 MySQL_user
-gunzip < ${DUMP[NUM_DUMP]} | mysql -u $DB_User -p$DB_Password mikbill
+gunzip < $FILE | mysql -u $DB_User -p$DB_Password mikbill
 }
 else
 {
