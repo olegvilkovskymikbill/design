@@ -52,6 +52,8 @@ echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 Dump_install (){
+while:
+do
 echo -e "[1]-This directories \n[2]-$Path_backup"
 echo -n "Enter:"
 read NUM
@@ -63,6 +65,7 @@ case "$NUM" in
   DIR=$Path_backup
   ;;
 esac
+done
 }
 
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
