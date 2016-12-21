@@ -52,7 +52,7 @@ echo -e "${GREEN}$(du -h $File) $NC"
 }
 
 Dump_install (){
-while:
+while :
 do
 echo -e "[1]-This directories \n[2]-$Path_backup"
 echo -n "Enter:"
