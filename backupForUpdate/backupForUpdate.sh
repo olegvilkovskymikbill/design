@@ -5,7 +5,8 @@
 Backup_routines=0
 
 Path_mikbill="/var/www/mikbill/"
-Path_backup="/home/backupForUpdate"
+Path_backup=$(cd $(dirname $0)&& pwd)
+# Path_backup="/home/backupForUpdate"
 
 DB_User=""
 DB_Password=""
@@ -64,13 +65,16 @@ DUMP[NUM]=$x
 let "NUM=NUM+1"
 done
 
-echo "$Path_backup:"
-Files=`ls -d1 $Path_backup/*.{sql.gz,sql}`
-for x in $Files; do
-echo " $NUM | $x $(stat -c%s "$x") b | $NUM"
-DUMP[NUM]=$x
-let "NUM=NUM+1"
-done
+if [ "$Path_backup" != "$(cd $(dirname $0)&& pwd)" ]
+then
+  echo "$Path_backup:"
+  Files=`ls -d1 $Path_backup/*.{sql.gz,sql}`
+  for x in $Files; do
+  echo " $NUM | $x $(stat -c%s "$x") b | $NUM"
+  DUMP[NUM]=$x
+  let "NUM=NUM+1"
+  done
+fi
 
 while :
 do
@@ -103,10 +107,23 @@ fi
 done
 }
 
+SCP_copy (){
+echo -n "File name:"
+read Filename
+echo -n "Remote host:"
+read Remotehost
+echo -n "SSH login:"
+read SSH_login
+echo -n "SSH password:"
+read SSH_password
+echo -n "SSH port:"
+read SSH_port
+}
+
 echo -e " ${GREEN}Free space on $Path_backup: $NC"
 echo "$(df -h $Path_backup)"
 
-echo -e "[1]-MySQL dump \n[2]-MySQL dump + mikbill files \n[3]-Install dump"
+echo -e "[1]-MySQL dump \n[2]-MySQL dump + mikbill files \n[3]-Install dump \n[4]-SCP copy file"
 echo -n "Enter:"
 read NUM
 case "$NUM" in
@@ -119,6 +136,9 @@ case "$NUM" in
   ;;
   3)
   Dump_install
+  ;;
+  4)
+  SCP_copy
   ;;
 esac
 
