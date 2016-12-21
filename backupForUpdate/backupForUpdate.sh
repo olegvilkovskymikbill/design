@@ -44,7 +44,7 @@ Mikbill_files_backup (){
 tar -czf $Path_backup"$Date"_mikbill_files.tar.gz 
 }
 
-echo -e " ${GREEN}Free space on $Path_backup:{NC}"
+echo -e " ${GREEN}Free space on $Path_backup:{$NC}"
 echo "$(df -h $Path_backup)"
 
 echo -n "[1] - MySQL dump, [2] - MySQL dump + mikbill files:"
