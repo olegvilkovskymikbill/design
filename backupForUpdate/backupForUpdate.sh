@@ -79,7 +79,7 @@ read NUM_DUMP
 if [[ ${DUMP[NUM_DUMP]} ]];then
 {
 FILE=${DUMP[NUM_DUMP]}
-echo -e -n "\e[31m INSTALL DUMP $FILE? (y/n) : \e[0m"
+echo -e -n "\e[31m Install dump $FILE? (y/n) : \e[0m"
 read INSTALL
 case "$INSTALL" in
 y|Y)
