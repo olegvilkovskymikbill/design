@@ -4,8 +4,8 @@ USER="root"
 PASSWORD=""
 MYSQL="mysql -u$USER -p$PASSWORD "
 
-echo "SELECT CONCAT('ALTER TABLE ',table_schema,'.',table_name,' ENGINE=MyISAM;')
+echo "SELECT CONCAT('ALTER TABLE ',table_schema,'.',table_name,' ENGINE=InnoDB;')
 FROM information_schema.tables
-WHERE engine = 'InnoDB' AND table_schema = 'mikbill'" | $MYSQL > convert.sql
-sed '1d' ./convert.sql > ./convert2.sql
-$MYSQL < ./convert2.sql
+WHERE engine = 'MyISAM' AND table_schema = 'mikbill'" | $MYSQL > convert3.sql
+sed '1d' ./convert3.sql > ./convert4.sql
+$MYSQL < ./convert4.sql
