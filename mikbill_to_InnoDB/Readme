@@ -1,6 +1,8 @@
 Переводим таблицы в InnoDB
 
 Делаем резервное копирование
+wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupForUpdate.sh
+или
 mysqldump --routines --extended-insert -u root -p mikbill | gzip > /home/backup_mikbill.sql.gz
 или
 mysqldump -u mikbill -p mikbill | gzip > /home/backup_mikbill.sql.gz
