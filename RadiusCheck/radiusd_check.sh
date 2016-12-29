@@ -37,7 +37,7 @@ Test_radius (){
 Radius_server_IP="127.0.0.1"
 Radius_secret="testing123"
 
-Status=$(${Radtest} dsjkdjskdrewrwe tefdfsfsdfsdfsdf3st $Radius_server_IP 121123 $Radius_secret) > /dev/null.
+Status=$(${Radtest} dsjkdjskdrewrwe tefdfsfsdfsdfsdf3st $Radius_server_IP 121123 $Radius_secret) > /dev/null
 if ! [[ "$Status" =~ packet ]]; then
 Find_radius
 Radius_restart
