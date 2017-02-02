@@ -1,0 +1,24 @@
+#Radius Accepts on start script
+:global acpt "0"
+#Radius Timeouts on start script
+:global touts "0"
+#Radius Accepts past wait time
+:global acptnew "0"
+#Radius Timeouts past wait time
+:global toutsnew "0"
+#Treshold counts
+:global treshold "30"
+#Mail Alerts
+:global mailto "sysreports@net.ua"
+:global mailfrom "ron-nas220@net.ua"
+:foreach i in=[/radius find where comment=main] do={radius monitor $i once do={:if ($"accepts" > 0 ) do={ :global acpt $"accepts"; :log warning "RADIUS-ACCEPTS-$acpt"; }}}
+:foreach e in=[/radius find where comment=main] do={radius monitor $e once do={:if ($"timeouts" > 0 ) do={ :global touts $"timeouts"; :log warning "RADIUS-TIMEOUTS-$touts"; }}}
+:delay 60s;
+:log warning script-time-60s-out
+:foreach m in=[/radius find where comment=main] do={radius monitor $m once do={:if ($"accepts" > 0 ) do={ :global acptnew $"accepts"; :log warning "RADIUS-ACCEPTS-NEW-$acptnew"; }}}
+:foreach n in=[/radius find where comment=main] do={radius monitor $n once do={:if ($"timeouts" > 0 ) do={ :global toutsnew $"timeouts"; :log warning "RADIUS-TIMEOUTS-NEW-$toutsnew"; }}}
+:if ($acpt = $acptnew) do={:local raznica ($toutsnew-$touts); :if ($raznica > $treshold ) do {:log warning "RADIUS DOWN DIFERENTS-$raznica"; :foreach s in=[/radius find where comment=local]  do={/radius enable $s;
+/tool e-mail send to=$mailto from=$mailfrom subject="$[/system identity get name] RADIUS ATENTION" body="$[/system clock get date; /system clock get time] Gays ATENTION I`m switch to local Radius server, check and repair radius server on mikbill. Go to  $[/system identity get name] and desable radius comment=local" }}}
+
+ #treshold "30" -переменная которая считает количество.
+ #Основной радиус рабочий в коментах помечаем как main. Резервный как local. Скрипт ищет эти значения в коментах.
