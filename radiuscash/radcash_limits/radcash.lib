@@ -193,9 +193,10 @@ fi
 
 SSH_UPLOAD ()
 {
+# $1-USERMAN_IP $2-$USERMAN_SSH_PORT $3-$USERMAN_LOGIN
 for (( i=0;i!=$CONNECT_SUM;i++ )); do
 
-scp -P $USERMAN_SSH_PORT $UPLOAD $USERMAN_LOGIN@$USERMAN_IP:/
+scp -P $2 $UPLOAD $3@$1:/
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
 sleep $CONNECT_INTERVAL
@@ -203,7 +204,7 @@ else
 
 CMD="/import file=$(basename $UPLOAD)"
 for (( i=0;i!=$CONNECT_SUM;i++ )); do
-ssh -p $USERMAN_SSH_PORT $USERMAN_LOGIN@$USERMAN_IP "${CMD}" > /dev/null
+ssh -p $2 $3@$1 "${CMD}" > /dev/null
 STATUS=$?
 if [ $STATUS -ne 0 ]; then
 sleep $CONNECT_INTERVAL
