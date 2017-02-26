@@ -37,5 +37,7 @@ Schedule
 
 Заметка
 для проверки по работоспособности радиуса можно через radcheck включать и выключать ping на сервере с микротика
+Включить:
 iptables -A INPUT -p icmp --icmp-type echo-request -s 10.10.10.10 -j REJECT
-iptables -D INPUT -s 10.10.10.10
+Выключить:
+iptables -D INPUT -p icmp --icmp-type echo-request -s 10.10.10.10 -j REJECT
