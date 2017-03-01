@@ -3,3 +3,6 @@ cd backup
 wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.conf
 chmod +x SYS_backup.sh
+
+Установка
+http://mikbill.blogspot.ru/2016/04/backup-mysql-baseyandex-diskbackup-files.html
