@@ -131,7 +131,11 @@ if [ "$BACKUP_TO_WEBDISK" -ne 0 ]
 then
 FUNC_RM_FILE_WEBDISK
 
-FUNC_RM_OLDFILES_WEBDISK
+  if [ "$WEBDISK_ONE_FILE" -eq 0 ]
+  then
+    FUNC_RM_OLDFILES_WEBDISK
+  fi
+
 fi
 #----------------------------------------------
 if [ "$BACKUP_MYSQL" -ne 0 ]; then
