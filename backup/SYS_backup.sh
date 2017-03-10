@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 15
+# Version 16
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
@@ -106,7 +106,7 @@ else
 
 if [ "$ENCRYPTION" -ne 0 ]
 then
-gpg -o $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME.gpg --yes -e -r $ENCRYPTION_ID_USER $PACH_FOR_BACKUP_TO_DISK/$FILENAME_WEBDISK
+gpg -o $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK.gpg --yes -e -r $ENCRYPTION_ID_USER $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 else
 cp $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK 2>>$LOG
 fi
