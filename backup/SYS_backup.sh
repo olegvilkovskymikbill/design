@@ -137,6 +137,11 @@ FUNC_RM_FILE_WEBDISK
   fi
 
 fi
+# Yandex client--------------------------------
+if [ "$BACKUP_TO_YANDEX_CLIENT" -ne 0 ]
+then
+  yandex-disk start >>$LOG
+fi
 #----------------------------------------------
 if [ "$BACKUP_MYSQL" -ne 0 ]; then
 {
