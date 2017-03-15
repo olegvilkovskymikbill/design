@@ -4,6 +4,29 @@ wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.conf
 chmod +x SYS_backup.sh
 
+
+nano /home/backup/tar.include.list
+
+/var/www/mikbill/admin/app/etc/client.key
+/var/www/mikbill/admin/app/etc/serv.crt
+
+
+yum install epel-release
+yum install davfs2
+
+nano /etc/davfs2/secrets
+https://webdav.yandex.ru login password
+
+mcedit /etc/davfs2/davfs2.conf
+
+use_locks 0 # Увеличит скорость работы
+delay_upload 0 # Уменьшит задержку перед загрузкой файла
+cache_size 5000 # Размер кеша
+
+mkdir /home/backup/webdisk 
+
+mount -t davfs https://webdav.yandex.ru /home/backup/webdisk
+
 mcedit /etc/crontab
 # Mikbill backup
 00 06 * * * root /home/backup/SYS_backup.sh
