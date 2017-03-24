@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 16
+# Version 17
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
@@ -212,6 +212,11 @@ FUNC_COPY_TO_WEBDISK
 }
 fi
 }
+fi
+# Owncloud ------------------------------------
+if [ "$BACKUP_TO_OWNCLOUD" -ne 0 ]
+then
+  owncloudcmd -u $Owncloud_login -p $Owncloud_pass $PACH_FOR_BACKUP_TO_DISK $Owncloud_address
 fi
 #----------------------------------------------
 FUNC_TAR_DIFF()
