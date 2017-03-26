@@ -133,8 +133,6 @@ fi
 }
 fi
 }
-fi
-}
 #----------------------------------------------
 FILENAME="log*tar.gz*"
 rm -f $PACH_FOR_BACKUP_TO_DISK/$FILENAME
