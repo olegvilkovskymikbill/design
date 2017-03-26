@@ -218,6 +218,11 @@ if [ "$BACKUP_TO_OWNCLOUD" -ne 0 ]
 then
   owncloudcmd -u $Owncloud_login -p $Owncloud_pass $PACH_FOR_BACKUP_TO_DISK $Owncloud_address
 fi
+# DropBox -------------------------------------
+if [ "$BACKUP_TO_DROPBOX" -ne 0 ]
+then
+  ~/dropbox.py start >>$LOG
+fi
 #----------------------------------------------
 FUNC_TAR_DIFF()
 {
