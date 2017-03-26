@@ -86,16 +86,16 @@ else
   mount -t davfs $MOUNT_POINT $PACH_FOR_WEBDISK
   fi
   fi
-fi
 
-if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
-{
-echo "! Ошибка монтирование диска $MOUNT_POINT в $PACH_FOR_WEBDISK !" >>$LOG
-}
-else
-{
-Create_folder_webdisk
-}
+  if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
+  {
+  echo "! Ошибка монтирование диска $MOUNT_POINT в $PACH_FOR_WEBDISK !" >>$LOG
+  }
+  else
+  {
+  Create_folder_webdisk
+  }
+  fi
 fi
 
 #Удаляем самые старые файлы пока не хватит места для нового бекапа
