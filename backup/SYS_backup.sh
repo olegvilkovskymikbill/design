@@ -55,6 +55,14 @@ FUNC_RM_FILE_WEBDISK
 fi
 }
 
+Create_folder_webdisk(){
+if !([ -d "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK" ])
+then
+echo "Каталог $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK не существует или был удален. Создание каталога" >>$LOG
+mkdir -p $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK
+fi
+}
+
 FUNC_COPY_TO_WEBDISK()
 {
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ];then
@@ -66,12 +74,18 @@ mkdir $PACH_FOR_WEBDISK
 }
 fi
 
-if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
-if [ "$MOUNT_POINT" = "mega" ];then
-megafs --disable-previews --config $MEGA_CONF $PACH_FOR_WEBDISK
+if [ "$BACKUP_TO_DROPBOX_CLIENT" -ne 0 ]
+then
+  Create_folder_webdisk
+  ~/dropbox.py start >>$LOG
 else
-mount -t davfs $MOUNT_POINT $PACH_FOR_WEBDISK
-fi
+  if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
+  if [ "$MOUNT_POINT" = "mega" ];then
+  megafs --disable-previews --config $MEGA_CONF $PACH_FOR_WEBDISK
+  else
+  mount -t davfs $MOUNT_POINT $PACH_FOR_WEBDISK
+  fi
+  fi
 fi
 
 if ! ( mount -v | grep -q $PACH_FOR_WEBDISK ) then
@@ -80,10 +94,7 @@ echo "! Ошибка монтирование диска $MOUNT_POINT в $PACH_F
 }
 else
 {
-if !([ -d "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK" ])then
-{
-echo "Каталог $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK не существует или был удален. Создание каталога" >>$LOG
-mkdir -p $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK
+Create_folder_webdisk
 }
 fi
 
