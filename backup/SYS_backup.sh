@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 17
+# Version 18
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
