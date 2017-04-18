@@ -15,7 +15,7 @@ set dst_address=8.8.8.8
 echo num_packet - количество отправляемых пакетов командой ping
 set num_packet=5
 
-:start
+:start 
 echo Выключение сетевой карты %network_interface%
 netsh interface set interface name=%network_interface% admin=disabled
 TIMEOUT /T %timeout% /NOBREAK
