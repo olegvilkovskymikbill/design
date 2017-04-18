@@ -1,28 +1,27 @@
 echo off
 chcp 1251
 
-echo Скрипт с расширением *.cmd запустить с правами администратора
+echo ЕѓД™Д‘ДЌДЏЕ€ Е„ Д‘Е•Е„Е™ДЌД‘ДєГ­ДЌДєД› *.cmd Г§Е•ДЏГіЕ„Е€ДЌЕ€Гј Е„ ДЏД‘Е•ГўЕ•Д›ДЌ Е•Г¤Д›ДЌГ­ДЌЕ„Е€Д‘Е•Е€Г®Д‘Е•
 
-echo Меняем "Ethernet" на название своей сетевой карты 
+echo ДљДєГ­Л™ДєД› "Ethernet" Г­Е• Г­Е•Г§ГўЕ•Г­ДЌДє Е„ГўГ®ДєГ© Е„ДєЕ€ДєГўГ®Г© Д™Е•Д‘Е€Е± 
 set network_interface=Ethernet
 
-echo timeout - время ожидания в выключенном состоянии интерфейса
+echo timeout - ГўД‘ДєД›Л™ Г®Д‡ДЌГ¤Е•Г­ДЌЛ™ Гў ГўЕ±Д™Г«ЕЈГ·ДєГ­Г­Г®Д› Е„Г®Е„Е€Г®Л™Г­ДЌДЌ ДЌГ­Е€ДєД‘ГґДєГ©Е„Е•
 set timeout=10
 
-echo dst_address - проверяемый IP/Домен
+echo dst_address - ДЏД‘Г®ГўДєД‘Л™ДєД›Е±Г© IP/Г„Г®Д›ДєГ­
 set dst_address=8.8.8.8
 
-echo num_packet - количество отправляемых пакетов командой ping
+echo num_packet - Д™Г®Г«ДЌГ·ДєЕ„Е€ГўГ® Г®Е€ДЏД‘Е•ГўГ«Л™ДєД›Е±Е‘ ДЏЕ•Д™ДєЕ€Г®Гў Д™Г®Д›Е•Г­Г¤Г®Г© ping
 set num_packet=5
 
 :start
-echo Выключение сетевой карты %network_interface%
+echo Г‚Е±Д™Г«ЕЈГ·ДєГ­ДЌДє Е„ДєЕ€ДєГўГ®Г© Д™Е•Д‘Е€Е± %network_interface%
 netsh interface set interface name=%network_interface% admin=disabled
 
  
 TIMEOUT /T %timeout% /NOBREAK
-echo Включение сетевой карты %network_interface%
+echo Г‚Д™Г«ЕЈГ·ДєГ­ДЌДє Е„ДєЕ€ДєГўГ®Г© Д™Е•Д‘Е€Е± %network_interface%
 netsh interface set interface name=%network_interface% admin=enabled
 ping %dst_address% -n %num_packet%
 goto start
-
