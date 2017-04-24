@@ -1,4 +1,12 @@
 #!/bin/bash
+
+service nginx start
+service php-fpm start
+service mysqld start
+service crond start
+service mikbill restart
+service radiusd restart
+
 while true
 do
 sleep 100000
