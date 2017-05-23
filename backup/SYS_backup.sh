@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 18
+# Version 19
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
@@ -60,6 +60,13 @@ if !([ -d "$PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK" ])
 then
 echo "Каталог $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK не существует или был удален. Создание каталога" >>$LOG
 mkdir -p $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK
+fi
+}
+
+Func_copy_to_Gdive()
+{
+if [ "$Backup_to_Gdrive" -ne 0 ];then
+gdrive upload $FILENAME
 fi
 }
 
@@ -179,6 +186,7 @@ FILENAME_WEBDISK=$FILENAME
 fi
 
 FUNC_COPY_TO_WEBDISK
+Func_copy_to_Gdive
 }
 fi
 #----------------------------------------------
@@ -218,6 +226,7 @@ FILENAME_WEBDISK=$FILENAME
 fi
 
 FUNC_COPY_TO_WEBDISK
+Func_copy_to_Gdive
 }
 fi
 }
