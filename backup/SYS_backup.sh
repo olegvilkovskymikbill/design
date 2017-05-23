@@ -66,7 +66,7 @@ fi
 Func_copy_to_Gdive()
 {
 if [ "$Backup_to_Gdrive" -ne 0 ];then
-gdrive upload $FILENAME
+gdrive upload $PACH_FOR_BACKUP_TO_DISK/$FILENAME
 fi
 }
 
