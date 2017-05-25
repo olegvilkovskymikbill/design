@@ -1,5 +1,4 @@
-
-!/bin/bash
+#!/bin/bash
 
 ipaddr=213.174.7.
 HostMin=65
