@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ipaddr=10.10.10.
+ipaddr=195.195.195.
 HostMin=65
 HostMax=94
 filename=alias.sh
