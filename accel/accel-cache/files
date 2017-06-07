@@ -1,0 +1,13 @@
+files authorized_macs {
+        # The default key attribute to use for matches.  The content
+        # of this attribute is used to match the "name" of the
+        # entry.
+        key = "%{Calling-Station-ID}"
+	usersfile = /opt/accel-cache/users
+
+        #  If you want to use the old Cistron 'users' file
+        #  with FreeRADIUS, you should change the next line
+        #  to 'compat = cistron'.  You can the copy your 'users'
+        #  file from Cistron.
+        compat = no
+}
