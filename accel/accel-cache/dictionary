@@ -1,3 +1,4 @@
+$INCLUDE        /usr/local/share/freeradius/dictionary
 ATTRIBUTE DHCP-Router-IP-Address 241 ipaddr
 ATTRIBUTE DHCP-Mask              242 integer
 #ATTRIBUTE DHCP-Mask              242 ipaddr
