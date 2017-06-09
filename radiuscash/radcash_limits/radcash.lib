@@ -1,26 +1,16 @@
-#!/bin/bash
-
 QUERY_TO_SQL (){
-SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -e "$QUERY" 2>/dev/null`
-}
-
-CUT_SQL (){
-SQL=${SQL:$CUT:${#SQL}}
+SQL=`mysql -D $DB_NAME -u $DB_USER -p$DB_PASSWORD -N -e "$QUERY" 2>/dev/null`
 }
 
 FUNC_MAX_UID (){
 QUERY="SELECT MAX( uid ) FROM users"
 QUERY_TO_SQL
-CUT=11
-CUT_SQL
 MAX_UID=$SQL
 }
 
 FUNC_MAX_GID (){
 QUERY="SELECT MAX( gid ) FROM packets"
 QUERY_TO_SQL
-CUT=11
-CUT_SQL
 MAX_GID=$SQL
 }
 
@@ -31,14 +21,10 @@ for (( i=0; i <= $MAX_GID; i++ ))
 do
 QUERY="SELECT razresh_minus FROM packets WHERE gid=$i"
 QUERY_TO_SQL
-CUT=14
-CUT_SQL
 # Debug
 # echo -e "\e[1;32m \n Тариф $i \n Разрешенный минус $SQL \e[0m"
 QUERY="SELECT uid FROM users WHERE blocked=0 and gid=$i and (deposit+credit)>=-$SQL"
 QUERY_TO_SQL
-CUT=4
-CUT_SQL
 # Debug
 # echo $SQL
 USERS="$USERS $SQL"
@@ -48,10 +34,10 @@ done
 FUNC_CHECK_ID () {
 QUERY="SELECT gid FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-GID=$(echo $SQL | awk '{print $2}')
+GID=$SQL
 QUERY="SELECT razresh_minus FROM packets WHERE gid=$GID"
 QUERY_TO_SQL
-RAZRESH_MINUS=$(echo $SQL | awk '{print $2}')
+RAZRESH_MINUS=$SQL
 QUERY="SELECT uid FROM users WHERE uid=$ID and blocked=0 and (deposit+credit)>=-$RAZRESH_MINUS"
 QUERY_TO_SQL
 CHECK_ID=$SQL
@@ -63,7 +49,7 @@ echo >$MAC_TMP
 for ID in $USERS; do
 QUERY="SELECT local_mac FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-MAC=$(echo $SQL | awk '{print $2}')
+MAC=$SQL
 
 if [[ $MAC != NULL && $MAC != "" ]]
 then
@@ -72,7 +58,7 @@ if ! grep -qx $MAC $MAC_TMP
 then
 QUERY="SELECT local_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-IPADDR=$(echo $SQL | awk '{print $2}')
+IPADDR=$SQL
 Func_Gid
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
@@ -90,7 +76,7 @@ FUNC_HOTSPOT_ID (){
 AuthorizationType=Hotspot
 QUERY="SELECT local_mac FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-MAC=$(echo $SQL | awk '{print $2}')
+MAC=$SQL
 
 if [[ $MAC != NULL && $MAC != "" ]]
 then
@@ -99,7 +85,7 @@ if ! grep -qx $MAC $MAC_TMP
 then
 QUERY="SELECT local_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-IPADDR=$(echo $SQL | awk '{print $2}')
+IPADDR=$SQL
 Func_Gid_ID
 echo "add customer=admin username=$MAC ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$MAC'" customer=admin' >>$UPLOAD
@@ -116,14 +102,14 @@ AuthorizationType=PPP
 for ID in $USERS; do
 QUERY="SELECT password FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-PASSWORD=$(echo $SQL | awk '{print $2}')
+PASSWORD=$SQL
 
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user, framed_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-USER=$(echo $SQL | awk '{print $3}')
-IPADDR=$(echo $SQL | awk '{print $4}')
+USER=$(echo $SQL | awk '{print $1}')
+IPADDR=$(echo $SQL | awk '{print $2}')
 Func_Gid
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
@@ -138,14 +124,14 @@ FUNC_PPP_ID (){
 AuthorizationType=PPP
 QUERY="SELECT password FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-PASSWORD=$(echo $SQL | awk '{print $2}')
+PASSWORD=$SQL
 
 if [[ $PASSWORD != NULL && $PASSWORD != "" ]]
 then
 QUERY="SELECT user, framed_ip FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-USER=$(echo $SQL | awk '{print $3}')
-IPADDR=$(echo $SQL | awk '{print $4}')
+USER=$(echo $SQL | awk '{print $1}')
+IPADDR=$(echo $SQL | awk '{print $2}')
 Func_Gid_ID
 echo "add customer=admin username=$USER password=$PASSWORD ip-address=$IPADDR" >>$UPLOAD
 echo "create-and-activate-profile profile=$GID "'"'$USER'" customer=admin' >>$UPLOAD
@@ -158,8 +144,8 @@ Func_Gid ()
 {
 QUERY="SELECT speed_rate, speed_burst FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-Speed_Rate=$(echo $SQL | awk '{print $3}')
-Speed_Burst=$(echo $SQL | awk '{print $4}')
+Speed_Rate=$(echo $SQL | awk '{print $1}')
+Speed_Burst=$(echo $SQL | awk '{print $2}')
 if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
 then
 GID=$AuthorizationType$ID
@@ -170,7 +156,7 @@ echo "/tool user-manager profile profile-limitation add profile=$GID limitation=
 else
 QUERY="SELECT gid FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-GID=$(echo $SQL | awk '{print $2}')
+GID=$SQL
 fi
 }
 
@@ -179,8 +165,8 @@ Func_Gid_ID ()
 {
 QUERY="SELECT speed_rate, speed_burst FROM users WHERE uid=$ID"
 QUERY_TO_SQL
-Speed_Rate=$(echo $SQL | awk '{print $3}')
-Speed_Burst=$(echo $SQL | awk '{print $4}')
+Speed_Rate=$(echo $SQL | awk '{print $1}')
+Speed_Burst=$(echo $SQL | awk '{print $2}')
 if [ "$Speed_Rate" -ne "0" -a "$Speed_Burst"  -ne "0" ]
 then
 GID=$AuthorizationType$ID
