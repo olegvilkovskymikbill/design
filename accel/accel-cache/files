@@ -3,7 +3,7 @@ files authorized_macs {
         # of this attribute is used to match the "name" of the
         # entry.
         key = "%{Calling-Station-ID}"
-	usersfile = /opt/accel-cache/users
+	usersfile = /opt/accel-cache/users_ipoe
 
         #  If you want to use the old Cistron 'users' file
         #  with FreeRADIUS, you should change the next line
