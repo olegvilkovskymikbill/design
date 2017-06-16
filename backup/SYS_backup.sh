@@ -376,6 +376,21 @@ umount -l $PACH_FOR_WEBDISK
 fi
 }
 fi
+# DROPBOX DAEMON STOP ---------------------------
+FUNC_DROPBOX_STOP (){
+STATUS=$(~/dropbox.py status)
+
+if [ "$STATUS" != "Up to date" ];then
+sleep 5
+FUNC_DROPBOX_STOP
+fi
+
+~/dropbox.py stop
+}
+
+if [ "$BACKUP_TO_DROPBOX_CLIENT" -ne 0 ];then
+FUNC_DROPBOX_STOP
+fi
 #-----------------------------------------------
 if [ "$LOG_IN_TERMINAL" -ne 0 ];then
 {
