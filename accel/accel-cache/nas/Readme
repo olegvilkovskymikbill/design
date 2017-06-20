@@ -1,0 +1,2 @@
+wget https://github.com/mikbill/design/raw/master/accel/accel-cache/nas/radcash_uploader.sh
+chmod +x radcash_uploader.sh
