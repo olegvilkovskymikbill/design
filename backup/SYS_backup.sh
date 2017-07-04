@@ -70,7 +70,7 @@ gdrive --access-token $Gdrive_access_token upload $PACH_FOR_BACKUP_TO_DISK/$FILE
 fi
 }
 
-Func_dropbox_uploader (){
+Func_dropbox_uploader(){
 if [ "BACKUP_TO_DROPBOX_UPLOADER" -ne 0 ]; then
   $HOME_DIR/dropbox_uploader.sh upload $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK 2>>$LOG
 fi
