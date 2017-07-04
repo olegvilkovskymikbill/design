@@ -1,0 +1,8 @@
+https://wiki.mikbill.ru/mikbill/настройки/несколько_pc_на_одну_учетку
+
+cd /var/www/mikbill/admin/res/balanse
+wget https://github.com/mikbill/design/raw/master/onebalance/oneBalanceCron.php
+
+mcedit /etc/crontab
+# Balance
+10 * * * * root cd /var/www/mikbill/admin/res/balanse; /usr/bin/php oneBalanceCron.php
