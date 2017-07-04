@@ -2,7 +2,13 @@ https://wiki.mikbill.ru/mikbill/настройки/несколько_pc_на_о
 
 cd /var/www/mikbill/admin/res/balanse
 wget https://github.com/mikbill/design/raw/master/onebalance/oneBalanceCron.php
+wget https://github.com/mikbill/design/raw/master/onebalance/balance_payment.php
 
 mcedit /etc/crontab
 # Balance
 10 * * * * root cd /var/www/mikbill/admin/res/balanse; /usr/bin/php oneBalanceCron.php
+
+mcedit /var/www/mikbill/admin/sys/scripts/mikbill_payment_event.sh
+cd /var/www/mikbill/admin/res/balanse
+/usr/bin/php balance_payment.php $2
+
