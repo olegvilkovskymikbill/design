@@ -70,6 +70,12 @@ gdrive --access-token $Gdrive_access_token upload $PACH_FOR_BACKUP_TO_DISK/$FILE
 fi
 }
 
+Func_dropbox_uploader (){
+if [ "BACKUP_TO_DROPBOX_UPLOADER" -ne 0 ]; then
+  $HOME_DIR/dropbox_uploader.sh upload $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK 2>>$LOG
+fi
+}
+
 FUNC_COPY_TO_WEBDISK()
 {
 if [ "$BACKUP_TO_WEBDISK" -ne 0 ];then
@@ -80,12 +86,6 @@ echo "$PACH_FOR_WEBDISK каталог не найден, создание ка�
 mkdir $PACH_FOR_WEBDISK
 }
 fi
-
-Func_dropbox_uploader (){
-if [ "BACKUP_TO_DROPBOX_UPLOADER" -ne 0 ]; then
-  $HOME_DIR/dropbox_uploader.sh upload $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK 2>>$LOG
-fi
-}
 
 if [ "$BACKUP_TO_DROPBOX_CLIENT" -ne 0 ]
 then
