@@ -81,6 +81,12 @@ mkdir $PACH_FOR_WEBDISK
 }
 fi
 
+Func_dropbox_uploader (){
+if [ "BACKUP_TO_DROPBOX_UPLOADER" -ne 0 ]; then
+  $HOME_DIR/dropbox_uploader.sh upload $PACH_FOR_BACKUP_TO_DISK/$FILENAME $PACH_FOR_WEBDISK/$DIR_BACKUP_FOR_WEBDISK/$FILENAME_WEBDISK 2>>$LOG
+fi
+}
+
 if [ "$BACKUP_TO_DROPBOX_CLIENT" -ne 0 ]
 then
   Create_folder_webdisk
@@ -187,6 +193,7 @@ fi
 
 FUNC_COPY_TO_WEBDISK
 Func_copy_to_Gdive
+Func_dropbox_uploader
 }
 fi
 #----------------------------------------------
@@ -227,6 +234,7 @@ fi
 
 FUNC_COPY_TO_WEBDISK
 Func_copy_to_Gdive
+Func_dropbox_uploader
 }
 fi
 }
