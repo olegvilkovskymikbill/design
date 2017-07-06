@@ -1,0 +1,7 @@
+$INCLUDE        /usr/share/freeradius/dictionary
+ATTRIBUTE DHCP-Router-IP-Address 241 ipaddr
+ATTRIBUTE DHCP-Mask              242 integer
+#ATTRIBUTE DHCP-Mask              242 ipaddr
+ATTRIBUTE L4-Redirect            243 integer
+ATTRIBUTE L4-Redirect-ipset      244 string
+ATTRIBUTE DHCP-Option82          245 octets
