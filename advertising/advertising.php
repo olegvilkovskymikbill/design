@@ -1,5 +1,5 @@
 <?php
-$file_name='/var/www/mikbill/admin/advertising_qutM5OwCgXN1';
+$file_name='/var/www/mikbill/admin/advertising_N2g5R0uPnsDp';
 
 $config_file='/var/www/mikbill/admin/app/etc/config.xml';
 if (file_exists($config_file)) {
