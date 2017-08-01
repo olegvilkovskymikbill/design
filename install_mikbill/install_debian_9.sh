@@ -104,10 +104,6 @@ apt-get -q -y install mysql-server >> log_install
 
 echo "30" | dialog --gauge "Please wait" 10 70 0
 
-apt-get -q -y install freeradius freeradius-mysql freeradius-utils freeradius-common libfreeradius-dev freeradius-iodbc logrotate >> log_install
-
-echo "35" | dialog --gauge "Please wait" 10 70 0
-
 
 log "pear -q channel-discover pear.phing.info"
 pear -q channel-discover pear.phing.info >/dev/null
