@@ -5,5 +5,5 @@ return [
   'dbname'=>'crypto',
   'username'=>'root',
   'password'=>'',
-  'charset'=>'utf-8'
+  'charset'=>'utf8'
 ];
