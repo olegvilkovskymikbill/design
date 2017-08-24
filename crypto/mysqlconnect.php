@@ -45,4 +45,4 @@ Class Database{
 
 $db=new Database();
 
-
+$db->execute("INSERT INTO 'user' SET 'username'='Artem'");
