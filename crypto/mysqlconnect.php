@@ -22,11 +22,27 @@ Class Database{
   
   public function execute($sql)
   {
-  
+    $sth=$this->link->prepare($sql);
+    
+    return $sth->execute();
   }
   
   public function query($sql)
   {
-  
+    $sth=$this->link->prepare->($sql);
+    
+    $sth->execute();
+    
+    $result=$sth->fetchAll(PDO::FETCH_ASSOC);
+    
+    if($result===false){
+      return []; 
+    }
+    
+    return $result;
   }
 }
+
+$db=new Database();
+
+
