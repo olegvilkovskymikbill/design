@@ -4,6 +4,9 @@ wget https://github.com/mikbill/design/raw/master/sms/sms_v.4.zip
 
 yum install unzip
 
+chmod 777 /var/www/mikbill/admin/res/sms/send_sms_left_day.sh
+chmod 777 /var/www/mikbill/admin/res/sms/ send_sms.php
+
 nano /var/www/mikbill/admin/sys/scripts/mikbill_payment_event.sh
 nano /var/www/mikbill/stat/sys/scripts/mikbill_payment_event.sh
 
