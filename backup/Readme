@@ -32,4 +32,4 @@ mcedit /etc/crontab
 00 06 * * * root /home/backup/SYS_backup.sh
 
 Установка
-http://mikbill.blogspot.ru/2016/04/backup-mysql-baseyandex-diskbackup-files.html
+https://mikbill.blogspot.ru/2016/04/blog-post_26.html
