@@ -1,5 +1,6 @@
 Скрипт делает бекапы для обновления
-wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupForUpdate.sh
+wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupForUpdate.sh --no-check-certificate
+chmod +x backupForUpdate.sh
 
 
 Загрузка с сервера сборки
