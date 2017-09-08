@@ -13,7 +13,7 @@
 
 :if ($STATUS = 0) do={
 
-	:if ($statusRadCash = 0) do={
+	:if ($statusRadCash != 1) do={
 		log warning "enable RadCash"
 	
 		/ radius disable numbers=$radiusMikbill1
@@ -26,7 +26,7 @@
 	:global statusRadCash 1	
 	} else {
 
-	:if ($statusRadCash = 1) do={
+	:if ($statusRadCash != 0) do={
 		log warning "disable RadCash"
 	
 		/ radius enable numbers=$radiusMikbill1
