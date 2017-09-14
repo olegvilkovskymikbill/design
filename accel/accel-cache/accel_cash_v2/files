@@ -6,7 +6,7 @@ files {
 	# key = "%{Calling-Station-ID}"
         key = "%{User-Name}"
 	
-        usersfile = /opt/accel-cache/users_ipoe
+        usersfile = /opt/accel-cache/users
 
         #  If you want to use the old Cistron 'users' file
         #  with FreeRADIUS, you should change the next line
