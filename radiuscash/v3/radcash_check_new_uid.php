@@ -77,7 +77,7 @@ $file.=" ".$upload_file." ".$config['connect_inteval']." ".$config['connect_sum'
 $file.=" ".$config['userman_ip']." ".$config['userman_ssh_port']." ".$config['userman_login']." ".$config['userman_apply'];
 system("bash $file");
 }
-//upload();
+upload();
 
 
 ?>
