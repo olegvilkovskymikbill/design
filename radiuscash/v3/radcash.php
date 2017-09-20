@@ -91,6 +91,6 @@ $file.=" ".$config['userman_ip']." ".$config['userman_ssh_port']." ".$config['us
 
 system("bash $file");
 }
-//upload();
+upload();
 file_put_contents($file_trigger,"");
 ?>
