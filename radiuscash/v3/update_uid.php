@@ -1,4 +1,5 @@
 <?php
+if(file_exists("trigger.tmp")){
 require_once( "mysqlconnect.php" );
 $config=require_once 'radcash_conf.php';
 $mysqlconnect=new mysqlconnect();
@@ -80,5 +81,5 @@ system("bash $file");
 }
 //upload();
 
-
+}
 ?>
