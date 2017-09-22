@@ -4,7 +4,7 @@ return array(
   'host' => 'localhost',
   'db_name' => 'mikbill',
   'username' => 'mikbill',
-  'password' => '1394xl',
+  'password' => 'PASSWORD',
   'charset' => 'utf8',
 // Mikrotik  
   'userman_ip' => '10.10.10.1',	// IP микротика
