@@ -1,7 +1,3 @@
-Скрипт делает бекапы для обновления
+Скрипт предназначен для быстрого ручного бекапа базы и файлов биллинга, а также для быстрой установки дампа базы
 wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupForUpdate.sh --no-check-certificate
 chmod +x backupForUpdate.sh
-
-
-Загрузка с сервера сборки
-wget https://github.com/mikbill/design/raw/master/backupForUpdate/backupUpdate.sh
