@@ -13,7 +13,7 @@ echo dst_address - проверяемый IP/Домен
 set dst_address=8.8.8.8
 
 echo num_packet - количество отправляемых пакетов командой ping
-set num_packet=5
+set num_packet=10
 
 :start 
 echo Выключение сетевой карты %network_interface%
