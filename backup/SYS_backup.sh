@@ -182,7 +182,7 @@ mysqldump --single-transaction -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null |
 
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
 
-echo "бекап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
+echo "бекап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан" >>$LOG
 
 # Проверка дампа                         
 check=$(zcat $PACH_FOR_BACKUP_TO_DISK/$FILENAME | grep ^'-- Dump completed')
