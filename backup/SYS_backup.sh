@@ -1,5 +1,5 @@
 #!/bin/bash
-# Version 21
+# Version 22
 # wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 HOME_DIR=$(cd $(dirname $0)&& pwd)
 source $HOME_DIR/SYS_backup.conf
@@ -183,6 +183,15 @@ mysqldump --single-transaction -u $DB_USER -p$DB_PASSWORD $DB_NAME 2>/dev/null |
 find $PACH_FOR_BACKUP_TO_DISK -mtime +$LIFE_TIME_FILE_ON_DISk |sort|xargs rm -f
 
 echo "бекап $PACH_FOR_BACKUP_TO_DISK/$FILENAME создан успешно" >>$LOG
+
+# Проверка дампа                         
+check=$(zcat $PACH_FOR_BACKUP_TO_DISK/$FILENAME | grep ^'-- Dump completed')
+if [ "$check" = "" ]
+then
+echo "Ошибка, дамп не полный" >>$LOG
+else
+echo "Dump completed" >>$LOG
+fi
 
 if [ "$WEBDISK_ONE_FILE" -ne 0 ]
 then
