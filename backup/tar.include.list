@@ -1,0 +1,11 @@
+/var/www/mikbill
+/etc/rc.d/rc.local
+/etc/my.cnf
+/etc/nginx/conf.d
+/etc/crontab
+/etc/cron.d
+/etc/resolv.conf
+/etc/sysctl.conf
+/home/backup/SYS_backup.conf
+/var/mikbill/custom_scripts
+/etc/sysconfig/network-scripts
