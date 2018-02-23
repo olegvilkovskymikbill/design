@@ -3,8 +3,8 @@ cd /home/backup
 wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.sh
 wget https://github.com/mikbill/design/raw/master/backup/SYS_backup.conf
 chmod +x SYS_backup.sh
-https://github.com/mikbill/design/raw/master/backup/tar.include.list
-https://github.com/mikbill/design/raw/master/backup/tar.exclude.list
+wget https://github.com/mikbill/design/raw/master/backup/tar.include.list
+wget https://github.com/mikbill/design/raw/master/backup/tar.exclude.list
 
 
 
