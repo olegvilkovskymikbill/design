@@ -1,0 +1,18 @@
+2018/02/27 03:09:01 [notice] 7426#0: ModSecurity for nginx (STABLE)/2.8.0 (http://www.modsecurity.org/) configured.
+2018/02/27 03:09:01 [notice] 7426#0: ModSecurity: APR compiled version="1.3.9"; loaded version="1.3.9"
+2018/02/27 03:09:01 [notice] 7426#0: ModSecurity: PCRE compiled version="7.8 "; loaded version="7.8 2008-09-05"
+2018/02/27 03:09:01 [notice] 7426#0: ModSecurity: LUA compiled version="Lua 5.1"
+2018/02/27 03:09:01 [notice] 7426#0: ModSecurity: LIBXML compiled version="2.7.6"
+2018/02/27 03:09:01 [notice] 7426#0: Status engine is currently disabled, enable it by set SecStatusEngine to On.
+2018/02/27 14:31:17 [notice] 21773#0: ModSecurity for nginx (STABLE)/2.8.0 (http://www.modsecurity.org/) configured.
+2018/02/27 14:31:17 [notice] 21773#0: ModSecurity: APR compiled version="1.3.9"; loaded version="1.3.9"
+2018/02/27 14:31:17 [notice] 21773#0: ModSecurity: PCRE compiled version="7.8 "; loaded version="7.8 2008-09-05"
+2018/02/27 14:31:17 [notice] 21773#0: ModSecurity: LUA compiled version="Lua 5.1"
+2018/02/27 14:31:17 [notice] 21773#0: ModSecurity: LIBXML compiled version="2.7.6"
+2018/02/27 14:31:17 [notice] 21773#0: Status engine is currently disabled, enable it by set SecStatusEngine to On.
+2018/02/27 14:31:18 [notice] 21788#0: ModSecurity for nginx (STABLE)/2.8.0 (http://www.modsecurity.org/) configured.
+2018/02/27 14:31:18 [notice] 21788#0: ModSecurity: APR compiled version="1.3.9"; loaded version="1.3.9"
+2018/02/27 14:31:18 [notice] 21788#0: ModSecurity: PCRE compiled version="7.8 "; loaded version="7.8 2008-09-05"
+2018/02/27 14:31:18 [notice] 21788#0: ModSecurity: LUA compiled version="Lua 5.1"
+2018/02/27 14:31:18 [notice] 21788#0: ModSecurity: LIBXML compiled version="2.7.6"
+2018/02/27 14:31:18 [notice] 21788#0: Status engine is currently disabled, enable it by set SecStatusEngine to On.
