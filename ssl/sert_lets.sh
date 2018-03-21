@@ -23,6 +23,7 @@ echo -e "\033[0;35mssl_certificate $path_ssl/$1.cer; \033[0m"
 echo -e "\033[0;35mssl_certificate_key $path_ssl/$1.key; \033[0m"
 echo "Add to cron $1"
 echo -e "\033[0;35m00 05 * * * root /root/.acme.sh/acme.sh --renew -d $1  \033[0m"
+echo -e "\033[0;35m10 05 * * * root /etc/init.d/nginx restart \033[0m"
 fi
 }
 
