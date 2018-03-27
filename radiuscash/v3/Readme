@@ -1,1 +1,7 @@
-123
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/mysqlconnect.php
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/radcash.php
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/radcash_check_new_uid.php
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/radcash_conf.php
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/radcash_lib.php
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/radcash_upload.sh
+wget https://github.com/mikbill/design/raw/master/radiuscash/v3/mikro/update_uid.php
