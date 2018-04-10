@@ -1,1 +1,5 @@
+wget https://github.com/mikbill/design/raw/master/phpmyadmin/pma.tar.gz
+tar -xvf pma.tar.gz -C /var/www/mikbill/admin/res/
+mv /var/www/mikbill/admin/res/pma /var/www/mikbill/admin/res/pma_
 
+Добавить соль
