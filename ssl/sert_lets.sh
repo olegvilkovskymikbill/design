@@ -10,7 +10,7 @@ map=
 path_mikbill=/var/www/mikbill/
 path_ssl=/etc/nginx/conf.d/ssl
 
-yum -y install nc wget
+yum -y install nc wget socat
 wget -O - https://get.acme.sh | sh
 
 function add_domain(){
