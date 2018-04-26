@@ -2,3 +2,5 @@ cd /etc/zabbix/
 mv zabbix_agentd.conf zabbix_agentd.conf.old
 wget https://github.com/mikbill/design/raw/master/zabbix/zabbix_agentd.conf
 nano zabbix_agentd.conf
+
+service zabbix-agent restart
