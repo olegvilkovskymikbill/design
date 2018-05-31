@@ -1,1 +1,3 @@
+Скрипт-балансировщик. Отличие в том, что делает балансировку только юр. лиц (проверяет по учеткам с "-")
+
 wget https://github.com/mikbill/design/raw/master/mikbill/balanse/balanse.php
