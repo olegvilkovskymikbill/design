@@ -1,1 +1,2 @@
-
+cd /etc/nginx
+wget https://github.com/mikbill/design/raw/master/LK/access.list
