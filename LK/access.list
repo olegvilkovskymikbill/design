@@ -1,0 +1,10 @@
+# localhost (для внутренних запросов)
+allow 127.0.0.1;
+# local net (локальные клиенты)
+allow 192.168.0.0/16;
+allow 172.16.0.0/12;
+allow 10.0.0.0/8;
+# trusted hosts
+
+# deny others
+deny all;
