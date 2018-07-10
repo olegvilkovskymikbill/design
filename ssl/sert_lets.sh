@@ -5,7 +5,7 @@ admin=
 # Личный кабинет
 stat=
 # Карты
-map=
+#map=
 
 path_mikbill=/var/www/mikbill/
 path_ssl=/etc/nginx/conf.d/ssl
@@ -29,4 +29,4 @@ echo -e "\033[0;35m10 05 * * * root /etc/init.d/nginx reload \033[0m"
 
 add_domain $admin admin
 add_domain $stat stat
-add_domain $map map
+#add_domain $map map
