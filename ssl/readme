@@ -1,0 +1,2 @@
+wget https://github.com/mikbill/design/raw/master/ssl/sert_lets.sh
+chmod +x sert_lets.sh
