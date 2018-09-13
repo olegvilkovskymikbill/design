@@ -1,1 +1,35 @@
-
+diff --git a/install.pl b/install.pl
+index 5ce265e..2a213db 100755
+--- a/install.pl
++++ b/install.pl
+@@ -553,7 +553,7 @@ sub UpgradeProfiles {
+                                if( ! -f "$NfConf::PROFILEDATADIR/$profilepath/$channel/.nfstat") {
+                                        # no shadow profile, but missing channel stat
+                                        print "Rebuilding profile stats for '$profilegroup/$profilename'\n";
+-                                       NfProfile::DoRebuild(\%profileinfo, $profilename, $profilegroup, $profilepath, 1, 0);
++                                       NfProfile::DoRebuild(*STDOUT, \%profileinfo, $profilename, $profilegroup, $profilepath, 1, 0);
+                                        NfProfile::WriteProfile(\%profileinfo);
+                                }
+                                # make sure it's own by nfsen_uid after the rebuild
+diff --git a/libexec/NfProfile.pm b/libexec/NfProfile.pm
+index 1ca7436..d58fcd2 100644
+--- a/libexec/NfProfile.pm
++++ b/libexec/NfProfile.pm
+@@ -3441,7 +3441,7 @@ sub CheckProfiles {
+                                } else {
+                                        $profileinfo{'type'} = 1;
+                                }
+-                               my $status = DoRebuild(\%profileinfo, $profile, $profilegroup, $profilepath, 0, 0);
++                               my $status = DoRebuild(*STDOUT, \%profileinfo, $profile, $profilegroup, $profilepath, 0, 0);
+                                syslog('err', "Rebuilded profile '$profile' in group '$profilegroup': $status ");
+                        }
+                        if ( -f "$NfConf::PROFILESTATDIR/$profilepath/.CANCELED" ) {
+@@ -3453,7 +3453,7 @@ sub CheckProfiles {
+                                } else {
+                                        $profileinfo{'type'} = 1;
+                                }
+-                               my $status = DoRebuild(\%profileinfo, $profile, $profilegroup, $profilepath, 0, 0);
++                               my $status = DoRebuild(*STDOUT, \%profileinfo, $profile, $profilegroup, $profilepath, 0, 0);
+                                syslog('err', "Rebuilded profile '$profile' in group '$profilegroup': $status ");
+                        }
+                        if ( $profileinfo{'locked'} ) {
