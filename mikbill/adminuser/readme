@@ -1,1 +1,3 @@
-
+wget https://github.com/mikbill/design/raw/master/mikbill/adminuser/adminuser.sh
+chmod +x adminuser.sh
+./adminuser.sh
