@@ -1,0 +1,1 @@
+00 07 * * * root /var/mikbill/custom_scripts/aide/aide.sh > /dev/null
