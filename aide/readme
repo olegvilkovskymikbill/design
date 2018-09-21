@@ -1,1 +1,5 @@
-
+mkdir -p /var/mikbill/custom_scripts/aide
+cd /var/mikbill/custom_scripts/aide
+wget https://github.com/mikbill/design/raw/master/aide/aide.sh
+chmod +x aide.sh
+wget -P /etc/crond https://github.com/mikbill/design/raw/master/aide/aide
