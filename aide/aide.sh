@@ -1,8 +1,8 @@
 #!/bin/bash
 server_name="[] ";
-TOKEN=xoxb-78422713744-425720419425-U3Men2QcEWZgFrXBTtTAUuEH
-CHANNEL=events
-USERNAME=events_bot
+TOKEN=1xoxb-78422713744-425720419425-U3Men2QcEWZgFrXBTtTAUuEH
+CHANNEL=1events
+USERNAME=1events_bot
 
 DATE=`date +%Y-%m-%d`
 logdir=/var/log/aide
