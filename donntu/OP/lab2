@@ -39,3 +39,51 @@ main() {
     "(%f, %f) вироджений \n",xa,ya,xb,yb,xc,yc,xd,yd);
     getch();
 } 
+
+
+
+
+main() 
+  {
+  float tr[4][2];
+  float xe;
+  float ye;
+  float xa, ya, xb, yb,
+  xc, yc, xd, yd;
+  float a, b, c, d, f, h;
+  int i;
+  clrscr();
+  printf("Введите координаты точек параллелограмма");
+  for (i=0; i<4; i++) 
+    {
+    printf("\координаты: %d-й точки: x=",i+1);
+    scanf("%f", &tr[i][0]);
+    printf("y=");
+    scanf("%f", &tr[i][1]);
+    }
+  xa=tr[0][0];
+  ya=tr[0][1];
+  xb=tr[1][0];
+  yb=tr[1][1];
+  xc=tr[2][0];
+  yc=tr[2][1];
+  xd=tr[3][0];
+  yd=tr[3][1];
+  printf("%f, %f\n %f %f\n %f %f\n %f %f\n",xa,ya,xb,yb,xc,yc,xd,yd);
+  a=sqrt((xa-xb)*(xa-xb)+(ya-yb)*(ya-yb));
+  b=sqrt((xb-xc)*(xb-xc)+(yb-yc)*(yb-yc));
+  c=sqrt((xc-xd)*(xc-xd)+(yc-yd)*(yc-yd));
+  d=sqrt((xd-xa)*(xd-xa)+(yd-ya)*(yd-ya));
+  f=sqrt((xa-xc)*(xa-xc)+(ya-yc)*(ya-yc));
+  h=sqrt((xb-xd)*(xb-xd)+(yb-yd)*(yb-yd));
+  if((a+b>f)&&(b+c>h)&&(d+c>f)&&(a+d>h)) 
+    {
+    xe=(xa+xc)/2;
+    ye=(ya+yc)/2;
+    printf("xe=%f, ye=%f",xe,ye);
+    }
+  else
+    printf("Даний паралелограм ((%f, %f),(%f, %f),(%f, %f),"
+    "(%f, %f) вироджений \n",xa,ya,xb,yb,xc,yc,xd,yd);
+    getch();
+  } 
