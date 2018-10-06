@@ -1,0 +1,34 @@
+#include "pch.h"
+#include <iostream>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+	int n = 100000000;
+	double s;
+	unsigned int time1 = clock();
+	int i;
+	for (i = 0; i < n; i++) {
+		s = i * tan(i);
+	}
+	unsigned int time2 = clock();
+	int j;
+	for (j = 0; j < n; j++) {
+		s = i * tan(i);
+	}
+	unsigned int time3 = clock();
+
+	register int k;
+	for (k = 0; k < n; k++) {
+		s = i * tan(i);
+	}
+	unsigned int time4 = clock();
+
+	unsigned int time_for1 = time2 - time1;
+	unsigned int time_for2 = time3 - time2;
+	unsigned int time_for3 = time4 - time3;
+	cout << "\n" << time_for1 << "\n" << time_for2 << "\n" << time_for3 << "\n";
+	system("pause");
+}
