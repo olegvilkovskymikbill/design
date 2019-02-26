@@ -1,0 +1,51 @@
+---
+  - name: copy accel-ppp.conf
+    copy: 
+      src: configs/accel-ppp.conf
+      dest: /etc
+
+  - name: copy LUA script
+    copy:
+      src: configs/accel-ppp.lua
+      dest: /etc
+
+  - name: radius attributes
+    lineinfile:
+      dest: /usr/local/share/accel-ppp/radius/dictionary
+      line: '{{ item }}'
+    with_items:
+      - 'ATTRIBUTE DHCP-Router-IP-Address 241 ipaddr'
+      - 'ATTRIBUTE DHCP-Mask 242 integer'
+      - 'ATTRIBUTE L4-Redirect 243 integer'
+      - 'ATTRIBUTE L4-Redirect-ipset 244 string'
+      - 'ATTRIBUTE DHCP-Option82 245 octets'
+      - '#ATTRIBUTE DHCP-Agent-Circuit-Id	1 octets'
+      - '#ATTRIBUTE DHCP-Agent-Remote-Id	2 octets'
+      - 'ATTRIBUTE AccelRemoteId 246 octets'
+      - 'ATTRIBUTE AccelCircuitId 247 octets'
+      - '#ATTRIBUTE DHCP-Attr-272 272 ipaddr'
+
+  - name: copy logrotate accel
+    copy:
+      src: configs/accel-logrotate
+      dest: /etc/logrotate.d
+
+  - name: copy init script
+    copy:
+      src: configs/accel
+      dest: /etc/init.d
+
+  - file:
+      path: /etc/init.d/accel
+      mode: 0755
+
+  - name: autorun accel
+    command: "chkconfig accel on"
+
+  - name: copy systemd file
+    copy:
+      src: configs/accel-ppp.service
+      dest: /etc/systemd/system/multi-user.target.wants
+
+  - name: update-rc.d
+    command: "update-rc.d accel defaults"

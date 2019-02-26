@@ -1,0 +1,44 @@
+---
+  - name: Creates directory
+    file:
+      path: /var/accel-ppp/
+      state: directory
+
+  - name: Clone a repository
+    git:
+      repo: https://github.com/xebd/accel-ppp.git
+      version: master
+      dest: /var/accel-ppp/
+      accept_hostkey: yes
+
+  - name: build
+    command: "{{ item }} chdir=/usr/local/src"
+    with_items:
+      - cmake /var/accel-ppp -DKDIR=/usr/src/linux-headers-3.16.0-4-amd64 -DBUILD_DRIVER=FALSE -DRADIUS=TRUE -DNETSNMP=FALSE -DSHAPER=TRUE -DLOG_PGSQL=FALSE -DLUA=TRUE -DBUILD_IPOE_DRIVER=TRUE -DBUILD_VLAN_MON_DRIVER=TRUE -DCMAKE_INSTALL_PREFIX=/usr/local/src
+      - make
+      - make install
+
+  - name: copy ipoe
+    copy:
+      src: /usr/local/src/drivers/ipoe/driver/ipoe.ko
+      dest: /lib/modules/3.16.0-4-amd64/kernel/net
+
+  - name: copy vlan_mon
+    copy:
+      src: /usr/local/src/drivers/vlan_mon/driver/vlan_mon.ko
+      dest: /lib/modules/3.16.0-4-amd64/kernel/net
+
+  - name: update depmod
+    command: "depmod -a"
+
+  - name: add routing
+    lineinfile: dest=/etc/iproute2/rt_protos
+      regexp='^'
+      line='100     accel/ipoe'
+      state=present
+
+  - name: add L4-Redirect
+    lineinfile: dest=/etc/iproute2/rt_tables
+      regexp='^'
+      line='100     accel/ipoe'
+      state=present

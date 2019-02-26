@@ -1,0 +1,19 @@
+---
+  - name: add modules
+    lineinfile:
+      dest: /etc/modules
+      line: '{{ item }}'
+    with_items:
+      - '# модуль ipoe для L2/L3'
+      - 'ipoe'
+      - '# модуль для QinQ'
+      - '#vlan_mon'
+      - '# для работы vlan'
+      - '8021q'
+      - '# для корректной работы шейперов'
+      - 'sch_netem'
+      - '# для работы VPN'
+      - 'ip_gre'
+      - 'ip_nat_pptp'
+      - 'ip_conntrack_pptp'
+

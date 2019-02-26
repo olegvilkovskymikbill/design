@@ -1,0 +1,9 @@
+/var/log/accel-ppp/*.log {
+        daily
+        rotate 7
+        missingok
+        sharedscripts
+        postrotate
+                test -r /var/run/accel-pppd.pid && kill -HUP `cat /var/run/accel-pppd.pid`
+        endscript
+}

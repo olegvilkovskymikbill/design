@@ -1,0 +1,28 @@
+---
+  - name: mtr
+    apt: pkg=mtr state=present update_cache=true
+
+  - name: atop
+    apt: pkg=atop state=present update_cache=true
+
+  - name: htop
+    apt: pkg=htop state=present update_cache=true
+
+  - name: mc
+    apt: pkg=mc state=present update_cache=true
+
+  - name: tcpdump
+    apt: pkg=tcpdump state=present update_cache=true
+
+  - name: vlan
+    apt: pkg=vlan state=present update_cache=true
+
+  - name: ethtool
+    apt: pkg=ethtool state=present update_cache=true
+
+  - name: sudo
+    apt: pkg=sudo state=present update_cache=true
+
+  - name: chkconfig
+    apt: pkg=chkconfig state=present update_cache=true
+

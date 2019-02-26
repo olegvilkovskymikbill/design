@@ -1,0 +1,57 @@
+---
+  - name: git
+    apt: pkg=git state=present update_cache=true
+
+  - name: make
+    apt: pkg=make state=present update_cache=true
+
+  - name: libnl-utils
+    apt: pkg=libnl-utils state=present update_cache=true
+
+  - name: gcc
+    apt: pkg=gcc state=present update_cache=true
+
+  - name: cmake
+    apt: pkg=cmake state=present update_cache=true
+
+  - name: libcrypto++-dev
+    apt: pkg=libcrypto++-dev state=present update_cache=true
+
+  - name: libcrypto++9
+    apt: pkg=libcrypto++9 state=present update_cache=true
+
+  - name: libcrypto++-utils
+    apt: pkg=libcrypto++-utils state=present update_cache=true
+
+  - name: lua5.1
+    apt: pkg=lua5.1 state=present update_cache=true
+
+  - name: liblua5.1-0-dev
+    apt: pkg=liblua5.1-0-dev state=present update_cache=true
+
+  - name: libpcre++-dev
+    apt: pkg=libpcre++-dev state=present update_cache=true
+
+  - name: libpcre++0
+    apt: pkg=libpcre++0 state=present update_cache=true
+
+  - name: libpcre3
+    apt: pkg=libpcre3 state=present update_cache=true
+
+  - name: libpcrecpp0
+    apt: pkg=libpcrecpp0 state=present update_cache=true
+
+  - name: libsnmp-dev
+    apt: pkg=libsnmp-dev state=present update_cache=true
+
+  - name: iftop
+    apt: pkg=iftop state=present update_cache=true
+
+  - name: iptraf
+    apt: pkg=iptraf state=present update_cache=true
+
+  - name: ipset
+    apt: pkg=ipset state=present update_cache=true
+
+  - name: libipset-dev
+    apt: pkg=libipset-dev state=present update_cache=true
