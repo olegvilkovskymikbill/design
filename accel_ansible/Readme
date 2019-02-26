@@ -1,1 +1,1 @@
-wget install.yml
+wget https://github.com/mikbill/design/raw/master/accel_ansible/install.yml
