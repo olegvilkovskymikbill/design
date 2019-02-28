@@ -4,3 +4,6 @@ wget https://github.com/mikbill/design/raw/master/updates/free/mikbill_update.sh
 
 Pay:
 wget https://github.com/mikbill/design/raw/master/updates/pay/mikbill_update.sh
+
+С сервера mikbill 
+wget -O mikbill_update.sh http://pay.update.2x.mikbill.pro/mikbill_update.sh
