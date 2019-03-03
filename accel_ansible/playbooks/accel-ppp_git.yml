@@ -1,20 +1,20 @@
 ---
   - name: Creates directory
     file:
-      path: /var/accel-ppp/
+      path: /var/accel-ppp/accel-ppp.git
       state: directory
 
   - name: Clone a repository
     git:
       repo: https://github.com/xebd/accel-ppp.git
       version: master
-      dest: /var/accel-ppp/
+      dest: /var/accel-ppp/accel-ppp.git
       accept_hostkey: yes
 
   - name: build
     command: "{{ item }} chdir=/usr/local/src"
     with_items:
-      - cmake /var/accel-ppp -DKDIR=/usr/src/linux-headers-3.16.0-4-amd64 -DBUILD_DRIVER=FALSE -DRADIUS=TRUE -DNETSNMP=FALSE -DSHAPER=TRUE -DLOG_PGSQL=FALSE -DLUA=TRUE -DBUILD_IPOE_DRIVER=TRUE -DBUILD_VLAN_MON_DRIVER=TRUE -DCMAKE_INSTALL_PREFIX=/usr/local/src
+      - cmake /var/accel-ppp/accel-ppp.git -DKDIR=/usr/src/linux-headers-3.16.0-4-amd64 -DBUILD_DRIVER=FALSE -DRADIUS=TRUE -DNETSNMP=FALSE -DSHAPER=TRUE -DLOG_PGSQL=FALSE -DLUA=TRUE -DBUILD_IPOE_DRIVER=TRUE -DBUILD_VLAN_MON_DRIVER=TRUE -DCMAKE_INSTALL_PREFIX=/usr/local/src
       - make
       - make install
 

@@ -1,13 +1,30 @@
 ---
   - name: copy accel-ppp.conf
-    copy: 
-      src: configs/accel-ppp.conf
+    copy:
+      src: files/accel-ppp.conf
       dest: /etc
 
   - name: copy LUA script
     copy:
-      src: configs/accel-ppp.lua
+      src: files/accel-ppp.lua
       dest: /etc
+
+  - name: copy accel-pppd
+    copy:
+      src: /usr/local/src/sbin/accel-pppd
+      dest: /usr/local/sbin
+      mode: 0755
+
+  - name: copy accel-cmd
+    copy:
+      src: /usr/local/src/bin/accel-cmd
+      dest: /usr/local/bin
+      mode: 0755
+
+  - name: copy radius
+    copy:
+      src: /usr/local/src/share/accel-ppp
+      dest: /usr/local/share
 
   - name: radius attributes
     lineinfile:
@@ -27,12 +44,12 @@
 
   - name: copy logrotate accel
     copy:
-      src: configs/accel-logrotate
+      src: files/accel-logrotate
       dest: /etc/logrotate.d
 
   - name: copy init script
     copy:
-      src: configs/accel
+      src: files/accel
       dest: /etc/init.d
 
   - file:
@@ -44,7 +61,7 @@
 
   - name: copy systemd file
     copy:
-      src: configs/accel-ppp.service
+      src: files/accel-ppp.service
       dest: /etc/systemd/system/multi-user.target.wants
 
   - name: update-rc.d

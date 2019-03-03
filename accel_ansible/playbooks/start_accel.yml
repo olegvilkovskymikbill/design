@@ -1,0 +1,5 @@
+---
+  - name: Start service accel
+    service:
+      name: accel
+      state: started

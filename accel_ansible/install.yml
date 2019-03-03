@@ -24,3 +24,5 @@
     - name: modules
       include: playbooks/modules.yml
 
+    - name: start accel
+      include: playbooks/start_accel.yml

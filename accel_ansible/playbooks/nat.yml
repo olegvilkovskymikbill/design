@@ -1,9 +1,9 @@
 ---
-  - name: conntrack
-    lineinfile: dest=/etc/modprobe.d/nf_conntrack.conf
-      regexp='^'
-      line='options nf_conntrack hashsize=1193572'
-      state=present
+  - name: ensure file exists
+    copy:
+      content: "options nf_conntrack hashsize=1193572"
+      dest: /etc/modprobe.d/nf_conntrack.conf
+      force: no
 
   - name: sysctl.conf
     lineinfile:
