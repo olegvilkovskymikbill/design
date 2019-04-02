@@ -1,3 +1,8 @@
 wget https://github.com/mikbill/design/raw/master/tmp/zar.sh
 chmod +x zar.sh
 ./zar.sh
+
+php5
+wget https://github.com/mikbill/design/raw/master/tmp/php5.sh
+chmod +x php5.sh
+./php5.sh
