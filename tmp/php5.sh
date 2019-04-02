@@ -6,3 +6,5 @@ phpize
 make
 make install
 echo 'extension=suhosin.so' > /etc/php.d/suhosin.ini
+service nginx restart
+service php-fpm restart
