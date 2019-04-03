@@ -34,7 +34,7 @@ ENV JBOSS_HOME /opt/rh/jboss-eap-6.4
 RUN $JBOSS_HOME/bin/add-user.sh admin admin@2016 --silent
 
 # configure JBoss
-RUN echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=192.168.10.101 -Djboss.bind.address.management=192.168.10.101\"" >> $JBOSS_HOME/bin/standalone.conf
+RUN echo "JAVA_OPTS=\"\$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0\"" >> $JBOSS_HOME/bin/standalone.conf
 
 # set permission folder
 RUN chown -R jboss:jboss /opt/rh
@@ -48,6 +48,6 @@ ENTRYPOINT $JBOSS_HOME/bin/standalone.sh -c standalone-full-ha.xml
 # deploy app
 
 #ADD myapp.war "$JBOSS_HOME/standalone/deployments/"
-RUN sleep 60
+#RUN sleep 60
 USER jboss
 CMD /bin/bash
