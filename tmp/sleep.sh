@@ -1,2 +1,2 @@
 #!/bin/sh
-sleep 60
+sleep 900
