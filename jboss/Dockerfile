@@ -24,7 +24,7 @@ RUN mkdir -p /opt/rh
 WORKDIR /opt/rh
 
 # install JBoss EAP 6.4.0
-RUN wget https://download.unitedthinkers.com/jboss-eap-6.4/jboss-eap-6.4.0.zip && 
+RUN wget https://download.unitedthinkers.com/jboss-eap-6.4/jboss-eap-6.4.0.zip && \
 unzip jboss-eap-6.4.0.zip
 
 # set environment
