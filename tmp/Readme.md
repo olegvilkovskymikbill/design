@@ -4,8 +4,9 @@ Ansible задачу писал по рекомендациям с best practice
   docker_install - установка Docker, сделана для полной настройки чистого сервера, 
     когда настройка проходит на удаленном сервере.
     Описание переменных:
-      docker_install_distribution - репозиторий для закачки Docker
-  configure_container - сборка образа Docker из Dockerfile, запуск контейнера с с установленными Jdk 8 и JBoss 6.4 
+      docker_install_distribution - репозиторий для закачки пакета Docker.
+  configure_container - сборка образа Docker из Dockerfile, запуск контейнера с с установленными Jdk 8 и JBoss 6.4.
+    Контейнер ставится на OS Centos7 и уничтожается через 15 минут работы.
     Описание переменных:
       configure_container_containername - название создаваемого Docker-контейнера
       configure_container_imagename - название создаваемого Docker-образа
