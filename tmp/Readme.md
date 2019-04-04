@@ -18,14 +18,29 @@ Ansible задачу писал по рекомендациям с best practice
 Работа скрипта протестирована на локальной и удаленной машине (Ubuntu 18.04.2 LTS)
 
 2.2 Build Application
-Работу выполнил кодом:
+Код в Jenkins:
   rm -rf UT
   git clone https://github.com/kadrist/UT.git
   cd UT
   git checkout -b myBranch1
   mvn clean install
+  cp target/devops-test.war /tmp/
 
-Удаляю каталог, загружаю репозиторий, создаю локальную ветку и собираю devops-test.war
+Удаляю каталог, загружаю репозиторий, создаю локальную ветку, собираю devops-test.war и переношу в временный каталог
 
-2.3 
+2.3 Deploy Application
+Код в Jenkins:
+  sudo cp /tmp/devops-test.war /usr/local/share/jboss/standalone/deployments
+  cd /usr/local/share/jboss/bin
+  ./standalone.sh -Djboss.bind.address=192.168.10.101 -Djboss.bind.address.management=192.168.10.101&
+  
+Копирую файл war в каталог для deploy и запускаю deploy
+Результат в приложенном скрине.
+
+2.4 Manage Deployment
+Для этой задачи использовал плагины:
+  Active Choices Plug-in - запуск другой задачи
+  Parameterized Trigger plugin - выбор checkbox
+
+
 
