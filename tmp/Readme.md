@@ -38,8 +38,8 @@ Ansible задачу писал по рекомендациям с best practice
 Результат в приложенном скрине.
 
 2.4 Manage Deployment
-Для этой задачи использовал плагины:
-  Extensible Choice Parameter - выбор checkbox
+Для этой задачи использовал плагины:	
+  Extended Choice Parameter - выбор checkbox
   Parameterized Trigger plugin - запуск другой задачи 
 
 
