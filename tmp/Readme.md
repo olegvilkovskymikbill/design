@@ -45,11 +45,11 @@ configure_container - сборка образа Docker из Dockerfile, запу
 
 2.3 Deploy Application
 Код в Jenkins:
-  sudo cp /tmp/devops-test.war /usr/local/share/jboss/standalone/deployments
-  cd /usr/local/share/jboss/bin
-  ./standalone.sh -Djboss.bind.address=192.168.10.101 -Djboss.bind.address.management=192.168.10.101&
+  sudo docker restart jboss_container
+  sudo docker cp /tmp/devops-test.war jboss_container:/opt/jboss/jboss-eap-6.4/standalone/deployments
+  sudo docker exec jboss_container /opt/jboss/jboss-eap-6.4/bin/standalone.sh -b 0.0.0.0 -c standalone-full-ha.xml &
   
-Копирую файл war в каталог для deploy и запускаю deploy
+Перезапускаю контейнер, копирую файл war в каталог для deploy в контейнере и запускаю deploy в контейнере.
 Результат в приложенном скрине.
 
 
