@@ -14,4 +14,18 @@ Ansible задачу писал по рекомендациям с best practice
       configure_container_port8080 - порт, на котором будет перенаправление на внутренний порт контейнера 8080
       configure_container_port9990 - порт, на котором будет перенаправление на внутренний порт контейнера 9990
       configure_container_port9999 - порт, на котором будет перенаправление на внутренний порт контейнера 9999
+      
+Работа скрипта протестирована на локальной и удаленной машине (Ubuntu 18.04.2 LTS)
+
+2.2 Build Application
+Работу выполнил кодом:
+  rm -rf UT
+  git clone https://github.com/kadrist/UT.git
+  cd UT
+  git checkout -b myBranch1
+  mvn clean install
+
+Удаляю каталог, загружаю репозиторий, создаю локальную ветку и собираю devops-test.war
+
+2.3 
 
