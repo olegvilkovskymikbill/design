@@ -16,6 +16,8 @@ Ansible задачу писал по рекомендациям с best practice
       configure_container_port9999 - порт, на котором будет перенаправление на внутренний порт контейнера 9999
       
 Работа скрипта протестирована на локальной и удаленной машине (Ubuntu 18.04.2 LTS)
+Для запуска в Jenkins использовал плагин ansible. 
+Также файлы configure_container.yml и hosts сделал редактируемыми из Jenkins.  
 
 2.2 Build Application
 Код в Jenkins:
