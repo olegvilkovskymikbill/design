@@ -1,0 +1,828 @@
+Calling "C:\unipay\jboss-eap-6.4\bin\standalone.conf.bat"
+Setting JAVA property to "C:\Program Files\Java\jdk1.8.0_211\bin\java"
+===============================================================================
+
+  JBoss Bootstrap Environment
+
+  JBOSS_HOME: "C:\unipay\jboss-eap-6.4"
+
+  JAVA: "C:\Program Files\Java\jdk1.8.0_211\bin\java"
+
+  JAVA_OPTS: "-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=3M -XX:-TraceClassUnloading -XX:+UseCompressedOops -Dprogram.name=standalone.bat -Xms1G -Xmx1G -XX:MaxPermSize=256M -Djava.net.preferIPv4Stack=true  -Djboss.modules.policy-permissions=true  -Djboss.modules.system.pkgs=org.jboss.byteman"
+
+===============================================================================
+
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256M; support was removed in 8.0
+21:20:29,504 INFO  [org.jboss.modules] (main) JBoss Modules version 1.3.6.Final-redhat-1
+21:20:29,679 INFO  [org.jboss.msc] (main) JBoss MSC version 1.1.5.Final-redhat-1
+21:20:29,745 INFO  [org.jboss.as] (MSC service thread 1-6) JBAS015899: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) starting
+21:20:31,154 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 8) JBAS014627: Attribute start is deprecated, and it might be removed in future version!
+21:20:31,191 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute default-stack is deprecated, and it might be removed in future version!
+21:20:31,220 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) JBAS015014: Re-attempting failed deployment unipay.ear
+21:20:31,225 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,238 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,241 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,242 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,244 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,245 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,247 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,248 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,253 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,254 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,264 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,270 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,272 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,274 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,276 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,278 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,290 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 26) JBAS014627: Attribute type is deprecated, and it might be removed in future version!
+21:20:31,306 INFO  [org.xnio] (MSC service thread 1-4) XNIO Version 3.0.13.GA-redhat-1
+21:20:31,309 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015888: Creating http management service using socket-binding (management-http)
+21:20:31,320 INFO  [org.xnio.nio] (MSC service thread 1-4) XNIO NIO Implementation Version 3.0.13.GA-redhat-1
+21:20:31,442 INFO  [org.jboss.remoting] (MSC service thread 1-4) JBoss Remoting version 3.3.4.Final-redhat-1
+21:20:31,555 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 32) JBAS010280: Activating Infinispan subsystem.
+21:20:31,598 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 28) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+21:20:31,759 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 47) JBAS010153: Node identifier property is set to the default value. Please make sure it is unique.
+21:20:31,763 INFO  [org.jboss.as.connector.logging] (MSC service thread 1-7) JBAS010408: Starting JCA Subsystem (IronJacamar 1.0.31.Final-redhat-1)
+21:20:31,767 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 40) JBAS011800: Activating Naming Subsystem
+21:20:31,776 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 38) JBAS012615: Activated the following JSF Implementations: [main, 1.2]
+21:20:31,781 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 45) JBAS013371: Activating Security Subsystem
+21:20:31,780 INFO  [org.jboss.as.clustering.jgroups] (ServerService Thread Pool -- 51) JBAS010260: Activating JGroups subsystem.
+21:20:31,791 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 28) JBAS010404: Deploying non-JDBC-compliant driver class com.mysql.jdbc.Driver (version 5.1)
+21:20:31,800 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 49) JBAS015537: Activating WebServices Extension
+21:20:31,811 INFO  [org.jboss.as.security] (MSC service thread 1-4) JBAS013370: Current PicketBox version=4.1.1.Final-redhat-1
+21:20:31,869 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) JBAS015400: Bound mail session [java:jboss/mail/Default]
+21:20:31,870 INFO  [org.jboss.as.naming] (MSC service thread 1-7) JBAS011802: Starting Naming Service
+21:20:32,215 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-7) JBAS015012: Started FileSystemDeploymentService for directory C:\unipay\jboss-eap-6.4\standalone\deployments
+21:20:32,305 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 52) MSC000001: Failed to start service jboss.jgroups.channel.unipay: org.jboss.msc.service.StartException in service jboss.jgroups.channel.unipay: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+        at org.jboss.as.clustering.jgroups.subsystem.ChannelService.start(ChannelService.java:75)
+        at org.jboss.as.clustering.msc.AsynchronousService$1.run(AsynchronousService.java:86) [jboss-as-clustering-common-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [rt.jar:1.8.0_211]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [rt.jar:1.8.0_211]
+        at java.lang.Thread.run(Thread.java:748) [rt.jar:1.8.0_211]
+        at org.jboss.threads.JBossThread.run(JBossThread.java:122) [jboss-threads-2.1.2.Final-redhat-1.jar:2.1.2.Final-redhat-1]
+Caused by: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+        at org.jgroups.stack.Configurator.resolveAndAssignField(Configurator.java:1150)
+        at org.jgroups.stack.Configurator.createLayer(Configurator.java:443)
+        at org.jgroups.stack.Configurator.createProtocols(Configurator.java:397)
+        at org.jgroups.stack.Configurator.setupProtocolStack(Configurator.java:88)
+        at org.jgroups.stack.Configurator.setupProtocolStack(Configurator.java:55)
+        at org.jgroups.stack.ProtocolStack.setup(ProtocolStack.java:465)
+        at org.jgroups.JChannel.init(JChannel.java:786)
+        at org.jgroups.JChannel.<init>(JChannel.java:162)
+        at org.jboss.as.clustering.jgroups.MuxChannel.<init>(MuxChannel.java:37)
+        at org.jboss.as.clustering.jgroups.JChannelFactory.createChannel(JChannelFactory.java:78)
+        at org.jboss.as.clustering.jgroups.subsystem.ChannelService.start(ChannelService.java:70)
+        ... 5 more
+Caused by: java.lang.Exception: Conversion of initial_hosts in TCPPING with original property value localhost failed
+        at org.jgroups.conf.PropertyHelper.getConvertedValue(PropertyHelper.java:85)
+        at org.jgroups.stack.Configurator.resolveAndAssignField(Configurator.java:1144)
+        ... 15 more
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+        at java.lang.String.substring(String.java:1967) [rt.jar:1.8.0_211]
+        at org.jgroups.util.Util.parseCommaDelimitedHosts(Util.java:3031)
+        at org.jgroups.conf.PropertyConverters$InitialHosts.convert(PropertyConverters.java:65)
+        at org.jgroups.conf.PropertyHelper.getConvertedValue(PropertyHelper.java:82)
+        ... 16 more
+
+21:20:32,284 INFO  [org.jboss.as.remoting] (MSC service thread 1-1) JBAS017100: Listening on 127.0.0.1:9999
+21:20:32,242 INFO  [org.jboss.as.remoting] (MSC service thread 1-5) JBAS017100: Listening on 0.0.0.0:4447
+21:20:32,226 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015876: Starting deployment of "unipay.ear" (runtime-name: "unipay.ear")
+21:20:32,800 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-1) JBAS010400: Bound data source [java:jboss/datasources/unipayw]
+21:20:32,455 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) JBAS010400: Bound data source [java:jboss/datasources/ExampleDS]
+21:20:32,455 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) JBAS010400: Bound data source [java:jboss/datasources/unipayr]
+21:20:32,423 INFO  [org.jboss.ws.common.management] (MSC service thread 1-4) JBWS022052: Starting JBoss Web Services - Stack CXF Server 4.3.4.Final-redhat-1
+21:20:32,887 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-3) JBWEB003001: Coyote HTTP/1.1 initializing on : http-/0.0.0.0:8443
+21:20:32,897 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) JBWEB003001: Coyote HTTP/1.1 initializing on : http-/0.0.0.0:8080
+21:20:32,908 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-3) JBWEB003000: Coyote HTTP/1.1 starting on: http-/0.0.0.0:8443
+21:20:32,909 INFO  [org.apache.coyote.http11.Http11Protocol] (MSC service thread 1-2) JBWEB003000: Coyote HTTP/1.1 starting on: http-/0.0.0.0:8080
+21:20:46,004 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015973: Starting subdeployment (runtime-name: "904-reports-ui.war")
+21:20:46,006 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015973: Starting subdeployment (runtime-name: "201-atlas-lib.jar")
+21:20:46,006 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015973: Starting subdeployment (runtime-name: "101-imerchant-lib.jar")
+21:20:46,006 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015973: Starting subdeployment (runtime-name: "102-unipay-hib.jar")
+21:20:46,008 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015973: Starting subdeployment (runtime-name: "304-ibilling-ui.war")
+21:20:46,005 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015973: Starting subdeployment (runtime-name: "106-console.war")
+21:20:46,005 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) JBAS015973: Starting subdeployment (runtime-name: "303-ibilling-web.war")
+21:20:46,005 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015973: Starting subdeployment (runtime-name: "206-onboarding-ui.war")
+21:20:46,005 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) JBAS015973: Starting subdeployment (runtime-name: "203-atlas-web.war")
+21:20:46,012 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) JBAS015973: Starting subdeployment (runtime-name: "305-portal-ui.war")
+21:20:46,010 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015973: Starting subdeployment (runtime-name: "105-api-web.war")
+21:20:46,009 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015973: Starting subdeployment (runtime-name: "204-atlas-ui.war")
+21:20:46,009 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015973: Starting subdeployment (runtime-name: "301-ibilling-lib.jar")
+21:20:46,009 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015973: Starting subdeployment (runtime-name: "306-signup.war")
+21:20:46,011 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015973: Starting subdeployment (runtime-name: "103-imerchant-ui.war")
+21:20:48,786 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015850: /C:/unipay/jboss-eap-6.4/bin/content/unipay.ear/106-console.war/META-INF/jboss-deployment-structure.xml in subdeployment ignored. jboss-deployment-structure.xml is only parsed for top level deployments.
+21:20:48,808 WARN  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015893: Encountered invalid class name 'org.xmlpull.mxp1.MXParser,org.xmlpull.mxp1_serializer.MXSerializer' for service type 'org.xmlpull.v1.XmlPullParserFactory'
+21:20:48,868 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) JBAS011401: Read persistence.xml for unipay
+21:20:48,871 INFO  [org.jboss.as.jpa] (MSC service thread 1-3) JBAS011401: Read persistence.xml for unipayr
+21:20:49,199 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.beanutils:main") which may be changed or removed in future versions without notice.
+21:20:49,371 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.beanutils:main") which may be changed or removed in future versions without notice.
+21:20:49,452 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.codec:main") which may be changed or removed in future versions without notice.
+21:20:49,508 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.codec:main") which may be changed or removed in future versions without notice.
+21:20:49,525 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.collections:main") which may be changed or removed in future versions without notice.
+21:20:49,581 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.collections:main") which may be changed or removed in future versions without notice.
+21:20:49,664 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.io:main") which may be changed or removed in future versions without notice.
+21:20:49,705 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.io:main") which may be changed or removed in future versions without notice.
+21:20:49,736 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.lang:main") which may be changed or removed in future versions without notice.
+21:20:49,783 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.lang:main") which may be changed or removed in future versions without notice.
+21:20:49,821 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.pool:main") which may be changed or removed in future versions without notice.
+21:20:49,827 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.commons.pool:main") which may be changed or removed in future versions without notice.
+21:20:49,844 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.httpcomponents:main") which may be changed or removed in future versions without notice.
+21:20:49,846 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.apache.httpcomponents:main") which may be changed or removed in future versions without notice.
+21:20:49,856 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.web:main") which may be changed or removed in future versions without notice.
+21:20:49,866 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.web:main") which may be changed or removed in future versions without notice.
+21:20:49,880 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("com.google.guava:main") which may be changed or removed in future versions without notice.
+21:20:49,890 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("com.google.guava:main") which may be changed or removed in future versions without notice.
+21:20:49,894 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.codehaus.jackson.jackson-mapper-asl:main") which may be changed or removed in future versions without notice.
+21:20:49,903 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.codehaus.jackson.jackson-mapper-asl:main") which may be changed or removed in future versions without notice.
+21:20:49,926 WARN  [org.jboss.as.dependency.unsupported] (MSC service thread 1-8) JBAS015868: Deployment "deployment.unipay.ear" is using an unsupported module ("org.infinispan:main") which may be changed or removed in future versions without notice.
+21:20:49,936 WARN  [org.jboss.as.dependency.unsupported] (MSC service thread 1-8) JBAS015868: Deployment "deployment.unipay.ear" is using an unsupported module ("org.infinispan:main") which may be changed or removed in future versions without notice.
+21:20:49,946 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.cli:main") which may be changed or removed in future versions without notice.
+21:20:49,949 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.cli:main") which may be changed or removed in future versions without notice.
+21:20:49,959 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.clustering.jgroups:main") which may be changed or removed in future versions without notice.
+21:20:49,977 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.clustering.jgroups:main") which may be changed or removed in future versions without notice.
+21:20:50,001 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.controller:main") which may be changed or removed in future versions without notice.
+21:20:50,010 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.controller:main") which may be changed or removed in future versions without notice.
+21:20:50,016 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.naming:main") which may be changed or removed in future versions without notice.
+21:20:50,068 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.naming:main") which may be changed or removed in future versions without notice.
+21:20:50,088 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.server:main") which may be changed or removed in future versions without notice.
+21:20:50,090 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.jboss.as.server:main") which may be changed or removed in future versions without notice.
+21:20:50,096 WARN  [org.jboss.as.dependency.unsupported] (MSC service thread 1-8) JBAS015868: Deployment "deployment.unipay.ear" is using an unsupported module ("org.jdom:main") which may be changed or removed in future versions without notice.
+21:20:50,098 WARN  [org.jboss.as.dependency.unsupported] (MSC service thread 1-8) JBAS015868: Deployment "deployment.unipay.ear" is using an unsupported module ("org.jdom:main") which may be changed or removed in future versions without notice.
+21:20:50,102 WARN  [org.jboss.as.dependency.unsupported] (MSC service thread 1-8) JBAS015868: Deployment "deployment.unipay.ear" is using an unsupported module ("org.jgroups:main") which may be changed or removed in future versions without notice.
+21:20:50,103 WARN  [org.jboss.as.dependency.unsupported] (MSC service thread 1-8) JBAS015868: Deployment "deployment.unipay.ear" is using an unsupported module ("org.jgroups:main") which may be changed or removed in future versions without notice.
+21:20:50,106 WARN  [org.jboss.as.dependency.deprecated] (MSC service thread 1-8) JBAS015980: Deployment "deployment.unipay.ear" is using a deprecated module ("org.osgi.core:main") which may be removed in future versions without notice.
+21:20:50,107 WARN  [org.jboss.as.dependency.deprecated] (MSC service thread 1-8) JBAS015980: Deployment "deployment.unipay.ear" is using a deprecated module ("org.osgi.core:main") which may be removed in future versions without notice.
+21:20:50,117 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.owasp.esapi.esapi:main") which may be changed or removed in future versions without notice.
+21:20:50,119 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("org.owasp.esapi.esapi:main") which may be changed or removed in future versions without notice.
+21:20:50,120 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("com.unitedthinkers.unipay-logger:main") which may be changed or removed in future versions without notice.
+21:20:50,120 WARN  [org.jboss.as.dependency.private] (MSC service thread 1-8) JBAS015867: Deployment "deployment.unipay.ear" is using a private module ("com.unitedthinkers.unipay-logger:main") which may be changed or removed in future versions without notice.
+21:20:50,978 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ibilling.gates.RMIGatesBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/ibilling.gates.RMIGatesBean!ibilling.gates.RMIGatesLocal
+        java:app/301-ibilling-lib/ibilling.gates.RMIGatesBean!ibilling.gates.RMIGatesLocal
+        java:module/ibilling.gates.RMIGatesBean!ibilling.gates.RMIGatesLocal
+        java:global/unipay/301-ibilling-lib/ibilling.gates.RMIGatesBean
+        java:app/301-ibilling-lib/ibilling.gates.RMIGatesBean
+        java:module/ibilling.gates.RMIGatesBean
+
+21:20:50,981 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named UnipayrDataServiceBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/UnipayrDataServiceBean!iapp.services.DataService
+        java:app/101-imerchant-lib/UnipayrDataServiceBean!iapp.services.DataService
+        java:module/UnipayrDataServiceBean!iapp.services.DataService
+        java:global/unipay/101-imerchant-lib/UnipayrDataServiceBean
+        java:app/101-imerchant-lib/UnipayrDataServiceBean
+        java:module/UnipayrDataServiceBean
+
+21:20:50,998 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ibilling.services.ProcessingServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/ibilling.services.ProcessingServiceBean!ibilling.services.ProcessingService
+        java:app/301-ibilling-lib/ibilling.services.ProcessingServiceBean!ibilling.services.ProcessingService
+        java:module/ibilling.services.ProcessingServiceBean!ibilling.services.ProcessingService
+        java:global/unipay/301-ibilling-lib/ibilling.services.ProcessingServiceBean
+        java:app/301-ibilling-lib/ibilling.services.ProcessingServiceBean
+        java:module/ibilling.services.ProcessingServiceBean
+
+21:20:51,018 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named InvoicingServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/InvoicingServiceBean!ibilling.services.InvoicingService
+        java:app/301-ibilling-lib/InvoicingServiceBean!ibilling.services.InvoicingService
+        java:module/InvoicingServiceBean!ibilling.services.InvoicingService
+        java:global/unipay/301-ibilling-lib/InvoicingServiceBean
+        java:app/301-ibilling-lib/InvoicingServiceBean
+        java:module/InvoicingServiceBean
+
+21:20:51,007 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named MerchantServerBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/MerchantServerBean!imerchant.service.MerchantServiceLocal
+        java:app/101-imerchant-lib/MerchantServerBean!imerchant.service.MerchantServiceLocal
+        java:module/MerchantServerBean!imerchant.service.MerchantServiceLocal
+        java:global/unipay/101-imerchant-lib/MerchantServerBean
+        java:app/101-imerchant-lib/MerchantServerBean
+        java:module/MerchantServerBean
+
+21:20:51,033 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named AccountBalanceServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/AccountBalanceServiceBean!ibilling.services.AccountBalanceService
+        java:app/301-ibilling-lib/AccountBalanceServiceBean!ibilling.services.AccountBalanceService
+        java:module/AccountBalanceServiceBean!ibilling.services.AccountBalanceService
+        java:global/unipay/301-ibilling-lib/AccountBalanceServiceBean
+        java:app/301-ibilling-lib/AccountBalanceServiceBean
+        java:module/AccountBalanceServiceBean
+
+21:20:51,028 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named atlas.gates.RMIGatesBean in deployment unit subdeployment "201-atlas-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/201-atlas-lib/atlas.gates.RMIGatesBean!atlas.gates.RMIGatesLocal
+        java:app/201-atlas-lib/atlas.gates.RMIGatesBean!atlas.gates.RMIGatesLocal
+        java:module/atlas.gates.RMIGatesBean!atlas.gates.RMIGatesLocal
+        java:global/unipay/201-atlas-lib/atlas.gates.RMIGatesBean
+        java:app/201-atlas-lib/atlas.gates.RMIGatesBean
+        java:module/atlas.gates.RMIGatesBean
+
+21:20:51,060 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ibilling.services.BusinessServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/ibilling.services.BusinessServiceBean!iapp.services.UniBillStatisticsService
+        java:app/301-ibilling-lib/ibilling.services.BusinessServiceBean!iapp.services.UniBillStatisticsService
+        java:module/ibilling.services.BusinessServiceBean!iapp.services.UniBillStatisticsService
+        java:global/unipay/301-ibilling-lib/ibilling.services.BusinessServiceBean!ibilling.services.BusinessService
+        java:app/301-ibilling-lib/ibilling.services.BusinessServiceBean!ibilling.services.BusinessService
+        java:module/ibilling.services.BusinessServiceBean!ibilling.services.BusinessService
+
+21:20:51,049 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named LauncherBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/LauncherBean!iapp.services.Launcher
+        java:app/101-imerchant-lib/LauncherBean!iapp.services.Launcher
+        java:module/LauncherBean!iapp.services.Launcher
+        java:global/unipay/101-imerchant-lib/LauncherBean
+        java:app/101-imerchant-lib/LauncherBean
+        java:module/LauncherBean
+
+21:20:51,086 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named BillingServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/BillingServiceBean!ibilling.services.BillingService
+        java:app/301-ibilling-lib/BillingServiceBean!ibilling.services.BillingService
+        java:module/BillingServiceBean!ibilling.services.BillingService
+        java:global/unipay/301-ibilling-lib/BillingServiceBean
+        java:app/301-ibilling-lib/BillingServiceBean
+        java:module/BillingServiceBean
+
+21:20:51,076 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named atlas.services.BusinessServiceBean in deployment unit subdeployment "201-atlas-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/201-atlas-lib/atlas.services.BusinessServiceBean!iapp.services.UniChargeStatisticsService
+        java:app/201-atlas-lib/atlas.services.BusinessServiceBean!iapp.services.UniChargeStatisticsService
+        java:module/atlas.services.BusinessServiceBean!iapp.services.UniChargeStatisticsService
+        java:global/unipay/201-atlas-lib/atlas.services.BusinessServiceBean!iapp.services.OnboardingService
+        java:app/201-atlas-lib/atlas.services.BusinessServiceBean!iapp.services.OnboardingService
+        java:module/atlas.services.BusinessServiceBean!iapp.services.OnboardingService
+        java:global/unipay/201-atlas-lib/atlas.services.BusinessServiceBean!atlas.services.BusinessService
+        java:app/201-atlas-lib/atlas.services.BusinessServiceBean!atlas.services.BusinessService
+        java:module/atlas.services.BusinessServiceBean!atlas.services.BusinessService
+        java:global/unipay/201-atlas-lib/atlas.services.BusinessServiceBean!iapp.services.UniChargeReportService
+        java:app/201-atlas-lib/atlas.services.BusinessServiceBean!iapp.services.UniChargeReportService
+        java:module/atlas.services.BusinessServiceBean!iapp.services.UniChargeReportService
+
+21:20:51,113 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named DataImportServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/DataImportServiceBean!ibilling.dataimport.DataImportService
+        java:app/301-ibilling-lib/DataImportServiceBean!ibilling.dataimport.DataImportService
+        java:module/DataImportServiceBean!ibilling.dataimport.DataImportService
+        java:global/unipay/301-ibilling-lib/DataImportServiceBean
+        java:app/301-ibilling-lib/DataImportServiceBean
+        java:module/DataImportServiceBean
+
+21:20:51,100 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named PingdomHelper in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/PingdomHelper!iapp.util.PingdomHelper
+        java:app/101-imerchant-lib/PingdomHelper!iapp.util.PingdomHelper
+        java:module/PingdomHelper!iapp.util.PingdomHelper
+        java:global/unipay/101-imerchant-lib/PingdomHelper
+        java:app/101-imerchant-lib/PingdomHelper
+        java:module/PingdomHelper
+
+21:20:51,146 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named TransactionProcessingServiceBean in deployment unit subdeployment "301-ibilling-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/301-ibilling-lib/TransactionProcessingServiceBean!ibilling.services.TransactionProcessingService
+        java:app/301-ibilling-lib/TransactionProcessingServiceBean!ibilling.services.TransactionProcessingService
+        java:module/TransactionProcessingServiceBean!ibilling.services.TransactionProcessingService
+        java:global/unipay/301-ibilling-lib/TransactionProcessingServiceBean
+        java:app/301-ibilling-lib/TransactionProcessingServiceBean
+        java:module/TransactionProcessingServiceBean
+
+21:20:51,128 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named FTPGatesBean in deployment unit subdeployment "201-atlas-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/201-atlas-lib/FTPGatesBean!atlas.gates.FTPGatesLocal
+        java:app/201-atlas-lib/FTPGatesBean!atlas.gates.FTPGatesLocal
+        java:module/FTPGatesBean!atlas.gates.FTPGatesLocal
+        java:global/unipay/201-atlas-lib/FTPGatesBean
+        java:app/201-atlas-lib/FTPGatesBean
+        java:module/FTPGatesBean
+
+21:20:51,152 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named ReportSchedulerBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/ReportSchedulerBean!iapp.report.ReportSchedulerLocal
+        java:app/101-imerchant-lib/ReportSchedulerBean!iapp.report.ReportSchedulerLocal
+        java:module/ReportSchedulerBean!iapp.report.ReportSchedulerLocal
+        java:global/unipay/101-imerchant-lib/ReportSchedulerBean
+        java:app/101-imerchant-lib/ReportSchedulerBean
+        java:module/ReportSchedulerBean
+
+21:20:51,190 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named MerchantBuilderBean in deployment unit subdeployment "201-atlas-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/201-atlas-lib/MerchantBuilderBean!iapp.services.MerchantBuilder
+        java:app/201-atlas-lib/MerchantBuilderBean!iapp.services.MerchantBuilder
+        java:module/MerchantBuilderBean!iapp.services.MerchantBuilder
+        java:global/unipay/201-atlas-lib/MerchantBuilderBean
+        java:app/201-atlas-lib/MerchantBuilderBean
+        java:module/MerchantBuilderBean
+
+21:20:51,202 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named AtlasDataServiceBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/AtlasDataServiceBean!iapp.services.DataService
+        java:app/101-imerchant-lib/AtlasDataServiceBean!iapp.services.DataService
+        java:module/AtlasDataServiceBean!iapp.services.DataService
+        java:global/unipay/101-imerchant-lib/AtlasDataServiceBean
+        java:app/101-imerchant-lib/AtlasDataServiceBean
+        java:module/AtlasDataServiceBean
+
+21:20:51,214 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named RetailProcessingManagerBean in deployment unit subdeployment "201-atlas-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/201-atlas-lib/RetailProcessingManagerBean!atlas.services.RetailProcessingManager
+        java:app/201-atlas-lib/RetailProcessingManagerBean!atlas.services.RetailProcessingManager
+        java:module/RetailProcessingManagerBean!atlas.services.RetailProcessingManager
+        java:global/unipay/201-atlas-lib/RetailProcessingManagerBean
+        java:app/201-atlas-lib/RetailProcessingManagerBean
+        java:module/RetailProcessingManagerBean
+
+21:20:51,226 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named ActionBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/ActionBean!iapp.services.internal.ActionService
+        java:app/101-imerchant-lib/ActionBean!iapp.services.internal.ActionService
+        java:module/ActionBean!iapp.services.internal.ActionService
+        java:global/unipay/101-imerchant-lib/ActionBean
+        java:app/101-imerchant-lib/ActionBean
+        java:module/ActionBean
+
+21:20:51,231 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-2) JNDI bindings for session bean named atlas.services.ProcessingServiceBean in deployment unit subdeployment "201-atlas-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/201-atlas-lib/atlas.services.ProcessingServiceBean!atlas.services.ProcessingService
+        java:app/201-atlas-lib/atlas.services.ProcessingServiceBean!atlas.services.ProcessingService
+        java:module/atlas.services.ProcessingServiceBean!atlas.services.ProcessingService
+        java:global/unipay/201-atlas-lib/atlas.services.ProcessingServiceBean!iapp.services.TokenizationService
+        java:app/201-atlas-lib/atlas.services.ProcessingServiceBean!iapp.services.TokenizationService
+        java:module/atlas.services.ProcessingServiceBean!iapp.services.TokenizationService
+        java:global/unipay/201-atlas-lib/atlas.services.ProcessingServiceBean!iapp.services.TransactionService
+        java:app/201-atlas-lib/atlas.services.ProcessingServiceBean!iapp.services.TransactionService
+        java:module/atlas.services.ProcessingServiceBean!iapp.services.TransactionService
+
+21:20:51,250 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named UnitTestBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/UnitTestBean!iapp.services.UnitTest
+        java:app/101-imerchant-lib/UnitTestBean!iapp.services.UnitTest
+        java:module/UnitTestBean!iapp.services.UnitTest
+        java:jboss/exported/unipay/101-imerchant-lib/UnitTestBean!iapp.services.UnitTest
+        java:global/unipay/101-imerchant-lib/UnitTestBean
+        java:app/101-imerchant-lib/UnitTestBean
+        java:module/UnitTestBean
+
+21:20:51,275 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named ResellerStatementServiceBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/ResellerStatementServiceBean!imerchant.commissions.ResellerStatementService
+        java:app/101-imerchant-lib/ResellerStatementServiceBean!imerchant.commissions.ResellerStatementService
+        java:module/ResellerStatementServiceBean!imerchant.commissions.ResellerStatementService
+        java:global/unipay/101-imerchant-lib/ResellerStatementServiceBean
+        java:app/101-imerchant-lib/ResellerStatementServiceBean
+        java:module/ResellerStatementServiceBean
+
+21:20:51,282 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named MerchantStatementServiceBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/MerchantStatementServiceBean!imerchant.remittance.MerchantStatementService
+        java:app/101-imerchant-lib/MerchantStatementServiceBean!imerchant.remittance.MerchantStatementService
+        java:module/MerchantStatementServiceBean!imerchant.remittance.MerchantStatementService
+        java:global/unipay/101-imerchant-lib/MerchantStatementServiceBean
+        java:app/101-imerchant-lib/MerchantStatementServiceBean
+        java:module/MerchantStatementServiceBean
+
+21:20:51,295 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named IMerchantDataServiceBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/IMerchantDataServiceBean!iapp.services.DataService
+        java:app/101-imerchant-lib/IMerchantDataServiceBean!iapp.services.DataService
+        java:module/IMerchantDataServiceBean!iapp.services.DataService
+        java:global/unipay/101-imerchant-lib/IMerchantDataServiceBean
+        java:app/101-imerchant-lib/IMerchantDataServiceBean
+        java:module/IMerchantDataServiceBean
+
+21:20:51,311 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-7) JNDI bindings for session bean named IBillingDataServiceBean in deployment unit subdeployment "101-imerchant-lib.jar" of deployment "unipay.ear" are as follows:
+
+        java:global/unipay/101-imerchant-lib/IBillingDataServiceBean!iapp.services.DataService
+        java:app/101-imerchant-lib/IBillingDataServiceBean!iapp.services.DataService
+        java:module/IBillingDataServiceBean!iapp.services.DataService
+        java:global/unipay/101-imerchant-lib/IBillingDataServiceBean
+        java:app/101-imerchant-lib/IBillingDataServiceBean
+        java:module/IBillingDataServiceBean
+
+21:20:51,415 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 56) JBAS011402: Starting Persistence Unit Service 'unipay.ear/102-unipay-hib.jar#unipay'
+21:20:51,415 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 55) JBAS011402: Starting Persistence Unit Service 'unipay.ear/102-unipay-hib.jar#unipayr'
+21:20:51,540 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 56) HCANN000001: Hibernate Commons Annotations {4.0.2.Final-redhat-1}
+21:20:51,547 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 56) HHH000412: Hibernate Core {4.2.18.Final-redhat-2}
+21:20:51,549 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 56) HHH000206: hibernate.properties not found
+21:20:51,554 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 56) HHH000021: Bytecode provider name : javassist
+21:20:51,575 INFO  [org.hibernate.ejb.Ejb3Configuration] (ServerService Thread Pool -- 55) HHH000204: Processing PersistenceUnitInfo [
+        name: unipayr
+        ...]
+21:20:51,577 INFO  [org.hibernate.ejb.Ejb3Configuration] (ServerService Thread Pool -- 56) HHH000204: Processing PersistenceUnitInfo [
+        name: unipay
+        ...]
+21:20:55,443 WARN  [org.hibernate.ejb.Ejb3Configuration] (ServerService Thread Pool -- 56) HHH000193: Overriding hibernate.transaction.factory_class is dangerous, this might break the EJB3 specification implementation
+21:20:55,443 WARN  [org.hibernate.ejb.Ejb3Configuration] (ServerService Thread Pool -- 55) HHH000193: Overriding hibernate.transaction.factory_class is dangerous, this might break the EJB3 specification implementation
+21:20:57,627 ERROR [stderr] (ServerService Thread Pool -- 56) System property [org.owasp.esapi.opsteam] is not set
+21:20:57,631 ERROR [stderr] (ServerService Thread Pool -- 56) System property [org.owasp.esapi.devteam] is not set
+21:20:57,632 INFO  [stdout] (ServerService Thread Pool -- 56) Attempting to load ESAPI.properties via file I/O.
+21:20:57,633 INFO  [stdout] (ServerService Thread Pool -- 56) Attempting to load ESAPI.properties as resource file via file I/O.
+21:20:57,634 INFO  [stdout] (ServerService Thread Pool -- 56) Not found in 'org.owasp.esapi.resources' directory or file not readable: C:\unipay\jboss-eap-6.4\bin\ESAPI.properties
+21:20:57,636 INFO  [stdout] (ServerService Thread Pool -- 56) Not found in SystemResource Directory/resourceDirectory: .esapi\ESAPI.properties
+21:20:57,668 INFO  [stdout] (ServerService Thread Pool -- 56) Not found in 'user.home' (C:\Users\helgi) directory: C:\Users\helgi\esapi\ESAPI.properties
+21:20:57,669 INFO  [stdout] (ServerService Thread Pool -- 56) Loading ESAPI.properties via file I/O failed. Exception was: java.io.FileNotFoundException
+21:20:57,670 INFO  [stdout] (ServerService Thread Pool -- 56) Attempting to load ESAPI.properties via the classpath.
+21:20:57,673 INFO  [stdout] (ServerService Thread Pool -- 56) SUCCESSFULLY LOADED ESAPI.properties via the CLASSPATH from '/ (root)' using current thread context class loader!
+21:20:57,675 INFO  [stdout] (ServerService Thread Pool -- 56) SecurityConfiguration for Validator.ConfigurationFile.MultiValued not found in ESAPI.properties. Using default: false
+21:20:57,680 INFO  [stdout] (ServerService Thread Pool -- 56) Attempting to load validation.properties via file I/O.
+21:20:57,681 INFO  [stdout] (ServerService Thread Pool -- 56) Attempting to load validation.properties as resource file via file I/O.
+21:20:57,682 INFO  [stdout] (ServerService Thread Pool -- 56) Not found in 'org.owasp.esapi.resources' directory or file not readable: C:\unipay\jboss-eap-6.4\bin\validation.properties
+21:20:57,686 INFO  [stdout] (ServerService Thread Pool -- 56) Not found in SystemResource Directory/resourceDirectory: .esapi\validation.properties
+21:20:57,687 INFO  [stdout] (ServerService Thread Pool -- 56) Not found in 'user.home' (C:\Users\helgi) directory: C:\Users\helgi\esapi\validation.properties
+21:20:57,688 INFO  [stdout] (ServerService Thread Pool -- 56) Loading validation.properties via file I/O failed.
+21:20:57,694 INFO  [stdout] (ServerService Thread Pool -- 56) Attempting to load validation.properties via the classpath.
+21:20:57,696 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] (ServerService Thread Pool -- 55) HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+21:20:57,695 INFO  [stdout] (ServerService Thread Pool -- 56) SUCCESSFULLY LOADED validation.properties via the CLASSPATH from '/ (root)' using current thread context class loader!
+21:20:57,733 INFO  [org.hibernate.service.jdbc.connections.internal.ConnectionProviderInitiator] (ServerService Thread Pool -- 56) HHH000130: Instantiating explicit connection provider: org.hibernate.ejb.connection.InjectedDataSourceConnectionProvider
+21:20:57,757 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 56) HHH000400: Using dialect: org.hibernate.dialect.MySQLInnoDBDialect
+21:20:57,757 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 55) HHH000400: Using dialect: org.hibernate.dialect.MySQLInnoDBDialect
+21:20:58,375 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] (ServerService Thread Pool -- 56) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory
+21:20:58,375 INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator] (ServerService Thread Pool -- 55) HHH000268: Transaction strategy: org.hibernate.engine.transaction.internal.jta.CMTTransactionFactory
+21:20:58,380 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 55) HHH000397: Using ASTQueryTranslatorFactory
+21:20:58,380 INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory] (ServerService Thread Pool -- 56) HHH000397: Using ASTQueryTranslatorFactory
+21:20:58,445 INFO  [org.hibernate.cache.spi.UpdateTimestampsCache] (ServerService Thread Pool -- 56) HHH000250: Starting update timestamps cache at region: unipay.ear/102-unipay-hib.jar#unipay.org.hibernate.cache.spi.UpdateTimestampsCache
+21:20:58,445 INFO  [org.hibernate.cache.spi.UpdateTimestampsCache] (ServerService Thread Pool -- 55) HHH000250: Starting update timestamps cache at region: unipay.ear/102-unipay-hib.jar#unipayr.org.hibernate.cache.spi.UpdateTimestampsCache
+21:20:58,619 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 55) JBAS010281: Started unipay.ear/102-unipay-hib.jar#unipayr.org.hibernate.cache.spi.UpdateTimestampsCache cache from hibernate container
+21:20:58,619 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) JBAS010281: Started unipay.ear/102-unipay-hib.jar#unipay.org.hibernate.cache.spi.UpdateTimestampsCache cache from hibernate container
+21:20:58,627 INFO  [org.hibernate.cache.internal.StandardQueryCache] (ServerService Thread Pool -- 55) HHH000248: Starting query cache at region: unipay.ear/102-unipay-hib.jar#unipayr.org.hibernate.cache.internal.StandardQueryCache
+21:20:58,627 INFO  [org.hibernate.cache.internal.StandardQueryCache] (ServerService Thread Pool -- 56) HHH000248: Starting query cache at region: unipay.ear/102-unipay-hib.jar#unipay.org.hibernate.cache.internal.StandardQueryCache
+21:20:58,649 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 56) JBAS010281: Started unipay.ear/102-unipay-hib.jar#unipay.org.hibernate.cache.internal.StandardQueryCache cache from hibernate container
+21:20:58,649 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 55) JBAS010281: Started unipay.ear/102-unipay-hib.jar#unipayr.org.hibernate.cache.internal.StandardQueryCache cache from hibernate container
+21:20:58,686 INFO  [org.hibernate.validator.internal.util.Version] (ServerService Thread Pool -- 56) HV000001: Hibernate Validator 4.3.2.Final-redhat-2
+21:21:09,962 INFO  [org.hibernate.internal.SessionFactoryRegistry] (ServerService Thread Pool -- 55) HHH000094: Bound factory to JNDI name: java:/hibernate/unipayrSessionFactory
+21:21:09,962 INFO  [org.hibernate.internal.SessionFactoryRegistry] (ServerService Thread Pool -- 56) HHH000094: Bound factory to JNDI name: java:/hibernate/unipaySessionFactory
+21:21:10,242 INFO  [iapp.services.JGroupsLockServiceActivator] (MSC service thread 1-4) [iapp.services.JGroupsLockServiceActivator] activate service jboss.jgroups.channel.lock.service
+21:21:10,460 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-2) MSC000001: Failed to start service jboss.jgroups.channel.lock: org.jboss.msc.service.StartException in service jboss.jgroups.channel.lock: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+        at org.jboss.as.clustering.jgroups.subsystem.ChannelService.start(ChannelService.java:75)
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1980) [jboss-msc-1.1.5.Final-redhat-1.jar:1.1.5.Final-redhat-1]
+        at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1913) [jboss-msc-1.1.5.Final-redhat-1.jar:1.1.5.Final-redhat-1]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [rt.jar:1.8.0_211]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [rt.jar:1.8.0_211]
+        at java.lang.Thread.run(Thread.java:748) [rt.jar:1.8.0_211]
+Caused by: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+        at org.jgroups.stack.Configurator.resolveAndAssignField(Configurator.java:1150)
+        at org.jgroups.stack.Configurator.createLayer(Configurator.java:443)
+        at org.jgroups.stack.Configurator.createProtocols(Configurator.java:397)
+        at org.jgroups.stack.Configurator.setupProtocolStack(Configurator.java:88)
+        at org.jgroups.stack.Configurator.setupProtocolStack(Configurator.java:55)
+        at org.jgroups.stack.ProtocolStack.setup(ProtocolStack.java:465)
+        at org.jgroups.JChannel.init(JChannel.java:786)
+        at org.jgroups.JChannel.<init>(JChannel.java:162)
+        at org.jboss.as.clustering.jgroups.MuxChannel.<init>(MuxChannel.java:37)
+        at org.jboss.as.clustering.jgroups.JChannelFactory.createChannel(JChannelFactory.java:78)
+        at org.jboss.as.clustering.jgroups.subsystem.ChannelService.start(ChannelService.java:70)
+        ... 5 more
+Caused by: java.lang.Exception: Conversion of initial_hosts in TCPPING with original property value localhost failed
+        at org.jgroups.conf.PropertyHelper.getConvertedValue(PropertyHelper.java:85)
+        at org.jgroups.stack.Configurator.resolveAndAssignField(Configurator.java:1144)
+        ... 15 more
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+        at java.lang.String.substring(String.java:1967) [rt.jar:1.8.0_211]
+        at org.jgroups.util.Util.parseCommaDelimitedHosts(Util.java:3031)
+        at org.jgroups.conf.PropertyConverters$InitialHosts.convert(PropertyConverters.java:65)
+        at org.jgroups.conf.PropertyHelper.getConvertedValue(PropertyHelper.java:82)
+        ... 16 more
+
+21:21:10,548 INFO  [unilib.QueryProvider] (pingdom-jboss-checker) [unilib.QueryProvider] query resource path:vfs:/C:/unipay/jboss-eap-6.4/bin/content/unipay.ear/lib/100-query.jar
+21:21:10,516 INFO  [iapp.services.NamingService] (ServerService Thread Pool -- 62) [iapp.services.NamingService] authenticate|1000|116|iapp.services.LauncherBean.create(LauncherBean.java:40)
+21:21:10,597 INFO  [iapp.services.IappLoginModule] (ServerService Thread Pool -- 62) [iapp.services.IappLoginModule] login|IP:UNKNOWN|1000__system1557512470573116|authenticated
+21:21:10,639 WARN  [iapp.services.NamingService] (ServerService Thread Pool -- 62) [iapp.services.NamingService] UniPayException [failureCode='S20', failureMessage='System error. Contact support. <"object": "System">']
+        unipay.exception.UniPayException.s20(UniPayException.java:1127)
+        unipay.compat.InfinispanCacheHelper.getContainer(InfinispanCacheHelper.java:33)
+        unipay.compat.InfinispanCacheHelper.getDefaultContainer(InfinispanCacheHelper.java:39)
+        unipay.compat.InfinispanCacheHelper.getCache(InfinispanCacheHelper.java:96)
+        unipay.compat.InfinispanCacheHelper.getCache(InfinispanCacheHelper.java:84)
+        unipay.compat.InfinispanCacheHelper.<init>(InfinispanCacheHelper.java:79)
+        iapp.util.cache.InfinispanCacheExpired.<init>(InfinispanCacheExpired.java:22)
+        iapp.util.cache.CacheHelper.getInstanceExpired(CacheHelper.java:46)
+        iapp.services.IappLoginModule.getTemporaryPassword(IappLoginModule.java:160)
+        iapp.services.NamingService.authenticate(NamingService.java:156)
+        iapp.services.NamingService.authenticate(NamingService.java:220)
+        iapp.services.LauncherBean.create(LauncherBean.java:40)
+        ...
+21:21:10,664 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 62) MSC000001: Failed to start service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.LauncherBean.START: org.jboss.msc.service.StartException in service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.LauncherBean.START: java.lang.IllegalStateException: JBAS011048: Failed to construct component instance
+        at org.jboss.as.ee.component.ComponentStartService$1.run(ComponentStartService.java:57) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511) [rt.jar:1.8.0_211]
+        at java.util.concurrent.FutureTask.run(FutureTask.java:266) [rt.jar:1.8.0_211]
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [rt.jar:1.8.0_211]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [rt.jar:1.8.0_211]
+        at java.lang.Thread.run(Thread.java:748) [rt.jar:1.8.0_211]
+        at org.jboss.threads.JBossThread.run(JBossThread.java:122)
+Caused by: java.lang.IllegalStateException: JBAS011048: Failed to construct component instance
+        at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:164) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:135) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.as.ee.component.BasicComponent.createInstance(BasicComponent.java:90) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.as.ejb3.component.singleton.SingletonComponent.getComponentInstance(SingletonComponent.java:122)
+        at org.jboss.as.ejb3.component.singleton.SingletonComponent.start(SingletonComponent.java:137)
+        at org.jboss.as.ee.component.ComponentStartService$1.run(ComponentStartService.java:54) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        ... 6 more
+Caused by: UniPayException [failureCode='S20', failureMessage='System error. Contact support. <"object": "System">']
+        at unipay.exception.UniPayException.s20(UniPayException.java:1127)
+        at unipay.compat.InfinispanCacheHelper.getContainer(InfinispanCacheHelper.java:33)
+        at unipay.compat.InfinispanCacheHelper.getDefaultContainer(InfinispanCacheHelper.java:39)
+        at unipay.compat.InfinispanCacheHelper.getCache(InfinispanCacheHelper.java:96)
+        at unipay.compat.InfinispanCacheHelper.getCache(InfinispanCacheHelper.java:84)
+        at unipay.compat.InfinispanCacheHelper.<init>(InfinispanCacheHelper.java:79)
+        at iapp.util.cache.InfinispanCacheExpired.<init>(InfinispanCacheExpired.java:22)
+        at iapp.util.cache.CacheHelper.getInstanceExpired(CacheHelper.java:46)
+        at iapp.services.IappLoginModule.getTemporaryPassword(IappLoginModule.java:160)
+        at iapp.services.NamingService.authenticate(NamingService.java:156)
+        at iapp.services.NamingService.authenticate(NamingService.java:220)
+        at iapp.services.LauncherBean.create(LauncherBean.java:40)
+        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) [rt.jar:1.8.0_211]
+        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) [rt.jar:1.8.0_211]
+        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) [rt.jar:1.8.0_211]
+        at java.lang.reflect.Method.invoke(Method.java:498) [rt.jar:1.8.0_211]
+        at org.jboss.as.ee.component.ManagedReferenceLifecycleMethodInterceptor.processInvocation(ManagedReferenceLifecycleMethodInterceptor.java:96) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.as.ee.component.ManagedReferenceFieldInjectionInterceptorFactory$ManagedReferenceFieldInjectionInterceptor.processInvocation(ManagedReferenceFieldInjectionInterceptorFactory.java:109) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.as.ee.component.ComponentInstantiatorInterceptor.processInvocation(ComponentInstantiatorInterceptor.java:76) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.WeavedInterceptor.processInvocation(WeavedInterceptor.java:53) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.as.ee.component.NamespaceContextInterceptor.processInvocation(NamespaceContextInterceptor.java:50) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.as.ejb3.tx.CMTTxInterceptor.invokeInOurTx(CMTTxInterceptor.java:280)
+        at org.jboss.as.ejb3.tx.CMTTxInterceptor.requiresNew(CMTTxInterceptor.java:367)
+        at org.jboss.as.ejb3.tx.LifecycleCMTTxInterceptor.processInvocation(LifecycleCMTTxInterceptor.java:66)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.as.ejb3.component.interceptors.CurrentInvocationContextInterceptor.processInvocation(CurrentInvocationContextInterceptor.java:41)
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.ContextClassLoaderInterceptor.processInvocation(ContextClassLoaderInterceptor.java:70) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.InterceptorContext.proceed(InterceptorContext.java:288) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.invocation.ChainedInterceptor.processInvocation(ChainedInterceptor.java:61) [jboss-invocation-1.1.2.Final-redhat-1.jar:1.1.2.Final-redhat-1]
+        at org.jboss.as.ee.component.BasicComponent.constructComponentInstance(BasicComponent.java:162) [jboss-as-ee-7.5.0.Final-redhat-21.jar:7.5.0.Final-redhat-21]
+        ... 11 more
+
+21:21:10,750 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) JBAS014612: Operation ("deploy") failed - address: ([("deployment" => "unipay.ear")]) - failure description: {
+    "JBAS014671: Failed services" => {
+        "jboss.jgroups.channel.lock" => "org.jboss.msc.service.StartException in service jboss.jgroups.channel.lock: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+    Caused by: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+    Caused by: java.lang.Exception: Conversion of initial_hosts in TCPPING with original property value localhost failed
+    Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -1",
+        "jboss.deployment.subunit.\"unipay.ear\".\"101-imerchant-lib.jar\".component.LauncherBean.START" => "org.jboss.msc.service.StartException in service jboss.deployment.subunit.\"unipay.ear\".\"101-imerchant-lib.jar\".component.LauncherBean.START: java.lang.IllegalStateException: JBAS011048: Failed to construct component instance
+    Caused by: java.lang.IllegalStateException: JBAS011048: Failed to construct component instance
+    Caused by: UniPayException [failureCode='S20', failureMessage='System error. Contact support. <\"object\": \"System\">']"
+    },
+    "JBAS014771: Services with missing/unavailable dependencies" => [
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.BusinessServiceBean\".ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.BusinessServiceBean\"]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean.Validator is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"106-console.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"904-reports-ui.war\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.BusinessServiceBean\".Validator is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.BusinessServiceBean\"]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"301-ibilling-lib.jar\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"201-atlas-lib.jar\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.ProcessingServiceBean\".ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.ProcessingServiceBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"103-imerchant-ui.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"301-ibilling-lib.jar\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean.Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean.Validator is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.gates.RMIGatesBean\".Validator is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.gates.RMIGatesBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean.Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.BusinessServiceBean\".Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.BusinessServiceBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean.Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"303-ibilling-web.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"204-atlas-ui.war\".deploymentCompleteService]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"904-reports-ui.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"306-signup.war\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"204-atlas-ui.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"203-atlas-web.war\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"206-onboarding-ui.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"305-portal-ui.war\".deploymentCompleteService]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"306-signup.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"206-onboarding-ui.war\".deploymentCompleteService]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"305-portal-ui.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"304-ibilling-ui.war\".deploymentCompleteService]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"105-api-web.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"103-imerchant-ui.war\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"203-atlas-web.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"105-api-web.war\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.gates.RMIGatesBean\".Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.gates.RMIGatesBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean.ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean.Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean.Validator is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.ProcessingServiceBean\".Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.ProcessingServiceBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.gates.RMIGatesBean\".ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.gates.RMIGatesBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.ProcessingServiceBean\".ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.ProcessingServiceBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.BusinessServiceBean\".ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.\"ibilling.services.BusinessServiceBean\"]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.ProcessingServiceBean\".Validator is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.services.ProcessingServiceBean\"]",
+        "jboss.deployment.subunit.\"unipay.ear\".\"304-ibilling-ui.war\".INSTALL is missing [jboss.deployment.subunit.\"unipay.ear\".\"303-ibilling-web.war\".deploymentCompleteService]",
+        "jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.gates.RMIGatesBean\".ValidatorFactory is missing [jboss.naming.context.java.comp.unipay.201-atlas-lib.\"atlas.gates.RMIGatesBean\"]",
+        "jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean.Validator is missing [jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean]",
+        "jboss.deployment.unit.\"unipay.ear\".deploymentCompleteService is missing [jboss.deployment.subunit.\"unipay.ear\".\"204-atlas-ui.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"306-signup.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"105-api-web.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"305-portal-ui.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"904-reports-ui.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"206-onboarding-ui.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"301-ibilling-lib.jar\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"201-atlas-lib.jar\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"106-console.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"103-imerchant-ui.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"303-ibilling-web.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"304-ibilling-ui.war\".deploymentCompleteService, jboss.deployment.subunit.\"unipay.ear\".\"203-atlas-web.war\".deploymentCompleteService]"
+    ]
+}
+21:21:10,960 INFO  [unilib.QueryProvider] (pingdom-jboss-checker) [unilib.QueryProvider] Templates loaded, count: 1524
+21:21:11,009 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 29) JBAS015859: Deployed "unipay.ear" (runtime-name : "unipay.ear")
+21:21:11,026 INFO  [org.jboss.as.controller] (Controller Boot Thread) JBAS014774: Service status report
+JBAS014775:    New missing/unsatisfied dependencies:
+      service jboss.deployment.subunit."unipay.ear"."103-imerchant-ui.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."105-api-web.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."105-api-web.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."203-atlas-web.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."106-console.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService]
+      service jboss.deployment.subunit."unipay.ear"."201-atlas-lib.jar".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."301-ibilling-lib.jar".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."203-atlas-web.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."204-atlas-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."204-atlas-ui.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."303-ibilling-web.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."206-onboarding-ui.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."306-signup.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."301-ibilling-lib.jar".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."103-imerchant-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."303-ibilling-web.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."304-ibilling-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."304-ibilling-ui.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."305-portal-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."305-portal-ui.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."206-onboarding-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."306-signup.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."904-reports-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."904-reports-ui.war".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."106-console.war".INSTALL]
+      service jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean.Validator, service jboss.naming.context.java.comp.unipay.201-atlas-lib.FTPGatesBean.ValidatorFactory]
+      service jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean.ValidatorFactory, service jboss.naming.context.java.comp.unipay.201-atlas-lib.MerchantBuilderBean.Validator]
+      service jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean.Validator, service jboss.naming.context.java.comp.unipay.201-atlas-lib.RetailProcessingManagerBean.ValidatorFactory]
+      service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.gates.RMIGatesBean" (missing) dependents: [service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.gates.RMIGatesBean".ValidatorFactory, service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.gates.RMIGatesBean".Validator]
+      service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.services.BusinessServiceBean" (missing) dependents: [service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.services.BusinessServiceBean".Validator, service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.services.BusinessServiceBean".ValidatorFactory]
+      service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.services.ProcessingServiceBean" (missing) dependents: [service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.services.ProcessingServiceBean".Validator, service jboss.naming.context.java.comp.unipay.201-atlas-lib."atlas.services.ProcessingServiceBean".ValidatorFactory]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean.ValidatorFactory, service jboss.naming.context.java.comp.unipay.301-ibilling-lib.AccountBalanceServiceBean.Validator]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean.ValidatorFactory, service jboss.naming.context.java.comp.unipay.301-ibilling-lib.BillingServiceBean.Validator]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean.Validator, service jboss.naming.context.java.comp.unipay.301-ibilling-lib.DataImportServiceBean.ValidatorFactory]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean.ValidatorFactory, service jboss.naming.context.java.comp.unipay.301-ibilling-lib.InvoicingServiceBean.Validator]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean.ValidatorFactory, service jboss.naming.context.java.comp.unipay.301-ibilling-lib.TransactionProcessingServiceBean.Validator]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.gates.RMIGatesBean" (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.gates.RMIGatesBean".Validator, service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.gates.RMIGatesBean".ValidatorFactory]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.services.BusinessServiceBean" (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.services.BusinessServiceBean".ValidatorFactory, service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.services.BusinessServiceBean".Validator]
+      service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.services.ProcessingServiceBean" (missing) dependents: [service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.services.ProcessingServiceBean".Validator, service jboss.naming.context.java.comp.unipay.301-ibilling-lib."ibilling.services.ProcessingServiceBean".ValidatorFactory]
+JBAS014777:   Services which failed to start:      service jboss.jgroups.channel.lock: org.jboss.msc.service.StartException in service jboss.jgroups.channel.lock: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+      service jboss.jgroups.channel.unipay: org.jboss.msc.service.StartException in service jboss.jgroups.channel.unipay: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.LauncherBean.START: org.jboss.msc.service.StartException in service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.LauncherBean.START: java.lang.IllegalStateException: JBAS011048: Failed to construct component instance
+
+21:21:11,400 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 9) JBAS011403: Stopping Persistence Unit Service 'unipay.ear/102-unipay-hib.jar#unipayr'
+21:21:11,400 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 24) JBAS011403: Stopping Persistence Unit Service 'unipay.ear/102-unipay-hib.jar#unipay'
+21:21:11,413 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 24) JBAS010282: Stopped unipay.ear/102-unipay-hib.jar#unipay.org.hibernate.cache.internal.StandardQueryCache cache from hibernate container
+21:21:11,413 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 9) JBAS010282: Stopped unipay.ear/102-unipay-hib.jar#unipayr.org.hibernate.cache.internal.StandardQueryCache cache from hibernate container
+21:21:11,421 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 9) JBAS010282: Stopped unipay.ear/102-unipay-hib.jar#unipayr.org.hibernate.cache.spi.UpdateTimestampsCache cache from hibernate container
+21:21:11,424 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 24) JBAS010282: Stopped unipay.ear/102-unipay-hib.jar#unipay.org.hibernate.cache.spi.UpdateTimestampsCache cache from hibernate container
+21:21:11,428 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 9) JBAS010281: Started local-query cache from hibernate container
+21:21:11,434 WARN  [org.hibernate.internal.SessionFactoryRegistry] (ServerService Thread Pool -- 9) HHH000374: Could not unbind factory from JNDI: org.hibernate.service.jndi.JndiException: Error performing unbind [java:/hibernate/unipayrSessionFactory]
+        at org.hibernate.service.jndi.internal.JndiServiceImpl.unbind(JndiServiceImpl.java:181)
+        at org.hibernate.internal.SessionFactoryRegistry.removeSessionFactory(SessionFactoryRegistry.java:117)
+        at org.hibernate.internal.SessionFactoryImpl.close(SessionFactoryImpl.java:1404)
+        at org.hibernate.ejb.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:208)
+        at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$2.run(PersistenceUnitServiceImpl.java:124)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [rt.jar:1.8.0_211]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [rt.jar:1.8.0_211]
+        at java.lang.Thread.run(Thread.java:748) [rt.jar:1.8.0_211]
+        at org.jboss.threads.JBossThread.run(JBossThread.java:122) [jboss-threads-2.1.2.Final-redhat-1.jar:2.1.2.Final-redhat-1]
+Caused by: javax.naming.NamingException: JBAS011836: Could not resolve service service jboss.naming.context.java.hibernate.unipayrSessionFactory
+        at org.jboss.as.naming.WritableServiceBasedNamingStore.unbind(WritableServiceBasedNamingStore.java:122)
+        at org.jboss.as.naming.WritableServiceBasedNamingStore.unbind(WritableServiceBasedNamingStore.java:116)
+        at org.jboss.as.naming.NamingContext.unbind(NamingContext.java:286)
+        at org.jboss.as.naming.InitialContext$DefaultInitialContext.unbind(InitialContext.java:288)
+        at javax.naming.InitialContext.unbind(InitialContext.java:445) [rt.jar:1.8.0_211]
+        at javax.naming.InitialContext.unbind(InitialContext.java:445) [rt.jar:1.8.0_211]
+        at org.hibernate.service.jndi.internal.JndiServiceImpl.unbind(JndiServiceImpl.java:178)
+        ... 8 more
+
+21:21:11,434 WARN  [org.hibernate.internal.SessionFactoryRegistry] (ServerService Thread Pool -- 24) HHH000374: Could not unbind factory from JNDI: org.hibernate.service.jndi.JndiException: Error performing unbind [java:/hibernate/unipaySessionFactory]
+        at org.hibernate.service.jndi.internal.JndiServiceImpl.unbind(JndiServiceImpl.java:181)
+        at org.hibernate.internal.SessionFactoryRegistry.removeSessionFactory(SessionFactoryRegistry.java:117)
+        at org.hibernate.internal.SessionFactoryImpl.close(SessionFactoryImpl.java:1404)
+        at org.hibernate.ejb.EntityManagerFactoryImpl.close(EntityManagerFactoryImpl.java:208)
+        at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$2.run(PersistenceUnitServiceImpl.java:124)
+        at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [rt.jar:1.8.0_211]
+        at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [rt.jar:1.8.0_211]
+        at java.lang.Thread.run(Thread.java:748) [rt.jar:1.8.0_211]
+        at org.jboss.threads.JBossThread.run(JBossThread.java:122) [jboss-threads-2.1.2.Final-redhat-1.jar:2.1.2.Final-redhat-1]
+Caused by: javax.naming.NamingException: JBAS011836: Could not resolve service service jboss.naming.context.java.hibernate.unipaySessionFactory
+        at org.jboss.as.naming.WritableServiceBasedNamingStore.unbind(WritableServiceBasedNamingStore.java:122)
+        at org.jboss.as.naming.WritableServiceBasedNamingStore.unbind(WritableServiceBasedNamingStore.java:116)
+        at org.jboss.as.naming.NamingContext.unbind(NamingContext.java:286)
+        at org.jboss.as.naming.InitialContext$DefaultInitialContext.unbind(InitialContext.java:288)
+        at javax.naming.InitialContext.unbind(InitialContext.java:445) [rt.jar:1.8.0_211]
+        at javax.naming.InitialContext.unbind(InitialContext.java:445) [rt.jar:1.8.0_211]
+        at org.hibernate.service.jndi.internal.JndiServiceImpl.unbind(JndiServiceImpl.java:178)
+        ... 8 more
+
+21:21:11,509 INFO  [org.jboss.as.clustering.infinispan] (MSC service thread 1-2) JBAS010282: Stopped local-query cache from hibernate container
+21:21:11,728 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015974: Stopped subdeployment (runtime-name: 203-atlas-web.war) in 355ms
+21:21:11,749 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015974: Stopped subdeployment (runtime-name: 102-unipay-hib.jar) in 376ms
+21:21:11,752 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015974: Stopped subdeployment (runtime-name: 303-ibilling-web.war) in 379ms
+21:21:11,756 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015974: Stopped subdeployment (runtime-name: 101-imerchant-lib.jar) in 383ms
+21:21:11,756 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015974: Stopped subdeployment (runtime-name: 201-atlas-lib.jar) in 384ms
+21:21:11,756 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015974: Stopped subdeployment (runtime-name: 206-onboarding-ui.war) in 383ms
+21:21:11,757 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015974: Stopped subdeployment (runtime-name: 105-api-web.war) in 384ms
+21:21:11,758 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015974: Stopped subdeployment (runtime-name: 301-ibilling-lib.jar) in 385ms
+21:21:11,758 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) JBAS015974: Stopped subdeployment (runtime-name: 305-portal-ui.war) in 385ms
+21:21:11,779 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015974: Stopped subdeployment (runtime-name: 306-signup.war) in 406ms
+21:21:12,762 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015974: Stopped subdeployment (runtime-name: 106-console.war) in 1389ms
+21:21:13,018 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015974: Stopped subdeployment (runtime-name: 304-ibilling-ui.war) in 1645ms
+21:21:13,267 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) JBAS015974: Stopped subdeployment (runtime-name: 904-reports-ui.war) in 1894ms
+21:21:14,016 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) JBAS015974: Stopped subdeployment (runtime-name: 204-atlas-ui.war) in 2643ms
+21:21:15,868 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) JBAS015974: Stopped subdeployment (runtime-name: 103-imerchant-ui.war) in 4495ms
+21:21:16,424 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015877: Stopped deployment unipay.ear (runtime-name: unipay.ear) in 5052ms
+21:21:16,426 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015961: Http management interface listening on http://127.0.0.1:9990/management
+21:21:16,426 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015951: Admin console listening on http://127.0.0.1:9990
+21:21:16,429 ERROR [org.jboss.as] (Controller Boot Thread) JBAS015875: JBoss EAP 6.4.0.GA (AS 7.5.0.Final-redhat-21) started (with errors) in 47281ms - Started 172 of 238 services (2 services failed or missing dependencies, 91 services are lazy, passive or on-demand)
+21:21:16,541 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS015858: Undeployed "unipay.ear" (runtime-name: "unipay.ear")
+21:21:16,543 INFO  [org.jboss.as.controller] (DeploymentScanner-threads - 2) JBAS014774: Service status report
+JBAS014775:    New missing/unsatisfied dependencies:
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."201-atlas-lib.jar".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.ActionBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.AtlasDataServiceBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.IBillingDataServiceBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.IMerchantDataServiceBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.LauncherBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.MerchantServerBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.MerchantStatementServiceBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.PingdomHelper.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.ReportSchedulerBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.ResellerStatementServiceBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.UnipayrDataServiceBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.UnitTestBean.START (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService, service jboss.deployment.subunit."unipay.ear"."201-atlas-lib.jar".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformation (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".moduleDeploymentRuntimeInformationStart]
+      service jboss.deployment.subunit."unipay.ear"."102-unipay-hib.jar".deploymentCompleteService (missing) dependents: [service jboss.deployment.unit."unipay.ear".deploymentCompleteService]
+      service jboss.deployment.subunit."unipay.ear"."103-imerchant-ui.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."105-api-web.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."105-api-web.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."203-atlas-web.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."201-atlas-lib.jar".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."301-ibilling-lib.jar".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."203-atlas-web.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."204-atlas-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."204-atlas-ui.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."303-ibilling-web.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."206-onboarding-ui.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."306-signup.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."301-ibilling-lib.jar".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."103-imerchant-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."303-ibilling-web.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."304-ibilling-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."304-ibilling-ui.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."305-portal-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."305-portal-ui.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."206-onboarding-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."306-signup.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."904-reports-ui.war".INSTALL]
+      service jboss.deployment.subunit."unipay.ear"."904-reports-ui.war".INSTALL (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."106-console.war".INSTALL]
+      service jboss.jgroups.channel.lock (missing) dependents: [service jboss.jgroups.channel.lock.service, service jboss.jgroups.channel.counter.service]
+      service jboss.naming.context.java.module.unipay.103-imerchant-ui (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."103-imerchant-ui.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.105-api-web (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."105-api-web.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.106-console (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."106-console.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.201-atlas-lib (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."201-atlas-lib.jar".INSTALL]
+      service jboss.naming.context.java.module.unipay.203-atlas-web (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."203-atlas-web.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.204-atlas-ui (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."204-atlas-ui.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.206-onboarding-ui (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."206-onboarding-ui.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.301-ibilling-lib (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."301-ibilling-lib.jar".INSTALL]
+      service jboss.naming.context.java.module.unipay.303-ibilling-web (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."303-ibilling-web.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.304-ibilling-ui (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."304-ibilling-ui.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.305-portal-ui (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."305-portal-ui.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.306-signup (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."306-signup.war".INSTALL]
+      service jboss.naming.context.java.module.unipay.904-reports-ui (missing) dependents: [service jboss.deployment.subunit."unipay.ear"."904-reports-ui.war".INSTALL]
+JBAS014777:   Services which failed to start:      service jboss.jgroups.channel.lock
+      service jboss.jgroups.channel.unipay: org.jboss.msc.service.StartException in service jboss.jgroups.channel.unipay: java.lang.Exception: Property assignment of initial_hosts in TCPPING with original property value localhost and converted to null could not be assigned
+      service jboss.deployment.subunit."unipay.ear"."101-imerchant-lib.jar".component.LauncherBean.START
+
+21:21:26,395 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] [583] || 1:10092126395: S20-System error. Contact support. <"object": "System">
+21:21:26,396 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] 1:10092126395
+javax.naming.NameNotFoundException: unicore.DataService -- service jboss.naming.context.java.global."unicore.DataService"
+        ...
+        iapp.services.NamingService.lookup(NamingService.java:581)
+        iapp.services.NamingService.lookupiMerchantDataService(NamingService.java:379)
+        iapp.util.PingdomHelper.checkDBHealth(PingdomHelper.java:257)
+        iapp.util.PingdomHelper.exec(PingdomHelper.java:147)
+        iapp.util.PingdomHelper$Checker.run(PingdomHelper.java:398)
+        ...
+21:21:41,402 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] [583] || 1:10092141402: S20-System error. Contact support. <"object": "System">
+21:21:41,403 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] 1:10092141402
+javax.naming.NameNotFoundException: unicore.DataService -- service jboss.naming.context.java.global."unicore.DataService"
+        ...
+        iapp.services.NamingService.lookup(NamingService.java:581)
+        iapp.services.NamingService.lookupiMerchantDataService(NamingService.java:379)
+        iapp.util.PingdomHelper.checkDBHealth(PingdomHelper.java:257)
+        iapp.util.PingdomHelper.exec(PingdomHelper.java:147)
+        iapp.util.PingdomHelper$Checker.run(PingdomHelper.java:398)
+        ...
+21:21:56,409 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] [583] || 1:10092156409: S20-System error. Contact support. <"object": "System">
+21:21:57,089 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] 1:10092156409
+javax.naming.NameNotFoundException: unicore.DataService -- service jboss.naming.context.java.global."unicore.DataService"
+        ...
+        iapp.services.NamingService.lookup(NamingService.java:581)
+        iapp.services.NamingService.lookupiMerchantDataService(NamingService.java:379)
+        iapp.util.PingdomHelper.checkDBHealth(PingdomHelper.java:257)
+        iapp.util.PingdomHelper.exec(PingdomHelper.java:147)
+        iapp.util.PingdomHelper$Checker.run(PingdomHelper.java:398)
+        ...
+21:22:12,107 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] [583] || 1:10092212107: S20-System error. Contact support. <"object": "System">
+21:22:12,111 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] 1:10092212107
+javax.naming.NameNotFoundException: unicore.DataService -- service jboss.naming.context.java.global."unicore.DataService"
+        ...
+        iapp.services.NamingService.lookup(NamingService.java:581)
+        iapp.services.NamingService.lookupiMerchantDataService(NamingService.java:379)
+        iapp.util.PingdomHelper.checkDBHealth(PingdomHelper.java:257)
+        iapp.util.PingdomHelper.exec(PingdomHelper.java:147)
+        iapp.util.PingdomHelper$Checker.run(PingdomHelper.java:398)
+        ...
+21:22:27,117 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] [583] || 1:10092227117: S20-System error. Contact support. <"object": "System">
+21:29:17,321 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] 1:10092227117
+javax.naming.NameNotFoundException: unicore.DataService -- service jboss.naming.context.java.global."unicore.DataService"
+        ...
+        iapp.services.NamingService.lookup(NamingService.java:581)
+        iapp.services.NamingService.lookupiMerchantDataService(NamingService.java:379)
+        iapp.util.PingdomHelper.checkDBHealth(PingdomHelper.java:257)
+        iapp.util.PingdomHelper.exec(PingdomHelper.java:147)
+        iapp.util.PingdomHelper$Checker.run(PingdomHelper.java:398)
+        ...
+21:29:32,343 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] [583] || 1:10092932343: S20-System error. Contact support. <"object": "System">
+21:29:32,344 ERROR [iapp.services.NamingService] (pingdom-jboss-checker) [iapp.services.NamingService] 1:10092932343
+javax.naming.NameNotFoundException: unicore.DataService -- service jboss.naming.context.java.global."unicore.DataService"
+        ...
+        iapp.services.NamingService.lookup(NamingService.java:581)
+        iapp.services.NamingService.lookupiMerchantDataService(NamingService.java:379)
+        iapp.util.PingdomHelper.checkDBHealth(PingdomHelper.java:257)
+        iapp.util.PingdomHelper.exec(PingdomHelper.java:147)
+        iapp.util.PingdomHelper$Checker.run(PingdomHelper.java:398)
+        ...
