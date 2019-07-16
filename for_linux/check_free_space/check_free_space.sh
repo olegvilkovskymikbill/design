@@ -1,5 +1,5 @@
 #!/bin/bash
-FILE1=du1.txt
+FILE1=du.txt
 FILE2=du2.txt
 while read LINE1 ;do
   array1=($(echo $LINE1 | tr " " "\n"))
